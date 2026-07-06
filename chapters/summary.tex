@@ -1,0 +1,448 @@
+\chapter{总复习框架与考前速查}
+
+\chaptergoal{
+本章不是第七章，而是对前六章的压缩整理。目标是在考前快速建立全局框架：热学B主要由三条线组成。第一条是宏观热力学线：状态、过程、第一定律、第二定律、熵；第二条是微观统计线：分子动理论、麦克斯韦分布、玻尔兹曼分布、能量均分；第三条是物质性质线：输运、固液体性质、表面现象与相变。
+}
+
+\section{全课程知识地图}
+
+\begin{KeyBox}[热学B的三条主线]
+\begin{ReviewList}
+  \item \textbf{宏观热力学：}
+  \[
+    \text{系统与状态}
+    \rightarrow
+    \text{第一定律}
+    \rightarrow
+    \text{第二定律}
+    \rightarrow
+    \text{熵与过程方向}
+  \]
+  这一部分回答：状态如何描述？过程如何计算？能量如何守恒？过程能否自发发生？
+
+  \item \textbf{微观统计物理：}
+  \[
+    \text{分子热运动}
+    \rightarrow
+    \text{速度分布}
+    \rightarrow
+    \text{玻尔兹曼分布}
+    \rightarrow
+    \text{能量均分与热容量}
+  \]
+  这一部分回答：压强和温度的微观来源是什么？大量分子速度如何分布？热容量为什么与自由度有关？
+
+  \item \textbf{物质性质与相变：}
+  \[
+    \text{输运过程}
+    \rightarrow
+    \text{固液体性质}
+    \rightarrow
+    \text{表面张力}
+    \rightarrow
+    \text{相变与相图}
+  \]
+  这一部分回答：非平衡态如何趋于平衡？固体和液体有什么典型性质？相变曲线如何由热力学量决定？
+\end{ReviewList}
+\end{KeyBox}
+
+\section{六章核心内容一句话}
+
+\begin{FormulaBox}[章节主旨]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lX@{}}
+第一章 & 建立热学语言：系统、状态、平衡态、准静态过程、温度、温标与状态方程。\\
+第二章 & 用能量守恒处理过程计算：\(\dd U=\dbar Q+\dbar W\)，重点是 \(Q,W,\Delta U,\Delta H\)。\\
+第三章 & 用第二定律和熵判断过程方向：自然过程满足孤立系统总熵不减。\\
+第四章 & 从微观统计解释宏观量：压强来自分子碰壁，温度来自平均平动动能。\\
+第五章 & 描述非平衡态下的输运：热量、动量、分子数都沿负梯度方向输运。\\
+第六章 & 介绍凝聚态与相变：晶体、液体、表面张力、毛细现象、相图与克拉珀龙方程。\\
+\end{tabularx}
+\end{FormulaBox}
+
+\section{最重要的概念对比}
+
+\subsection{态函数与过程量}
+
+\begin{FormulaBox}[态函数与过程量]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lXX@{}}
+ & 态函数 & 过程量\\
+\midrule
+典型量 & \(p,V,T,U,H,S\) & \(Q,W\)\\
+特点 & 只由状态决定 & 与具体过程路径有关\\
+数学表现 & \(\oint\dd X=0\) & 一般 \(\oint\dbar Q\ne0,\ \oint\dbar W\ne0\)\\
+典型错误 & 把熵当作过程量 & 把热量、功当作状态中“含有”的量\\
+\end{tabularx}
+\end{FormulaBox}
+
+\begin{WarnBox}[必须记住]
+\[
+  U,H,S
+\]
+是态函数；
+\[
+  Q,W
+\]
+是过程量。热学B的大量错误都来自这一区分不清。
+\end{WarnBox}
+
+\subsection{准静态、可逆、绝热、等熵}
+
+\begin{FormulaBox}[四个概念不要混]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lX@{}}
+准静态过程 & 系统经过一系列无限接近平衡态的状态；可以画热力学过程曲线。\\
+可逆过程 & 系统和外界都可以完全恢复原状；必须准静态且无耗散。\\
+绝热过程 & 与外界无热交换，\(Q=0\)。\\
+等熵过程 & \(\Delta S=0\)。可逆绝热过程才是等熵过程。\\
+\end{tabularx}
+\end{FormulaBox}
+
+\begin{WarnBox}[高频陷阱]
+\begin{itemize}
+  \item 准静态不一定可逆。
+  \item 绝热不一定等熵。
+  \item 可逆绝热才等熵。
+  \item 不可逆绝热可以有 \(\Delta S>0\)，例如理想气体自由膨胀。
+\end{itemize}
+\end{WarnBox}
+
+\section{热力学过程计算总路线}
+
+\subsection{通用过程计算}
+
+\begin{MethodBox}[算 \(Q,W,\Delta U,\Delta H,\Delta S\) 的统一流程]
+\begin{ReviewList}
+  \item \textbf{第一步：判断过程类型。}
+  看过程是等容、等压、等温、绝热、多方、节流、循环，还是不可逆过程。
+
+  \item \textbf{第二步：写状态方程。}
+  对理想气体：
+  \[
+    pV=\nu RT.
+  \]
+
+  \item \textbf{第三步：算功。}
+  若是准静态体积功：
+  \[
+    W=-\int p\dd V.
+  \]
+
+  \item \textbf{第四步：算内能变化。}
+  对理想气体：
+  \[
+    \Delta U=\nu C_{V,m}(T_2-T_1).
+  \]
+
+  \item \textbf{第五步：用第一定律补热量。}
+  \[
+    \Delta U=Q+W,
+    \qquad
+    Q=\Delta U-W.
+  \]
+  这里 \(W\) 是外界对系统做功。
+
+  \item \textbf{第六步：若涉及方向性，算总熵变。}
+  \[
+    \Delta S_{\mathrm{total}}
+    =
+    \Delta S_{\mathrm{sys}}+\Delta S_{\mathrm{env}}.
+  \]
+\end{ReviewList}
+\end{MethodBox}
+
+\subsection{理想气体五类过程总表}
+
+\begin{FormulaBox}[理想气体过程速查]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lXXX@{}}
+\toprule
+过程 & \(W\)：外界对系统做功 & \(\Delta U\) & \(Q\)\\
+\midrule
+
+等容 &
+\(0\) &
+\(\nu C_{V,m}\Delta T\) &
+\(\nu C_{V,m}\Delta T\)\\[0.5em]
+
+等压 &
+\(-\nu R\Delta T\) &
+\(\nu C_{V,m}\Delta T\) &
+\(\nu C_{p,m}\Delta T\)\\[0.5em]
+
+等温 &
+\(-\nu RT\ln(V_2/V_1)\) &
+\(0\) &
+\(\nu RT\ln(V_2/V_1)\)\\[0.5em]
+
+绝热可逆 &
+\(\nu C_{V,m}\Delta T\) &
+\(\nu C_{V,m}\Delta T\) &
+\(0\)\\[0.5em]
+
+多方 \(n\ne1\) &
+\(\dfrac{\nu R\Delta T}{n-1}\) &
+\(\nu C_{V,m}\Delta T\) &
+\(\nu C_{n,m}\Delta T\)\\
+
+\bottomrule
+\end{tabularx}
+\end{FormulaBox}
+
+\begin{WarnBox}[符号检查]
+若气体膨胀，通常 \(V_2>V_1\)，系统对外做正功，因此外界对系统做功 \(W<0\)。做题时先判断膨胀还是压缩，可以避免符号错。
+\end{WarnBox}
+
+\section{最核心公式总表}
+
+\subsection{第一部分：状态方程与基本热力学量}
+
+\formulatable{
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lX@{}}
+理想气体状态方程 &
+\(\displaystyle pV=\nu RT=Nk_{\mathrm B}T\)\\[0.7em]
+
+范德瓦耳斯方程 &
+\(\displaystyle \left(p+\frac{\nu^2a}{V^2}\right)(V-\nu b)=\nu RT\)\\[0.9em]
+
+固液体微分状态方程 &
+\(\displaystyle \dd V=\alpha V\dd T-\beta V\dd p\)\\[0.7em]
+
+第一定律 &
+\(\displaystyle \dd U=\dbar Q+\dbar W\)\\[0.7em]
+
+准静态体积功 &
+\(\displaystyle \dbar W=-p\dd V\)\\[0.7em]
+
+焓 &
+\(\displaystyle H=U+pV\)\\[0.7em]
+
+理想气体内能 &
+\(\displaystyle \dd U=\nu C_{V,m}\dd T\)\\[0.7em]
+
+理想气体焓 &
+\(\displaystyle \dd H=\nu C_{p,m}\dd T\)\\[0.7em]
+
+迈耶公式 &
+\(\displaystyle C_{p,m}-C_{V,m}=R\)\\
+\end{tabularx}
+}
+
+\subsection{第二部分：第二定律与熵}
+
+\formulatable{
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lX@{}}
+卡诺热机效率 &
+\(\displaystyle \eta_{\mathrm C}=1-\frac{T_2}{T_1}\)\\[0.8em]
+
+卡诺制冷系数 &
+\(\displaystyle \varepsilon_{\mathrm C}=\frac{T_2}{T_1-T_2}\)\\[0.8em]
+
+克劳修斯等式 &
+\(\displaystyle \oint_{\mathrm{rev}}\frac{\dbar Q}{T}=0\)\\[0.8em]
+
+克劳修斯不等式 &
+\(\displaystyle \oint\frac{\dbar Q}{T}\le0\)\\[0.8em]
+
+熵定义 &
+\(\displaystyle \dd S=\frac{\dbar Q_{\mathrm{rev}}}{T}\)\\[0.8em]
+
+孤立系统熵增加 &
+\(\displaystyle \Delta S_{\mathrm{isolated}}\ge0\)\\[0.8em]
+
+理想气体熵变 &
+\(\displaystyle \Delta S=\nu C_{V,m}\ln\frac{T_2}{T_1}+\nu R\ln\frac{V_2}{V_1}\)\\[1em]
+
+理想气体熵变另一式 &
+\(\displaystyle \Delta S=\nu C_{p,m}\ln\frac{T_2}{T_1}-\nu R\ln\frac{p_2}{p_1}\)\\
+\end{tabularx}
+}
+
+\subsection{第三部分：气体动理论与统计分布}
+
+\formulatable{
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lX@{}}
+压强公式 &
+\(\displaystyle p=\frac13nm\overline{v^2}\)\\[0.8em]
+
+温度统计解释 &
+\(\displaystyle \overline{\varepsilon_k}=\frac32k_{\mathrm B}T\)\\[0.8em]
+
+麦克斯韦速率分布 &
+\(\displaystyle f(v)=4\pi\left(\frac{m}{2\pi k_{\mathrm B}T}\right)^{3/2}v^2
+e^{-mv^2/(2k_{\mathrm B}T)}\)\\[1em]
+
+最概然速率 &
+\(\displaystyle v_{\mathrm p}=\sqrt{\frac{2k_{\mathrm B}T}{m}}=\sqrt{\frac{2RT}{\mu}}\)\\[0.8em]
+
+平均速率 &
+\(\displaystyle \bar v=\sqrt{\frac{8k_{\mathrm B}T}{\pi m}}=\sqrt{\frac{8RT}{\pi\mu}}\)\\[0.8em]
+
+方均根速率 &
+\(\displaystyle v_{\mathrm{rms}}=\sqrt{\frac{3k_{\mathrm B}T}{m}}=\sqrt{\frac{3RT}{\mu}}\)\\[0.8em]
+
+玻尔兹曼分布 &
+\(\displaystyle n(\bm r)=n_0\exp\left[-\frac{\varepsilon_p(\bm r)}{k_{\mathrm B}T}\right]\)\\[1em]
+
+能量均分 &
+\(\displaystyle \overline{\varepsilon_i}=\frac12k_{\mathrm B}T\)\\[0.8em]
+
+理想气体热容量 &
+\(\displaystyle C_{V,m}=\frac{i}{2}R,\qquad C_{p,m}=\frac{i+2}{2}R\)\\
+\end{tabularx}
+}
+
+\subsection{第四部分：输运、表面现象与相变}
+
+\formulatable{
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lX@{}}
+傅里叶定律 &
+\(\displaystyle j_Q=-\kappa\frac{\dd T}{\dd z}\)\\[0.8em]
+
+牛顿黏性定律 &
+\(\displaystyle \tau=-\eta\frac{\dd u}{\dd z}\)\\[0.8em]
+
+菲克定律 &
+\(\displaystyle j_N=-D\frac{\dd n}{\dd z}\)\\[0.8em]
+
+热传导系数 &
+\(\displaystyle \kappa=\frac13\lambda\rho c_V\bar v\)\\[0.8em]
+
+黏滞系数 &
+\(\displaystyle \eta=\frac13\lambda\rho\bar v\)\\[0.8em]
+
+扩散系数 &
+\(\displaystyle D=\frac13\lambda\bar v\)\\[0.8em]
+
+平均自由程 &
+\(\displaystyle \lambda=\frac{1}{\sqrt2\pi d^2n}\)\\[0.8em]
+
+表面张力 &
+\(\displaystyle f=\sigma l,\qquad \Delta A=\sigma\Delta S\)\\[0.8em]
+
+球形液面附加压强 &
+\(\displaystyle \Delta p=\frac{2\sigma}{R}\)\\[0.8em]
+
+毛细高度 &
+\(\displaystyle h=\frac{2\sigma\cos\theta}{\rho gr}\)\\[0.8em]
+
+克拉珀龙方程 &
+\(\displaystyle \frac{\dd p}{\dd T}=\frac{l}{T(v_2-v_1)}\)\\
+\end{tabularx}
+}
+
+\section{题型总路线}
+
+\subsection{题型一：热力学过程计算}
+
+\begin{MethodBox}[核心路线]
+这类题通常给出理想气体的初末状态和过程条件，要求 \(Q,W,\Delta U\) 或效率。
+\begin{ReviewList}
+  \item 先判断过程。
+  \item 用 \(pV=\nu RT\) 找缺失状态量。
+  \item 用 \(W=-\int p\dd V\) 算功。
+  \item 用 \(\Delta U=\nu C_{V,m}\Delta T\) 算内能变化。
+  \item 用 \(Q=\Delta U-W\) 算热量。
+  \item 循环题用 \(\Delta U=0\)，热机题用 \(\eta=1-Q_2/Q_1\)。
+\end{ReviewList}
+\end{MethodBox}
+
+\subsection{题型二：熵变与自发方向}
+
+\begin{MethodBox}[核心路线]
+这类题常考自由膨胀、有限温差传热、热机可逆性判断。
+\begin{ReviewList}
+  \item 熵变只看初末态。
+  \item 可逆过程直接算：
+  \[
+    \Delta S=\int\frac{\dbar Q_{\mathrm{rev}}}{T}.
+  \]
+  \item 不可逆过程要构造同初末态的可逆路径。
+  \item 判断自发方向看总熵：
+  \[
+    \Delta S_{\mathrm{total}}\ge0.
+  \]
+\end{ReviewList}
+\end{MethodBox}
+
+\subsection{题型三：麦克斯韦分布与速率}
+
+\begin{MethodBox}[核心路线]
+\begin{ReviewList}
+  \item 若问速率，先判断是 \(v_{\mathrm p}\)、\(\bar v\)、还是 \(v_{\mathrm{rms}}\)。
+  \item 若问曲线变化，看温度 \(T\) 与摩尔质量 \(\mu\)。
+  \item 若问压强或温度的微观解释，用
+  \[
+    p=\frac13nm\overline{v^2},
+    \qquad
+    \overline{\varepsilon_k}=\frac32k_{\mathrm B}T.
+  \]
+  \item 若问外力场分布，用
+  \[
+    n\propto e^{-\varepsilon_p/k_{\mathrm B}T}.
+  \]
+\end{ReviewList}
+\end{MethodBox}
+
+\subsection{题型四：输运过程}
+
+\begin{MethodBox}[核心路线]
+\begin{ReviewList}
+  \item 温度梯度：热传导。
+  \item 流速梯度：黏滞。
+  \item 数密度梯度：扩散。
+  \item 三个宏观规律都按
+  \[
+    \text{流密度}=-\text{系数}\times\text{梯度}
+  \]
+  来记。
+  \item 微观输运系数看 \(\lambda,\bar v,\rho,c_V\)。
+\end{ReviewList}
+\end{MethodBox}
+
+\subsection{题型五：表面张力与相变}
+
+\begin{MethodBox}[核心路线]
+\begin{ReviewList}
+  \item 表面积变化题：用 \(\Delta A=\sigma\Delta S\)，注意肥皂膜两个表面。
+  \item 弯曲液面题：液滴 \(2\sigma/R\)，肥皂泡 \(4\sigma/R\)。
+  \item 毛细题：用
+  \[
+    h=\frac{2\sigma\cos\theta}{\rho gr}.
+  \]
+  \item 相变题：看潜热、体积变化、相平衡曲线。
+  \item 相图斜率题：用
+  \[
+    \frac{\dd p}{\dd T}=\frac{l}{T(v_2-v_1)}.
+  \]
+\end{ReviewList}
+\end{MethodBox}
+
+\section{考前最后一页}
+
+\begin{WarnBox}[全书最高频错误]
+\begin{PitfallList}
+  \item 不看符号约定，直接套功的公式。本资料中 \(W\) 是外界对系统做功。
+  \item 把 \(Q,W\) 当作态函数。
+  \item 非准静态过程乱用 \(W=-\int p\dd V\)。
+  \item 把绝热过程直接等同于等熵过程。
+  \item 计算不可逆过程熵变时，沿不可逆路径积分 \(\dbar Q/T\)。
+  \item 卡诺公式中使用摄氏温度。
+  \item 混淆 \(v_{\mathrm p},\bar v,v_{\mathrm{rms}}\)。
+  \item 用 \(\bar v^2\) 代替 \(\overline{v^2}\)。
+  \item 玻尔兹曼分布指数符号写反。
+  \item 输运公式负号方向理解错误。
+  \item 忘记肥皂泡有两个表面。
+  \item 克拉珀龙方程中潜热和体积单位不匹配。
+\end{PitfallList}
+\end{WarnBox}
+
+\begin{KeyBox}[考前检查顺序]
+\begin{ReviewList}
+  \item 先把第一、第二、第三章的热力学主线背熟。这是分数最高、题型最稳定的部分。
+  \item 再背第四章的三种速率、麦克斯韦分布和能量均分。
+  \item 再背第五章三个输运定律和三个输运系数。
+  \item 最后看第六章表面张力、毛细现象和克拉珀龙方程。
+\end{ReviewList}
+\end{KeyBox}
+
+\finalnote{
+热学B的复习不要追求推导越多越好。最实用的目标是：看到题目能立即判断系统、过程、适用公式和符号约定。只要这四件事稳定，绝大多数计算题和判断题都能顺着做下去。
+}

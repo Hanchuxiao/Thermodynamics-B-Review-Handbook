@@ -1,0 +1,791 @@
+\chapter{热力学第二定律与熵}
+
+\chaptergoal{
+本章解决第一定律无法回答的问题：满足能量守恒的过程，是否一定能够自发发生？热力学第二定律给出自然过程的方向性；熵则把这种方向性写成态函数语言。复习时要抓住一条主线：不可逆性 \(\rightarrow\) 第二定律经典表述 \(\rightarrow\) 卡诺定理 \(\rightarrow\) 克劳修斯不等式 \(\rightarrow\) 熵 \(\rightarrow\) 熵增加原理。
+}
+
+\exammap{
+\begin{ReviewList}
+  \item \textbf{会判断：}可逆过程与不可逆过程，知道实际宏观热过程通常不可逆。
+  \item \textbf{会表述：}热力学第二定律的开尔文表述和克劳修斯表述，并理解二者等价。
+  \item \textbf{会使用：}卡诺定理，知道可逆热机效率只由两个热源温度决定。
+  \item \textbf{会理解：}热力学温标不依赖具体测温物质，并与理想气体温标一致。
+  \item \textbf{会推导：}从克劳修斯等式引入熵，从克劳修斯不等式得到熵增加原理。
+  \item \textbf{会计算：}理想气体、热源、相变、自由膨胀等常见过程的熵变。
+  \item \textbf{会读图：}\(T\)--\(S\) 图中可逆过程吸热量对应曲线下面积。
+\end{ReviewList}
+}
+
+\section{为什么需要热力学第二定律}
+
+热力学第一定律说明一个过程若要发生，必须满足能量守恒。但经验表明，满足能量守恒的过程并不一定会自发发生。
+
+\begin{KeyBox}[自然过程的方向性]
+\begin{itemize}
+  \item 热量会自发地从高温物体传到低温物体，但反向过程不会自发发生。
+  \item 气体可以自由膨胀充满容器，但不会自发收缩回原来一侧。
+  \item 机械功可以完全转化为热，例如摩擦生热；但热量不能在不引起其它变化的情况下完全转化为有用功。
+  \item 两种气体可以自发扩散混合，但不会自发反扩散分离。
+\end{itemize}
+这些过程都不违反第一定律，但自发方向是确定的。
+\end{KeyBox}
+
+热力学第二定律研究的正是自然过程的\concept{方向性}与\concept{不可逆性}。
+
+\section{可逆过程与不可逆过程}
+
+\subsection{定义}
+
+\concept{可逆过程}：一个热力学系统由某状态出发，经过一个过程达到另一状态；若存在另一过程或某种方法，可以使系统和外界都完全恢复到原来的状态，则原过程称为可逆过程。
+
+\concept{不可逆过程}：若在不引起其它变化的条件下，不能使系统和外界都完全复原，则该过程称为不可逆过程。
+
+\begin{FormulaBox}[可逆过程的条件]
+一个过程要可逆，至少需要满足：
+\begin{ReviewList}
+  \item 必须是准静态过程，即过程经过一系列无限接近平衡态的状态。
+  \item 过程中不能包含摩擦、磁滞、电阻、有限温差传热、有限压强差膨胀等耗散效应。
+\end{ReviewList}
+\end{FormulaBox}
+
+\begin{WarnBox}[易错点：准静态不一定可逆]
+可逆过程一定是准静态过程，但准静态过程不一定可逆。若准静态过程中仍存在摩擦、电阻、磁滞等耗散效应，该过程仍然不可逆。
+\end{WarnBox}
+
+\subsection{四类不可逆因素}
+
+\begin{KeyBox}[不可逆性的常见来源]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lX@{}}
+耗散不可逆 & 功自发转化为热，例如摩擦、电阻发热、黏滞耗散。\\
+力学不可逆 & 系统内部各部分之间存在非无穷小压强差。\\
+热学不可逆 & 系统内部或系统与外界之间存在非无穷小温度差。\\
+化学不可逆 & 系统内部存在非无穷小浓度差或化学组成差异，例如扩散、反应。\\
+\end{tabularx}
+\end{KeyBox}
+
+只要过程中包含上述任一不可逆因素，就不是可逆过程。
+
+\begin{WarnBox}[热学B判断题常见陷阱]
+“缓慢”不自动等于“可逆”。缓慢只可能保证近似准静态；是否可逆还要看有没有耗散因素。
+\end{WarnBox}
+
+\section{热力学第二定律的经典表述}
+
+\subsection{开尔文表述}
+
+\concept{开尔文表述}：不可能从单一热源吸取热量，使之完全变为有用功而不引起其它变化。
+
+这里“单一热源”指温度处处相同并保持恒定的热源；“其它变化”指除了从单一热源吸热并全部变为功以外的任何其它影响。
+
+\begin{KeyBox}[开尔文表述的含义]
+开尔文表述并不是说热不能变成功。热机可以把一部分热量转化为功。它说的是：不能只从一个热源吸热，并把这部分热量全部变成有用功，同时不产生其它影响。
+\end{KeyBox}
+
+由开尔文表述可知，\concept{第二类永动机}不可能制造。第二类永动机指只从单一热源吸热，并将其全部转化为有用功而不引起其它变化的机器。
+
+\subsection{克劳修斯表述}
+
+\concept{克劳修斯表述}：不可能把热量从低温物体传到高温物体而不引起其它变化。
+
+\begin{KeyBox}[克劳修斯表述的含义]
+克劳修斯表述并不是说热量绝对不能从低温物体传到高温物体。冰箱、空调都能把热量从低温处搬到高温处，但必须消耗外界功。因此，禁止的是“无代价地从低温向高温传热”。
+\end{KeyBox}
+
+克劳修斯表述说明热传导过程是不可逆过程。
+
+\subsection{两种表述的等价性}
+
+开尔文表述和克劳修斯表述是等价的。其证明通常采用反证法：
+
+\begin{MethodBox}[等价性证明思路]
+\begin{ReviewList}
+  \item 若开尔文表述不成立，就存在一种装置，可以从单一高温热源吸热并全部变成功。
+  \item 用这部分功驱动一台制冷机，就可以把热量从低温热源搬到高温热源，而整体不引起其它变化。
+  \item 这将违反克劳修斯表述。
+  \item 反过来，若克劳修斯表述不成立，即热量可以自动从低温热源传到高温热源，则可与普通热机组合，构造出从单一热源吸热并全部变成功的装置，违反开尔文表述。
+\end{ReviewList}
+\end{MethodBox}
+
+\begin{WarnBox}[易错点：第二定律不是第一定律的推论]
+第一定律只限制能量数值守恒，第二定律限制过程方向。热量从低温物体自发传给高温物体不违反能量守恒，但违反第二定律。
+\end{WarnBox}
+
+\section{卡诺定理与热力学温标}
+
+\subsection{卡诺循环回顾}
+
+卡诺循环由四个可逆过程组成：
+\begin{ReviewList}
+  \item 高温热源 \(T_1\) 下的可逆等温膨胀，吸热 \(Q_1\)。
+  \item 可逆绝热膨胀，温度由 \(T_1\) 降至 \(T_2\)。
+  \item 低温热源 \(T_2\) 下的可逆等温压缩，放热 \(Q_2\)。
+  \item 可逆绝热压缩，温度由 \(T_2\) 升回 \(T_1\)。
+\end{ReviewList}
+
+热机效率为
+\[
+  \eta=\frac{W'}{Q_1}=1-\frac{Q_2}{Q_1}.
+\]
+
+\subsection{卡诺定理}
+
+\concept{卡诺定理}包括两个结论：
+
+\begin{FormulaBox}[卡诺定理]
+\begin{ReviewList}
+  \item 工作在相同高温热源和低温热源之间的一切可逆热机，其效率相等，与工作物质无关。
+  \item 工作在相同两个热源之间的一切不可逆热机，其效率都不可能大于可逆热机效率。
+\end{ReviewList}
+即
+\[
+  \eta_{\mathrm{ir}}\le \eta_{\mathrm{rev}}.
+\]
+\end{FormulaBox}
+
+\begin{KeyBox}[卡诺定理的物理意义]
+卡诺定理把热机效率的上限与工作物质、循环细节分离开来。只要两个热源温度给定，最高效率就由可逆热机决定。
+\end{KeyBox}
+
+\subsection{热力学温标}
+
+由于所有可逆热机在相同两个热源之间效率相同，所以可用可逆热机来定义不依赖测温物质的温标，即\concept{热力学温标}。
+
+对可逆卡诺热机，定义
+\[
+  \frac{Q_2}{Q_1}=\frac{T_2}{T_1}.
+\]
+于是卡诺效率为
+\[
+  \boxed{
+  \eta_{\mathrm C}=1-\frac{T_2}{T_1}
+  }.
+\]
+
+\begin{WarnBox}[温度必须用开尔文]
+卡诺效率中的 \(T_1,T_2\) 必须是热力学温度，单位为 \(\mathrm K\)。不能直接代入摄氏温度。
+\end{WarnBox}
+
+\subsection{卡诺制冷机}
+
+卡诺循环逆向运行就是卡诺制冷机。它从低温热源吸热 \(Q_2\)，向高温热源放热 \(Q_1\)，外界输入功
+\[
+  W=Q_1-Q_2.
+\]
+制冷系数为
+\[
+  \varepsilon=\frac{Q_2}{W}.
+\]
+对逆卡诺循环：
+\[
+  \boxed{
+  \varepsilon_{\mathrm C}=\frac{T_2}{T_1-T_2}
+  }.
+\]
+
+\begin{KeyBox}[卡诺热机与卡诺制冷机]
+\[
+  \eta_{\mathrm C}=1-\frac{T_2}{T_1},
+  \qquad
+  \varepsilon_{\mathrm C}=\frac{T_2}{T_1-T_2}.
+\]
+二者都来自同一条热量比关系：
+\[
+  \frac{Q_2}{Q_1}=\frac{T_2}{T_1}.
+\]
+\end{KeyBox}
+
+\section{克劳修斯等式与不等式}
+
+\subsection{克劳修斯等式}
+
+对任意可逆循环，可以把循环分解为许多微小卡诺循环。由卡诺循环的热量与温度关系，可得
+\[
+  \boxed{
+  \oint_{\mathrm{rev}}\frac{\dbar Q}{T}=0
+  }.
+\]
+这称为\concept{克劳修斯等式}。
+
+\begin{KeyBox}[克劳修斯等式的意义]
+对可逆循环，\(\dbar Q/T\) 的循环积分为零。这说明 \(\dbar Q_{\mathrm{rev}}/T\) 具有态函数全微分的性质，从而可以引入新的态函数：熵。
+\end{KeyBox}
+
+\subsection{克劳修斯不等式}
+
+对不可逆循环，有
+\[
+  \boxed{
+  \oint_{\mathrm{ir}}\frac{\dbar Q}{T}<0
+  }.
+\]
+综合可逆和不可逆循环：
+\[
+  \boxed{
+  \oint\frac{\dbar Q}{T}\le 0
+  }.
+\]
+其中等号对应可逆循环，小于号对应不可逆循环。
+
+\begin{WarnBox}[克劳修斯不等式中的 \(T\)]
+\[
+  \oint\frac{\dbar Q}{T}\le0
+\]
+中的 \(T\) 是发生热交换处外界热源的温度；对于可逆过程，它也等于系统边界处温度。不可逆有限温差传热时，系统内部未必有统一温度，不能随意把系统某个温度代进去。
+\end{WarnBox}
+
+\section{熵}
+
+\subsection{熵的定义}
+
+由克劳修斯等式，任意两个平衡态 \(a,b\) 之间，可逆路径积分
+\[
+  \int_a^b\frac{\dbar Q_{\mathrm{rev}}}{T}
+\]
+只与初末态有关，与可逆路径无关。因此定义态函数\concept{熵} \(S\)：
+\[
+  \boxed{
+  S_b-S_a
+  =
+  \int_a^b\frac{\dbar Q_{\mathrm{rev}}}{T}
+  }.
+\]
+微分形式为
+\[
+  \boxed{
+  \dd S=\frac{\dbar Q_{\mathrm{rev}}}{T}
+  }.
+\]
+
+\begin{WarnBox}[易错点：熵变计算必须用可逆路径]
+即使实际过程不可逆，熵变仍然只由初末态决定。计算不可逆过程的熵变时，不能直接把实际过程中的 \(\dbar Q/T\) 积分；应在相同初末态之间设计一条可逆路径，然后计算
+\[
+  \Delta S=\int\frac{\dbar Q_{\mathrm{rev}}}{T}.
+\]
+\end{WarnBox}
+
+\subsection{热力学第二定律的数学表达式}
+
+对任意过程，有
+\[
+  \boxed{
+  \dd S\ge \frac{\dbar Q}{T}
+  }.
+\]
+其中等号对应可逆过程，不等号对应不可逆过程。
+
+若系统绝热，
+\[
+  \dbar Q=0,
+\]
+则
+\[
+  \boxed{
+  \dd S\ge0.
+  }
+\]
+
+\section{熵增加原理}
+
+\subsection{孤立系统的熵增加}
+
+孤立系统与外界既不交换热量，也不交换功和物质。对孤立系统，
+\[
+  \dbar Q=0.
+\]
+由第二定律的数学表达式：
+\[
+  \dd S\ge0.
+\]
+因此
+\[
+  \boxed{
+  \Delta S_{\mathrm{isolated}}\ge0.
+  }
+\]
+
+这就是\concept{熵增加原理}：孤立系统中，自然发生的过程总是向熵不减的方向进行。
+
+\begin{FormulaBox}[熵增加原理]
+\[
+  \Delta S_{\mathrm{isolated}}>0
+  \quad\text{不可逆过程},
+\]
+\[
+  \Delta S_{\mathrm{isolated}}=0
+  \quad\text{可逆过程}.
+\]
+孤立系统中不可能出现
+\[
+  \Delta S_{\mathrm{isolated}}<0.
+\]
+\end{FormulaBox}
+
+\subsection{系统与外界的总熵}
+
+若研究对象不是孤立系统，可以把系统与相关外界合在一起组成孤立系统，则
+\[
+  \Delta S_{\mathrm{total}}
+  =
+  \Delta S_{\mathrm{system}}+\Delta S_{\mathrm{environment}}\ge0.
+\]
+
+\begin{KeyBox}[判断过程能否自发发生]
+某一过程若要自发发生，需要满足
+\[
+  \Delta S_{\mathrm{total}}>0.
+\]
+若
+\[
+  \Delta S_{\mathrm{total}}=0,
+\]
+则过程可逆。若
+\[
+  \Delta S_{\mathrm{total}}<0,
+\]
+则该过程不可能自发发生。
+\end{KeyBox}
+
+\begin{WarnBox}[易错点：系统熵可以减少]
+熵增加原理适用于孤立系统或“系统+外界”的总熵。单独一个非孤立系统的熵可以减少，例如制冷机内部低温物体降温时熵减少，但外界熵增加更多，总熵仍增加。
+\end{WarnBox}
+
+\section{熵变的计算}
+
+\subsection{计算熵变的通用方法}
+
+\begin{MethodBox}[熵变计算三步法]
+\begin{ReviewList}
+  \item 明确初态和末态，因为熵是态函数。
+  \item 判断实际过程是否可逆。若可逆，直接用实际路径积分：
+  \[
+    \Delta S=\int\frac{\dbar Q_{\mathrm{rev}}}{T}.
+  \]
+  \item 若实际过程不可逆，在同一初末态之间设计一条方便计算的可逆路径，再积分。
+\end{ReviewList}
+\end{MethodBox}
+
+\subsection{等温可逆过程}
+
+若系统在温度 \(T\) 下经历等温可逆过程，吸热量为 \(Q_{\mathrm{rev}}\)，则
+\[
+  \boxed{
+  \Delta S=\frac{Q_{\mathrm{rev}}}{T}
+  }.
+\]
+
+典型例子包括等温相变、理想气体等温可逆膨胀等。
+
+\subsection{理想气体熵变}
+
+对 \(\nu\) mol 理想气体，
+\[
+  \dbar Q_{\mathrm{rev}}=\dd U+p\dd V.
+\]
+又
+\[
+  \dd U=\nu C_{V,m}\dd T,
+  \qquad
+  p=\frac{\nu RT}{V}.
+\]
+因此
+\[
+  \dd S
+  =
+  \frac{\dbar Q_{\mathrm{rev}}}{T}
+  =
+  \nu C_{V,m}\frac{\dd T}{T}
+  +
+  \nu R\frac{\dd V}{V}.
+\]
+积分得
+\[
+  \boxed{
+  \Delta S
+  =
+  \nu C_{V,m}\ln\frac{T_2}{T_1}
+  +
+  \nu R\ln\frac{V_2}{V_1}
+  }.
+\]
+
+也可用 \(T,p\) 表示：
+\[
+  \boxed{
+  \Delta S
+  =
+  \nu C_{p,m}\ln\frac{T_2}{T_1}
+  -
+  \nu R\ln\frac{p_2}{p_1}
+  }.
+\]
+
+还可用 \(p,V\) 表示：
+\[
+  \boxed{
+  \Delta S
+  =
+  \nu C_{V,m}\ln\frac{p_2}{p_1}
+  +
+  \nu C_{p,m}\ln\frac{V_2}{V_1}
+  }.
+\]
+
+\begin{WarnBox}[理想气体熵变公式的适用条件]
+上述公式默认摩尔热容可近似看作常数。若热容随温度变化，应保留积分形式：
+\[
+  \Delta S
+  =
+  \nu\int_{T_1}^{T_2}\frac{C_{V,m}(T)}{T}\dd T
+  +
+  \nu R\ln\frac{V_2}{V_1}.
+\]
+\end{WarnBox}
+
+\subsection{理想气体等温膨胀}
+
+理想气体等温过程 \(T_1=T_2=T\)，因此
+\[
+  \Delta S
+  =
+  \nu R\ln\frac{V_2}{V_1}.
+\]
+
+若 \(V_2>V_1\)，则
+\[
+  \Delta S>0.
+\]
+
+\begin{KeyBox}[自由膨胀的熵变]
+理想气体自由膨胀是不可逆绝热过程：
+\[
+  Q=0,\qquad W=0,\qquad \Delta U=0,\qquad T_2=T_1.
+\]
+但熵变不是零。因为熵是态函数，可在同一初末态之间设计等温可逆膨胀路径：
+\[
+  \boxed{
+  \Delta S=\nu R\ln\frac{V_2}{V_1}>0
+  }.
+\]
+\end{KeyBox}
+
+\subsection{可逆绝热过程}
+
+可逆绝热过程满足
+\[
+  \dbar Q_{\mathrm{rev}}=0.
+\]
+因此
+\[
+  \boxed{
+  \Delta S=0
+  }.
+\]
+所以可逆绝热过程也称为\concept{等熵过程}。
+
+\begin{WarnBox}[绝热过程不一定等熵]
+可逆绝热过程才是等熵过程。不可逆绝热过程虽然 \(Q=0\)，但熵可以增加。例如自由膨胀是绝热不可逆过程，\(\Delta S>0\)。
+\end{WarnBox}
+
+\subsection{热源的熵变}
+
+若一个温度恒定的大热源在温度 \(T\) 下吸收热量 \(Q\)，则热源熵变为
+\[
+  \boxed{
+  \Delta S_{\mathrm{res}}=\frac{Q}{T}
+  }.
+\]
+若热源放出热量 \(Q\)，则
+\[
+  \Delta S_{\mathrm{res}}=-\frac{Q}{T}.
+\]
+
+\begin{MethodBox}[有限温差传热的总熵变]
+高温热源 \(T_1\) 向低温热源 \(T_2\) 传热 \(Q\)，其中 \(T_1>T_2\)。则
+\[
+  \Delta S_1=-\frac{Q}{T_1},
+  \qquad
+  \Delta S_2=\frac{Q}{T_2}.
+\]
+总熵变
+\[
+  \Delta S_{\mathrm{total}}
+  =
+  Q\left(\frac{1}{T_2}-\frac{1}{T_1}\right)>0.
+\]
+这说明有限温差传热不可逆。
+\end{MethodBox}
+
+\subsection{相变过程的熵变}
+
+若物质在温度 \(T\) 下发生可逆等温相变，相变潜热为 \(L\)，则
+\[
+  \boxed{
+  \Delta S=\frac{L}{T}
+  }.
+\]
+这里 \(L\) 是系统吸收的热量。熔化、汽化通常吸热，熵增加；凝固、液化放热，熵减少。
+
+\section{\texorpdfstring{\(T\)--\(S\)}{T-S} 图}
+
+\subsection{\texorpdfstring{\(T\)--\(S\)}{T-S} 图的基本意义}
+
+在 \(T\)--\(S\) 图中，横轴为熵 \(S\)，纵轴为温度 \(T\)。对可逆过程，
+\[
+  \dbar Q_{\mathrm{rev}}=T\dd S.
+\]
+所以可逆过程中吸收的热量为
+\[
+  \boxed{
+  Q_{\mathrm{rev}}=\int T\dd S
+  }.
+\]
+
+\begin{KeyBox}[\(T\)--\(S\) 图中的面积]
+在 \(T\)--\(S\) 图上，可逆过程曲线下方面积表示该过程的吸热量：
+\[
+  Q_{\mathrm{rev}}=\int T\dd S.
+\]
+可逆循环包围的面积表示循环净功：
+\[
+  W'=\oint T\dd S.
+\]
+\end{KeyBox}
+
+\subsection{常见过程在 \texorpdfstring{\(T\)--\(S\)}{T-S} 图中的形状}
+
+\begin{FormulaBox}[常见图像]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lX@{}}
+可逆绝热过程 & \(\Delta S=0\)，在 \(T\)--\(S\) 图中为竖直线。\\
+可逆等温过程 & \(T=\mathrm{const}\)，在 \(T\)--\(S\) 图中为水平线。\\
+卡诺循环 & 两条等温线和两条绝热线构成矩形。\\
+\end{tabularx}
+\end{FormulaBox}
+
+对卡诺循环，
+\[
+  Q_1=T_1(S_2-S_1),
+  \qquad
+  Q_2=T_2(S_2-S_1).
+\]
+故
+\[
+  \frac{Q_2}{Q_1}=\frac{T_2}{T_1},
+\]
+从而
+\[
+  \eta_{\mathrm C}=1-\frac{T_2}{T_1}.
+\]
+
+\section{热力学第二定律的统计意义}
+
+热力学第二定律描述的是大量粒子系统的统计规律，而不是单个分子的力学规律。
+
+\subsection{宏观不可逆性的微观原因}
+
+以气体自由膨胀为例。隔板抽去后，气体分子从容器一侧扩散到整个容器。微观上，每个分子仍服从力学规律；但从统计角度看，所有分子重新自发聚集到原来一侧的概率极小。
+
+\begin{KeyBox}[统计意义]
+自然过程总是从概率小的宏观态向概率大的宏观态发展。平衡态对应的微观状态数最多，因此孤立系统趋向平衡态。
+\end{KeyBox}
+
+玻尔兹曼关系给出熵与微观状态数的联系：
+\[
+  \boxed{
+  S=k_{\mathrm B}\ln W
+  }.
+\]
+其中 \(W\) 表示对应某宏观态的微观状态数。
+
+\begin{WarnBox}[第二定律的统计性质]
+第二定律不是说熵减少在微观上绝对不可能，而是说对含有巨大数量粒子的宏观系统，熵自发减少的概率小到可以忽略。因此实际宏观过程表现为不可逆。
+\end{WarnBox}
+
+\section{第三章题型模板}
+
+\subsection{题型一：判断过程方向}
+
+\begin{MethodBox}[用总熵判断自发方向]
+\begin{ReviewList}
+  \item 明确系统和外界。
+  \item 计算系统熵变 \(\Delta S_{\mathrm{sys}}\)。
+  \item 计算外界熵变 \(\Delta S_{\mathrm{env}}\)。
+  \item 相加：
+  \[
+    \Delta S_{\mathrm{total}}
+    =
+    \Delta S_{\mathrm{sys}}+\Delta S_{\mathrm{env}}.
+  \]
+  \item 判断：
+  \[
+    \Delta S_{\mathrm{total}}>0
+    \Rightarrow
+    \text{不可逆自发过程};
+  \]
+  \[
+    \Delta S_{\mathrm{total}}=0
+    \Rightarrow
+    \text{可逆过程};
+  \]
+  \[
+    \Delta S_{\mathrm{total}}<0
+    \Rightarrow
+    \text{不能自发发生}.
+  \]
+\end{ReviewList}
+\end{MethodBox}
+
+\subsection{题型二：不可逆过程熵变}
+
+\begin{MethodBox}[不可逆过程熵变计算]
+不可逆过程不能直接对实际过程使用
+\[
+  \int\frac{\dbar Q}{T}.
+\]
+正确做法是：
+\begin{ReviewList}
+  \item 固定初态和末态。
+  \item 设计一条方便计算的可逆路径。
+  \item 沿可逆路径计算
+  \[
+    \Delta S=\int\frac{\dbar Q_{\mathrm{rev}}}{T}.
+  \]
+\end{ReviewList}
+典型例子：理想气体自由膨胀，用等温可逆膨胀路径计算熵变。
+\end{MethodBox}
+
+\subsection{题型三：热机或制冷机极限}
+
+\begin{MethodBox}[卡诺类题目]
+\begin{ReviewList}
+  \item 若问最高热机效率，直接用
+  \[
+    \eta_{\max}=1-\frac{T_2}{T_1}.
+  \]
+  \item 若问最高制冷系数，直接用
+  \[
+    \varepsilon_{\max}=\frac{T_2}{T_1-T_2}.
+  \]
+  \item 所有温度先转成开尔文。
+  \item 若实际机器效率超过卡诺值，说明题目条件不可能。
+\end{ReviewList}
+\end{MethodBox}
+
+\section{第三章公式速查}
+
+\formulatable{
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lXl@{}}
+\toprule
+内容 & 公式 & 条件\\
+\midrule
+
+热机效率 &
+\(\displaystyle \eta=\frac{W'}{Q_1}=1-\frac{Q_2}{Q_1}\)
+& 正循环\\[0.8em]
+
+卡诺热量比 &
+\(\displaystyle \frac{Q_2}{Q_1}=\frac{T_2}{T_1}\)
+& 可逆卡诺循环\\[0.8em]
+
+卡诺效率 &
+\(\displaystyle \eta_{\mathrm C}=1-\frac{T_2}{T_1}\)
+& 可逆热机\\[0.8em]
+
+制冷系数 &
+\(\displaystyle \varepsilon=\frac{Q_2}{W}=\frac{Q_2}{Q_1-Q_2}\)
+& 逆循环\\[0.8em]
+
+卡诺制冷系数 &
+\(\displaystyle \varepsilon_{\mathrm C}=\frac{T_2}{T_1-T_2}\)
+& 逆卡诺循环\\[0.8em]
+
+克劳修斯等式 &
+\(\displaystyle \oint_{\mathrm{rev}}\frac{\dbar Q}{T}=0\)
+& 可逆循环\\[0.8em]
+
+克劳修斯不等式 &
+\(\displaystyle \oint\frac{\dbar Q}{T}\le0\)
+& 任意循环\\[0.8em]
+
+熵定义 &
+\(\displaystyle \dd S=\frac{\dbar Q_{\mathrm{rev}}}{T}\)
+& 可逆路径\\[0.8em]
+
+熵变 &
+\(\displaystyle \Delta S=\int_a^b\frac{\dbar Q_{\mathrm{rev}}}{T}\)
+& 任意过程的初末态\\[0.8em]
+
+第二定律数学表达 &
+\(\displaystyle \dd S\ge\frac{\dbar Q}{T}\)
+& 等号可逆\\[0.8em]
+
+孤立系统熵增加 &
+\(\displaystyle \Delta S_{\mathrm{isolated}}\ge0\)
+& 孤立系统\\[0.8em]
+
+理想气体熵变 \(T,V\) 式 &
+\(\displaystyle \Delta S=\nu C_{V,m}\ln\frac{T_2}{T_1}+\nu R\ln\frac{V_2}{V_1}\)
+& \(C_{V,m}\) 近似常数\\[1em]
+
+理想气体熵变 \(T,p\) 式 &
+\(\displaystyle \Delta S=\nu C_{p,m}\ln\frac{T_2}{T_1}-\nu R\ln\frac{p_2}{p_1}\)
+& \(C_{p,m}\) 近似常数\\[1em]
+
+等温相变熵变 &
+\(\displaystyle \Delta S=\frac{L}{T}\)
+& 可逆等温相变\\[0.8em]
+
+\(T\)--\(S\) 图吸热量 &
+\(\displaystyle Q_{\mathrm{rev}}=\int T\dd S\)
+& 可逆过程\\
+
+\bottomrule
+\end{tabularx}
+}
+
+\section{第三章易错点总表}
+
+\begin{WarnBox}[本章高频错误]
+\begin{PitfallList}
+  \item 认为满足第一定律就一定能发生。第一定律管能量守恒，第二定律管过程方向。
+  \item 把“准静态过程”直接等同于“可逆过程”。有耗散因素时，准静态也不可逆。
+  \item 误解开尔文表述，以为它禁止热变功。它禁止的是从单一热源吸热并全部变成功而不引起其它变化。
+  \item 误解克劳修斯表述，以为热不能从低温传到高温。冰箱可以做到，但必须消耗外界功。
+  \item 卡诺效率中直接代入摄氏温度。必须使用开尔文温度。
+  \item 计算不可逆过程熵变时，直接沿不可逆实际路径积分 \(\int \dbar Q/T\)。正确做法是构造可逆路径。
+  \item 认为绝热过程一定等熵。只有可逆绝热过程才等熵。
+  \item 认为系统熵不能减少。熵增加原理约束的是孤立系统总熵。
+  \item 混淆 \(Q/T\) 和 \(\Delta S\)。只有可逆等温过程中，才可直接写 \(\Delta S=Q_{\mathrm{rev}}/T\)。
+  \item 忽略外界熵变。判断自发方向要看系统加外界的总熵变。
+  \item 在克劳修斯不等式中随便使用系统内部温度。不可逆过程中系统未必有统一温度。
+\end{PitfallList}
+\end{WarnBox}
+
+\section{第三章复习路线}
+
+\begin{MethodBox}[建议背诵顺序]
+\begin{ReviewList}
+  \item 先理解自然过程方向性：热传导、自由膨胀、摩擦生热、扩散。
+  \item 再背可逆过程条件：准静态且无耗散。
+  \item 再背第二定律两种表述：开尔文表述、克劳修斯表述。
+  \item 再背卡诺定理：相同热源之间，可逆热机效率最大且相等。
+  \item 再背克劳修斯关系：
+  \[
+    \oint_{\mathrm{rev}}\frac{\dbar Q}{T}=0,
+    \qquad
+    \oint\frac{\dbar Q}{T}\le0.
+  \]
+  \item 再背熵定义：
+  \[
+    \dd S=\frac{\dbar Q_{\mathrm{rev}}}{T}.
+  \]
+  \item 再背熵增加原理：
+  \[
+    \Delta S_{\mathrm{isolated}}\ge0.
+  \]
+  \item 最后练理想气体熵变、自由膨胀、有限温差传热和卡诺效率。
+\end{ReviewList}
+\end{MethodBox}
+
+\begin{KeyBox}[第三章一句话总结]
+第二定律说明自然过程有方向，熵把这种方向写成态函数形式。实际计算时，最重要的判断是：若过程不可逆，熵变仍然要沿同一初末态之间的可逆路径计算；若判断过程是否自发，要看系统与外界组成的孤立整体总熵是否增加。
+\end{KeyBox}

@@ -1,0 +1,88 @@
+% !TeX program = xelatex
+% 中国科学技术大学《热学B》总复习资料
+% 主文件：只负责文档结构；章节正文统一放入 chapters/ch.tex
+
+\documentclass[UTF8,fontset=fandol,zihao=-4,openany,oneside]{ctexbook}
+
+\input{preamble.tex}
+\input{macros.tex}
+
+\begin{document}
+
+\frontmatter
+\makecoursecover
+
+\tableofcontents
+
+\mainmatter
+
+\input{chapters/ch1.tex}
+\input{chapters/ch2.tex}
+\input{chapters/ch3.tex}
+\input{chapters/ch4.tex}
+\input{chapters/ch5.tex}
+\input{chapters/ch6.tex}
+\input{chapters/summary.tex}
+
+\appendix
+
+\chapter{符号与约定}
+
+\begin{FormulaBox}[常用符号]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lX@{}}
+\(p,V,T\) & 压强、体积、热力学温度。\\
+\(U,H,S\) & 内能、焓、熵。\\
+\(C_V,C_p\) & 定容热容、定压热容；摩尔量常写作 \(C_{V,m},C_{p,m}\)。\\
+\(k,R,N_A\) & 玻尔兹曼常数、气体常数、阿伏伽德罗常数，满足 \(R=N_A k\)。\\
+\(\alpha,\beta\) & 体膨胀系数、等温压缩系数。\\
+\(\gamma\) & 热容比，\(\gamma=C_p/C_V\)。\\
+\end{tabularx}
+\end{FormulaBox}
+
+\backmatter
+
+\chapter*{版本记录}
+\addcontentsline{toc}{chapter}{版本记录}
+
+\begin{SourceBox}[版本说明]
+本资料为中国科学技术大学《热学B》总复习资料，版本号为 \textbf{2026.1}，由 \textbf{\DocAuthor} 整理。资料内容以 2026 春季学期授课 PDF 与《热学B》知识要点总结为基础，定位为考前系统复习材料。整理重点包括：知识框架、核心公式、适用条件、典型题型、易错点与考前速查。本资料按《热学B》课程范围编写。
+\end{SourceBox}
+
+\begin{longtable}{@{}p{0.22\textwidth}p{0.68\textwidth}@{}}
+\toprule
+\textbf{版本} & \textbf{内容说明}\\
+\midrule
+\endhead
+
+\textbf{Ver. 2026.1} &
+完成《热学B》总复习资料初版。资料采用 \texttt{main.tex}、\texttt{preamble.tex}、\texttt{macros.tex} 与 \texttt{chapters/} 文件夹结构编写，正文覆盖六章课程内容，并附有总复习框架。\\[0.6em]
+
+&
+第一章“热力学基础知识与温度”：整理热力学系统、状态参量、平衡态、准静态过程、热力学第零定律、温度、温标、理想气体状态方程、范德瓦耳斯方程以及简单固液体状态方程。\\[0.6em]
+
+&
+第二章“热力学第一定律”：整理功和热量、内能、焓、热容、热力学第一定律、理想气体典型过程、多方过程、绝热节流、焦耳--汤姆孙效应、热机效率与制冷系数。\\[0.6em]
+
+&
+第三章“热力学第二定律与熵”：整理可逆与不可逆过程、第二定律的开尔文表述和克劳修斯表述、卡诺定理、热力学温标、克劳修斯等式与不等式、熵、熵增加原理、理想气体熵变与 \(T\)--\(S\) 图。\\[0.6em]
+
+&
+第四章“麦克斯韦--玻尔兹曼分布律”：整理理想气体压强公式、温度的统计解释、麦克斯韦速度分布与速率分布、最概然速率、平均速率、方均根速率、泻流、玻尔兹曼分布、能量均分定理与理想气体热容量。\\[0.6em]
+
+&
+第五章“气体中的输运过程”：整理热传导、黏滞、扩散三种输运现象，傅里叶定律、牛顿黏性定律、菲克定律，平均自由程、碰撞频率、输运系数的微观表达，以及输运系数与压强的关系。\\[0.6em]
+
+&
+第六章“固、液体性质简介与相变”：整理晶体与非晶体、单晶体与多晶体、晶体热学性质、液体结构、表面张力、弯曲液面附加压强、毛细现象、相变、相图、临界点、克拉珀龙方程与克劳修斯--克拉珀龙近似。\\[0.6em]
+
+&
+总结部分：整理全课程知识地图、核心概念对比、热力学过程计算路线、核心公式总表、题型总路线与考前高频易错点。\\
+
+\bottomrule
+\end{longtable}
+
+\begin{KeyBox}[后续修订方向]
+后续版本可根据课程作业、习题课、TA 重点和往年题继续补充典型例题、题型索引和公式适用条件索引；若最终页数超过目标，可优先压缩概念性说明，保留公式、题型模板和易错点。
+\end{KeyBox}
+
+\end{document}

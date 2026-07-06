@@ -1,0 +1,766 @@
+\chapter{热力学基础知识与温度}
+
+\chaptergoal{
+本章是整门《热学B》的概念地基。复习重点不在复杂计算，而在准确区分系统、外界、状态、过程、平衡态、准静态过程、温度、温标与状态方程。后续第一定律、第二定律、熵、气体动理论和相变，都会反复使用本章语言。
+}
+
+\exammap{
+\begin{ReviewList}
+  \item \textbf{会定义：}热力学系统、外界、孤立系统、封闭系统、开放系统、绝热系统。
+  \item \textbf{会判断：}一个状态是不是平衡态，一个过程能不能近似看作准静态过程。
+  \item \textbf{会使用：}热力学第零定律解释温度概念，并区分经验温标、理想气体温标、热力学温标。
+  \item \textbf{会列方程：}理想气体状态方程、混合理想气体状态方程、范德瓦耳斯方程、简单固液体状态方程。
+  \item \textbf{会处理：}利用 \(\alpha,\beta\) 推出固体或液体在小范围内的状态变化。
+\end{ReviewList}
+}
+
+\section{热力学系统、状态与过程}
+
+\subsection{热力学系统与外界}
+
+\concept{热力学系统}是指具有明确边界、被我们选作研究对象的宏观物体或物体系，简称系统。系统边界以外所有能与系统发生作用的物体，统称为\concept{外界}或环境。
+
+\begin{KeyBox}[系统与外界的三类相互作用]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lXl@{}}
+相互作用类型 & 物理含义 & 常见外界模型\\
+\midrule
+热相互作用 & 通过热传导、热辐射等方式交换能量 & 热源、热库\\
+机械相互作用 & 通过广义力做功交换能量 & 功源、功库\\
+质量相互作用 & 通过交换物质来交换能量与粒子数 & 粒子源、粒子库\\
+\end{tabularx}
+\end{KeyBox}
+
+根据系统与外界之间的相互作用情况，常见系统类型如下：
+
+\begin{FormulaBox}[系统分类]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lXX@{}}
+系统类型 & 定义 & 复习提醒\\
+\midrule
+孤立系统 & 与外界无任何相互作用 & 不交换能量，也不交换物质。\\
+封闭系统 & 与外界无质量相互作用 & 可交换能量，但不交换物质。\\
+开放系统 & 与外界有质量相互作用 & 可交换物质，通常也可交换能量。\\
+绝热系统 & 与外界无热相互作用 & 不交换热量，但可能有机械功。\\
+\end{tabularx}
+\end{FormulaBox}
+
+\begin{WarnBox}[易错点：封闭系统不等于孤立系统]
+封闭系统只是不交换物质，仍然可以通过做功或传热与外界交换能量。孤立系统才是既不交换物质，也不交换能量。绝热系统只排除热相互作用，不排除机械相互作用。
+\end{WarnBox}
+
+\subsection{状态、状态参量与态函数}
+
+\concept{系统状态}由系统的宏观性质确定。对简单气体系统，常用状态参量包括压强 \(p\)、体积 \(V\)、温度 \(T\)。这些量也称为热力学参量或热力学坐标。
+
+\begin{KeyBox}[状态参量的独立性]
+状态参量是描述平衡态所需的几个相互独立的宏观量。系统越复杂，所需状态参量越多。
+\begin{itemize}
+  \item 化学纯气体：通常只需两个独立参量，例如 \(p,V\)，第三个由状态方程确定。
+  \item 混合气体：除 \(p,V,T\) 关系外，还需描述组分或摩尔数的化学参量。
+  \item 电磁场中的系统：还可能需要 \(E,B,P,M\) 等电磁参量。
+\end{itemize}
+\end{KeyBox}
+
+若系统的某一宏观量只由当前状态决定，而与到达该状态的路径无关，则称其为\concept{态函数}。设在一个 \(p\)--\(V\) 系统中，某态函数为
+\[
+  S=S(p,V),
+\]
+则系统经历任意循环回到原状态时，
+\[
+  \oint \dd S=0.
+\]
+
+\begin{WarnBox}[易错点：态函数与过程量]
+态函数的变化只看初、末态；过程量依赖路径。第一章先建立这个意识，第二章会专门区分内能 \(U\) 与热量、功。热量和功不能简单写成某个状态函数的全微分。
+\end{WarnBox}
+
+\subsection{热力学平衡态}
+
+\concept{热力学平衡态}是指系统的宏观性质不随时间变化，且具有确定值的状态。平衡态不是“微观上完全静止”，而是宏观量稳定的动态平衡。
+
+\begin{FormulaBox}[平衡态的必要条件]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lX@{}}
+力学平衡 & 系统内部压强处处相同；不存在有限压强差导致的宏观运动。\\
+热平衡 & 系统各部分冷热程度一致；不存在有限温差导致的热流。\\
+质量平衡 & 包括化学平衡与相平衡。化学反应正逆速率达到平衡；多相系统中各相物质保持不变。\\
+\end{tabularx}
+\end{FormulaBox}
+
+\concept{非平衡态}是不同时满足上述条件的状态。自然界中严格平衡态是理想化概念；实际系统常处于非平衡态，或只是近似处于平衡态。
+
+\begin{MethodBox}[判断平衡态的思路]
+\begin{ReviewList}
+  \item 看宏观量是否随时间变化。
+  \item 看系统内部是否仍存在有限的压强差、温度差、浓度差或相变趋势。
+  \item 注意“稳定导热”这类情况：温度分布虽然不随时间变，但若存在持续热流，系统整体一般不是热力学平衡态。
+\end{ReviewList}
+\end{MethodBox}
+
+\subsection{热力学过程与准静态过程}
+
+\concept{热力学过程}是指系统状态发生变化时所经历的过程。系统从一个平衡态变化到另一个平衡态需要一定时间，这个时间尺度与系统内部恢复平衡的\concept{弛豫时间}有关。
+
+\concept{准静态过程}是由一系列无限接近平衡态的状态组成的理想过程。换句话说，系统在变化过程中始终几乎处于平衡态。
+
+\begin{KeyBox}[准静态过程的物理图像]
+若气缸上方放一个大砝码，突然拿走砝码，活塞快速上升，系统经历明显非平衡过程；若把砝码换成一堆细沙，每次只拿走一粒沙子，系统每一步只偏离平衡态极小，则整个过程可近似看成准静态过程。
+\end{KeyBox}
+
+准静态过程是一种理想化过程。实际中，若过程进行得足够缓慢，并且系统内部弛豫足够快，就可以把它近似处理为准静态过程。
+
+\begin{FormulaBox}[准静态过程与热力学坐标图]
+准静态过程可以在热力学坐标图中用一条曲线表示，例如在 \(p\)--\(V\) 图中：
+\[
+  p=p(V).
+\]
+常见过程包括：
+\[
+  \text{等压过程：}p=\mathrm{const},\qquad
+  \text{等容过程：}V=\mathrm{const},\qquad
+  \text{等温过程：}T=\mathrm{const}.
+\]
+\end{FormulaBox}
+
+\begin{WarnBox}[易错点：不是所有过程都能画成 \(p\)--\(V\) 曲线]
+只有当系统在过程中可以用确定的平衡态参量描述时，才可以在热力学坐标系中画出过程曲线。非准静态过程经过的是连续变化的非平衡态，系统内部压强、温度等可能没有全局确定值，因此不能严格画成一条热力学过程曲线。
+\end{WarnBox}
+
+\section{热力学第零定律与温度}
+
+\subsection{热力学第零定律}
+
+\concept{热力学第零定律}可以表述为：若系统 \(A\) 和系统 \(B\) 分别与系统 \(C\) 处于热平衡，则在不受外界影响的情况下，系统 \(A\) 与系统 \(B\) 也彼此处于热平衡。
+
+\begin{KeyBox}[第零定律的核心意义]
+\begin{ReviewList}
+  \item 它说明互为热平衡的物体之间存在一个共同特征，这个共同特征就是温度。
+  \item 它给出了比较温度是否相同的方法：用同一个标准物体分别与两个系统接触，即温度计思想。
+  \item 它只能判断是否热平衡，不能判断热量自发传递方向；方向性问题属于第二定律。
+\end{ReviewList}
+\end{KeyBox}
+
+温度是对物体冷热程度的量度。更严格地说，温度是表征热平衡状态的状态函数。
+
+\subsection{温度作为共同状态函数}
+
+设系统 \(A,B,C\) 的平衡态各由两个状态参量表示：
+\[
+  A:(x_A,y_A),\qquad B:(x_B,y_B),\qquad C:(x_C,y_C).
+\]
+当 \(A\) 与 \(C\) 热平衡、\(B\) 与 \(C\) 热平衡时，有
+\[
+  f_{AC}(x_A,y_A;x_C,y_C)=0,\qquad
+  f_{BC}(x_B,y_B;x_C,y_C)=0.
+\]
+由第零定律，\(A\) 与 \(B\) 也处于热平衡：
+\[
+  f_{AB}(x_A,y_A;x_B,y_B)=0.
+\]
+因此可以引入一个共同的状态函数：
+\[
+  \psi_A(x_A,y_A)=\psi_B(x_B,y_B)=\psi_C(x_C,y_C).
+\]
+这个共同状态函数就称为温度，记为 \(T\)。
+
+\begin{WarnBox}[易错点：温度不是热量]
+温度描述系统冷热程度，是状态参量；热量是由于温差而传递的能量，是过程量。不能说“物体含有很多热量”，更准确的说法是“物体温度较高”或“在某过程中吸收了热量”。
+\end{WarnBox}
+
+\subsection{温标}
+
+\concept{温标}是具体给出温度数值的表示方法。温度概念来自第零定律，但要进行数值测量，必须规定温标。
+
+\subsubsection{经验温标}
+
+经验温标利用某种测温物质的某个物理属性随冷热程度单调变化的性质来定义温度。若测温属性为 \(x\)，常假定
+\[
+  T(x)=a x.
+\]
+
+\begin{FormulaBox}[经验温标的三个要素]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lX@{}}
+测温物质与测温属性 & 例如水银体积、气体压强、金属电阻等。\\
+固定点 & 例如冰的正常熔点、水的正常沸点。\\
+分度方法 & 规定固定点之间如何等分，例如摄氏温标把 \(0^\circ\mathrm C\) 到 \(100^\circ\mathrm C\) 等分为100份。\\
+\end{tabularx}
+\end{FormulaBox}
+
+若冰点时温度为 \(\theta_i\)、测量值为 \(x_i\)，汽点时温度为 \(\theta_s\)、测量值为 \(x_s\)，假设线性关系，则某一测量值 \(x\) 对应温度为
+\[
+  \theta
+  =
+  \theta_i+
+  \frac{x-x_i}{x_s-x_i}(\theta_s-\theta_i).
+\]
+
+\begin{WarnBox}[经验温标的局限]
+不同测温物质或不同测温属性建立的经验温标不会严格一致。这也是为什么需要理想气体温标和热力学温标。
+\end{WarnBox}
+
+\subsubsection{理想气体温标}
+
+\concept{理想气体温标}以气体为测温物质，利用理想气体状态方程中定容时压强与温度成正比、或定压时体积与温度成正比的关系来定义温度。
+
+\begin{FormulaBox}[气体温度计]
+定容气体温度计：
+\[
+  T(p)=273.16\,\frac{p}{p_0}.
+\]
+其中 \(p_0\) 为气体在水的三相点温度时的压强。
+
+定压气体温度计：
+\[
+  T(V)=273.16\,\frac{V}{V_0}.
+\]
+其中 \(V_0\) 为气体在水的三相点温度时的体积。
+\end{FormulaBox}
+
+这里 \(273.16\,\mathrm K\) 是水的三相点温度。气体温度计适用范围较宽，低温气体温度计常以氦气为测温物质。
+
+\subsubsection{摄氏温标、华氏温标与国际实用温标}
+
+摄氏温标 \(t\) 以冰的正常熔点为 \(0^\circ\mathrm C\)，水的正常沸点为 \(100^\circ\mathrm C\)。华氏温标 \(t_F\) 与摄氏温标的关系为
+\[
+  t_F=\frac{9}{5}t+32.
+\]
+
+国际实用温标中，热力学温度 \(T\) 与摄氏温度 \(t\) 的关系为
+\[
+  T=\left(\frac{t}{^\circ\mathrm C}+273.15\right)\mathrm K.
+\]
+也常写作
+\[
+  T/\mathrm K=t/^\circ\mathrm C+273.15.
+\]
+
+\begin{FormulaBox}[常见温度点]
+\begin{tabularx}{\textwidth}{@{}lccc@{}}
+\toprule
+物理状态 & \(T/\mathrm K\) & \(t/^\circ\mathrm C\) & \(t_F/^\circ\mathrm F\)\\
+\midrule
+水的汽点 & \(373.15\) & \(100.00\) & \(212.00\)\\
+水的三相点 & \(273.16\) & \(0.01\) & \(32.02\)\\
+水的冰点 & \(273.15\) & \(0.00\) & \(32.00\)\\
+绝对零度 & \(0.00\) & \(-273.15\) & \(-459.67\)\\
+\bottomrule
+\end{tabularx}
+\end{FormulaBox}
+
+\subsubsection{热力学温标}
+
+由于经验温标依赖测温物质和测温属性，需要引入一种不依赖具体测温物质的温标，即\concept{热力学温标}，也称绝对温标。国际上规定热力学温标为基本温标，一切温度测量最终以热力学温标为准。
+
+在理想气体温标可适用的范围内，热力学温标与理想气体温标一致。
+
+\begin{WarnBox}[热学B复习边界]
+实用温度计，如液体温度计、电阻温度计、热电偶温度计、光学高温计、低温温度计，主要作为了解内容。复习重点是温标思想、温标之间的关系，以及水的三相点 \(273.16\,\mathrm K\)。
+\end{WarnBox}
+
+\section{状态方程}
+
+\subsection{状态方程的概念}
+
+\concept{状态方程}是处于平衡态的热力学系统，其状态参量之间满足的函数关系。对化学纯气体，可写为
+\[
+  T=T(p,V),
+\]
+或
+\[
+  f(T,p,V)=0.
+\]
+
+状态方程可以由实验给出，也可以由微观理论推导。热学B中重点掌握三类状态方程：理想气体、范德瓦耳斯气体、简单固体和液体。
+
+\subsection{理想气体状态方程}
+
+\concept{理想气体}是压强趋于零极限状态下的气体。它是一种理想模型，实际不存在完全理想的气体；但当温度不太低、压强不太大时，许多真实气体可以近似看作理想气体。
+
+\begin{KeyBox}[理想气体模型]
+\begin{ReviewList}
+  \item 分子本身的体积相对分子间距离可以忽略。
+  \item 除碰撞瞬间外，分子间相互作用力可以忽略。
+  \item 分子之间、分子与器壁之间的碰撞视为弹性碰撞。
+  \item 从能量角度看，忽略分子间势能，理想气体内能只与温度有关。
+\end{ReviewList}
+\end{KeyBox}
+
+\subsubsection{气体实验定律}
+
+\begin{FormulaBox}[三条气体实验定律]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lXX@{}}
+玻意耳--马略特定律 & \(T=\mathrm{const}\) & \(pV=C\)\\
+查理定律 & \(V=\mathrm{const}\) & \(p/T=C\)\\
+盖--吕萨克定律 & \(p=\mathrm{const}\) & \(V/T=C\)\\
+\end{tabularx}
+\end{FormulaBox}
+
+由这些实验定律可得，对一定质量理想气体，
+\[
+  \frac{pV}{T}=C.
+\]
+由阿伏伽德罗定律，常数与摩尔数 \(\nu\) 成正比，得到理想气体状态方程：
+\[
+  \boxed{pV=\nu RT}.
+\]
+
+若用分子数 \(N=\nu N_A\)，且 \(R=N_A k\)，则
+\[
+  \boxed{pV=NkT}.
+\]
+
+\begin{FormulaBox}[常数]
+\[
+  R=8.31\,\mathrm{J\cdot mol^{-1}\cdot K^{-1}},
+  \qquad
+  N_A=6.02\times 10^{23}\,\mathrm{mol^{-1}},
+\]
+\[
+  k=\frac{R}{N_A}
+  \approx 1.38\times 10^{-23}\,\mathrm{J\cdot K^{-1}}.
+\]
+\end{FormulaBox}
+
+\begin{WarnBox}[易错点：\(\nu\)、\(N\)、\(N_A\)]
+\(\nu\) 是摩尔数，\(N\) 是分子数，\(N_A\) 是阿伏伽德罗常数。公式
+\[
+  pV=\nu RT
+\]
+与
+\[
+  pV=NkT
+\]
+等价，但不能把 \(\nu\) 和 \(N\) 混用。
+\end{WarnBox}
+
+\subsection{混合理想气体状态方程}
+
+对于混合理想气体，遵循\concept{道尔顿分压定律}：
+\[
+  p=\sum_i p_i.
+\]
+第 \(i\) 种气体满足
+\[
+  p_iV=\nu_i RT.
+\]
+各组分相加得
+\[
+  \boxed{pV=\nu RT},
+  \qquad
+  \nu=\sum_i\nu_i.
+\]
+
+若混合气体总质量为 \(M\)，平均摩尔质量为 \(\bar m\)，则
+\[
+  \nu=\frac{M}{\bar m},
+  \qquad
+  pV=\frac{M}{\bar m}RT.
+\]
+
+\begin{MethodBox}[混合理想气体题的做法]
+\begin{ReviewList}
+  \item 若题目问总压强、总体积或总摩尔数，直接对混合气体整体使用 \(pV=\nu RT\)。
+  \item 若题目问某组分，例如氧气质量或某组分分压，要先确定该组分所占的摩尔分数、质量分数或分压比例。
+  \item 若温度和体积不变，压强比通常等于物质的量比。
+\end{ReviewList}
+\end{MethodBox}
+
+\subsection{理想气体状态方程的典型应用}
+
+\subsubsection{抽气过程}
+
+容积为 \(V\) 的密封容器，抽气机抽气速率为 \(u\)。若温度恒定，气压由 \(p_0\) 降到 \(p\)，所需时间为
+\[
+  \boxed{t=\frac{V}{u}\ln\frac{p_0}{p}}.
+\]
+
+推导思路如下：在 \(t\) 到 \(t+\dd t\) 内，压强由 \(p\) 变为 \(p+\dd p\)，排出气体体积为 \(u\dd t\)。等温下有
+\[
+  pV=(p+\dd p)(V+u\dd t).
+\]
+忽略高阶小量：
+\[
+  V\dd p+p\,u\dd t=0,
+\]
+即
+\[
+  \frac{\dd p}{p}=-\frac{u}{V}\dd t.
+\]
+积分得到上式。
+
+\begin{WarnBox}[抽气题常见错法]
+不要把 \(p\) 当常量。抽气过程中容器内压强随时间指数下降，微分方程的核心是
+\[
+  \frac{\dd p}{p}=-\frac{u}{V}\dd t.
+\]
+\end{WarnBox}
+
+\subsubsection{高空吸氧质量变化}
+
+若空气温度及组分比例不随高度变化，人在相同肺容积下每次吸入氧气质量与空气压强成正比：
+\[
+  \frac{m}{m_0}=\frac{p}{p_0}.
+\]
+例如当
+\[
+  p=5.0\times 10^4\,\mathrm{Pa},
+  \qquad
+  p_0=1.01\times 10^5\,\mathrm{Pa},
+\]
+标准状况下一次吸入氧气 \(m_0=1.0\,\mathrm g\)，则
+\[
+  m=\frac{p}{p_0}m_0
+  =
+  \frac{5.0\times 10^4}{1.01\times 10^5}\times 1.0\,\mathrm g
+  \approx 0.495\,\mathrm g.
+\]
+
+\section{实际气体状态方程}
+
+\subsection{范德瓦耳斯方程}
+
+理想气体模型忽略了两件事：
+\begin{ReviewList}
+  \item 分子具有固有体积。
+  \item 分子间存在除碰撞外的相互作用力。
+\end{ReviewList}
+
+范德瓦耳斯方程正是对这两点进行修正。
+
+\subsubsection{体积修正}
+
+若 \(\nu\) mol 气体占据体积 \(V\)，考虑分子固有体积后，分子可自由活动的有效体积不再是 \(V\)，而近似为
+\[
+  V-\nu b,
+\]
+其中 \(b\) 是与气体种类有关的常数。仅考虑体积修正时，
+\[
+  p(V-\nu b)=\nu RT.
+\]
+
+\subsubsection{压强修正}
+
+实际气体分子间存在吸引力。靠近器壁的分子受到指向气体内部的吸引力，撞击器壁时给器壁的冲量小于理想气体情形，因此实际测得压强 \(p\) 小于气体内部对应的动理压强。设压强修正量为
+\[
+  \Delta p=\frac{\nu^2 a}{V^2},
+\]
+则
+\[
+  p+\frac{\nu^2a}{V^2}
+\]
+对应被修正后的内部动理压强。
+
+因此 \(\nu\) mol 真实气体的范德瓦耳斯方程为
+\[
+  \boxed{
+  \left(p+\frac{\nu^2a}{V^2}\right)(V-\nu b)=\nu RT
+  }.
+\]
+
+对 \(1\) mol 气体，
+\[
+  \boxed{
+  \left(p+\frac{a}{V_m^2}\right)(V_m-b)=RT
+  }.
+\]
+这里 \(V_m\) 表示摩尔体积。
+
+\begin{FormulaBox}[范德瓦耳斯参数的物理意义]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lX@{}}
+\(a\) & 描述分子间吸引作用。吸引力越明显，压强修正越大。\\
+\(b\) & 描述分子固有体积造成的有效体积修正。\\
+\end{tabularx}
+\end{FormulaBox}
+
+\begin{WarnBox}[易错点：内压强不是气体内部压强]
+授课中“内压强”指由于分子吸引力造成的压强修正 \(\Delta p\)，不是简单意义上的“气体内部的压强”。公式里要写
+\[
+  p+\Delta p=p+\frac{\nu^2a}{V^2}.
+\]
+\end{WarnBox}
+
+\subsection{范德瓦耳斯方程的适用性}
+
+范德瓦耳斯方程比理想气体方程更接近真实气体，但仍是近似方程。一般在压强不是很高、温度不是太低的情况下，对许多真实气体是较好的近似。
+
+\begin{KeyBox}[为什么范德瓦耳斯方程重要]
+它的价值不只是“比理想气体更准”，更重要的是物理图像清楚：通过 \(a\) 和 \(b\) 两个修正量，同时体现分子吸引与分子固有体积，并能初步解释气液转变和临界现象。
+\end{KeyBox}
+
+\subsection{昂内斯方程与维里展开}
+
+另一类真实气体状态方程是昂内斯方程，也称维里展开。按体积展开可写为
+\[
+  pV=A+\frac{B_V}{V}+\frac{C_V}{V^2}+\cdots.
+\]
+按压强展开可写为
+\[
+  pV=A+Bp+Cp^2+Dp^3+\cdots.
+\]
+其中 \(A,B,C,\ldots\) 或 \(A,B_V,C_V,\ldots\) 是温度的函数，并与气体种类有关，称为维里系数。
+
+理想气体是一级近似：
+\[
+  A=\nu RT.
+\]
+
+范德瓦耳斯方程也可展开为维里形式。当 \(b/V\ll 1\) 时，
+\[
+  pV
+  =
+  \nu RT+
+  \frac{\nu^2RTb-\nu^2a}{V}
+  +\cdots.
+\]
+因此前两项维里系数为
+\[
+  A_V=\nu RT,\qquad
+  B_V=\nu^2RTb-\nu^2a.
+\]
+
+\begin{WarnBox}[维里系数的物理符号]
+\(B_V\) 中 \(+\nu^2RTb\) 来自排斥或体积效应，贡献为正；\(-\nu^2a\) 来自吸引效应，贡献为负。这个符号关系经常被用来判断真实气体相对于理想气体的偏离方向。
+\end{WarnBox}
+
+\section{简单固体与液体的状态方程}
+
+\subsection{等压体膨胀系数与等温压缩系数}
+
+简单固体与液体的状态方程也可写为
+\[
+  f(p,V,T)=0.
+\]
+若选择 \(p,T\) 为独立状态参量，则
+\[
+  V=V(p,T).
+\]
+其全微分为
+\[
+  \dd V
+  =
+  \pdc{V}{T}{p}\dd T+
+  \pdc{V}{p}{T}\dd p.
+\]
+
+定义\concept{等压体膨胀系数}
+\[
+  \boxed{
+  \alpha
+  =
+  \frac{1}{V}\pdc{V}{T}{p}
+  }
+\]
+和\concept{等温压缩系数}
+\[
+  \boxed{
+  \beta
+  =
+  -\frac{1}{V}\pdc{V}{p}{T}
+  }.
+\]
+
+因此
+\[
+  \boxed{
+  \dd V=\alpha V\dd T-\beta V\dd p
+  }.
+\]
+
+\begin{KeyBox}[\(\alpha,\beta\) 的物理意义]
+\begin{itemize}
+  \item \(\alpha\)：压强不变时，温度每变化 \(1\,\mathrm K\) 引起的相对体积变化，反映物体热胀冷缩的容易程度。
+  \item \(\beta\)：温度不变时，压强每变化一个单位引起的相对体积变化的负值，反映物体被压缩的容易程度。
+\end{itemize}
+\end{KeyBox}
+
+\subsection{小范围近似状态方程}
+
+若在一定温度、压强范围内，\(\alpha,\beta\) 都可近似看作常数，初态为 \((p_0,V_0,T_0)\)，则由
+\[
+  \frac{\dd V}{V}=\alpha\dd T-\beta\dd p
+\]
+在小变化近似下可得
+\[
+  \boxed{
+  V
+  =
+  V_0\left[
+  1+\alpha(T-T_0)-\beta(p-p_0)
+  \right]
+  }.
+\]
+
+\begin{WarnBox}[易错点：\(\beta\) 前面有负号]
+压强增大时，大多数物体体积减小，所以
+\[
+  \pdc{V}{p}{T}<0.
+\]
+为了让压缩系数 \(\beta\) 通常为正，定义中必须加负号：
+\[
+  \beta=-\frac{1}{V}\pdc{V}{p}{T}.
+\]
+\end{WarnBox}
+
+\subsection{保持体积不变时的压强变化}
+
+由
+\[
+  \dd V=\alpha V\dd T-\beta V\dd p
+\]
+若保持体积不变，即 \(\dd V=0\)，则
+\[
+  \boxed{
+  \dd p=\frac{\alpha}{\beta}\dd T
+  }.
+\]
+由于固体和液体通常 \(\alpha/\beta\) 很大，所以哪怕温度变化不大，若要保持体积不变，也可能需要很大的压强变化。
+
+\subsection{三变量循环关系}
+
+若系统满足
+\[
+  p=p(V,T),
+\]
+则
+\[
+  \dd p=
+  \pdc{p}{V}{T}\dd V+
+  \pdc{p}{T}{V}\dd T.
+\]
+在 \(p=\mathrm{const}\) 时，
+\[
+  \pdc{p}{V}{T}\dd V+
+  \pdc{p}{T}{V}\dd T=0.
+\]
+因此得到三变量循环关系：
+\[
+  \boxed{
+  \pdc{p}{V}{T}
+  \pdc{V}{T}{p}
+  \pdc{T}{p}{V}
+  =
+  -1
+  }.
+\]
+
+这个关系不是热学特有公式，而是三个变量之间存在函数关系时的全微分恒等式。热学中常用它在不同偏导之间转换。
+
+\subsection{典型题：水银定容升温}
+
+\begin{MethodBox}[题型模板：定容升温求压强]
+已知某液体或固体 \(\alpha,\beta\) 近似为常数，保持体积不变，使温度由 \(T_1\) 升至 \(T_2\)。由
+\[
+  \dd p=\frac{\alpha}{\beta}\dd T
+\]
+积分得
+\[
+  \boxed{
+  p_2-p_1=\frac{\alpha}{\beta}(T_2-T_1)
+  }.
+\]
+\end{MethodBox}
+
+例如一团水银在 \(1\) 标准大气压下，温度为 \(0^\circ\mathrm C\)，保持体积不变升温至 \(10^\circ\mathrm C\)。若
+\[
+  \alpha=1.81\times 10^{-6}\,\mathrm K^{-1},
+  \qquad
+  \beta=3.82\times 10^{-11}\,\mathrm{Pa}^{-1},
+\]
+则
+\[
+  p_2
+  =
+  p_1+\frac{\alpha}{\beta}(T_2-T_1).
+\]
+代入
+\[
+  p_1=1.01\times 10^5\,\mathrm{Pa},
+  \qquad
+  T_2-T_1=10\,\mathrm K,
+\]
+得
+\[
+  p_2
+  \approx
+  1.01\times 10^5+
+  \frac{1.81\times 10^{-6}}{3.82\times 10^{-11}}\times 10
+  \approx
+  4.75\times 10^5\,\mathrm{Pa}.
+\]
+
+\section{第一章公式速查}
+
+\formulatable{
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lXl@{}}
+\toprule
+内容 & 公式 & 条件\\
+\midrule
+态函数循环积分 & \(\displaystyle \oint \dd S=0\) & \(S\) 为态函数\\[0.4em]
+经验温标线性关系 &
+\(\displaystyle \theta=\theta_i+\frac{x-x_i}{x_s-x_i}(\theta_s-\theta_i)\)
+& 经验线性假设\\[0.8em]
+定容气体温度计 &
+\(\displaystyle T=273.16\frac{p}{p_0}\)
+& \(V=\mathrm{const}\)\\[0.8em]
+定压气体温度计 &
+\(\displaystyle T=273.16\frac{V}{V_0}\)
+& \(p=\mathrm{const}\)\\[0.8em]
+摄氏温度与热力学温度 &
+\(\displaystyle T/\mathrm K=t/^\circ\mathrm C+273.15\)
+& 国际实用温标\\[0.8em]
+摄氏与华氏 &
+\(\displaystyle t_F=\frac95 t+32\)
+& 温标换算\\[0.8em]
+理想气体 &
+\(\displaystyle pV=\nu RT=NkT\)
+& 理想气体近似\\[0.8em]
+混合理想气体 &
+\(\displaystyle p=\sum_i p_i,\quad pV=\left(\sum_i\nu_i\right)RT\)
+& 道尔顿分压定律\\[0.8em]
+范德瓦耳斯方程 &
+\(\displaystyle \left(p+\frac{\nu^2a}{V^2}\right)(V-\nu b)=\nu RT\)
+& 真实气体近似\\[1em]
+固液体微分状态方程 &
+\(\displaystyle \dd V=\alpha V\dd T-\beta V\dd p\)
+& 简单固体、液体\\[0.8em]
+固液体小范围状态方程 &
+\(\displaystyle V=V_0[1+\alpha(T-T_0)-\beta(p-p_0)]\)
+& \(\alpha,\beta\) 近似常数\\[0.8em]
+三变量循环关系 &
+\(\displaystyle \pdc{p}{V}{T}\pdc{V}{T}{p}\pdc{T}{p}{V}=-1\)
+& 三变量有函数关系\\
+\bottomrule
+\end{tabularx}
+}
+
+\section{第一章易错点总表}
+
+\begin{WarnBox}[本章高频错误]
+\begin{PitfallList}
+  \item 把封闭系统误认为孤立系统。封闭系统不交换物质，但可以交换能量。
+  \item 把绝热系统误认为不做功系统。绝热只是不传热，仍可通过机械方式交换能量。
+  \item 认为宏观量不随时间变化就一定是热力学平衡态。若系统内部存在持续热流或浓度流，通常仍不是平衡态。
+  \item 把非准静态过程画成 \(p\)--\(V\) 图上的确定曲线。只有准静态过程才可以严格用热力学坐标曲线表示。
+  \item 把温度与热量混为一谈。温度是状态参量，热量是过程量。
+  \item 忘记水的三相点是 \(273.16\,\mathrm K\)，而水的冰点是 \(273.15\,\mathrm K\)。
+  \item 在 \(pV=\nu RT=NkT\) 中混淆摩尔数 \(\nu\) 与分子数 \(N\)。
+  \item 写范德瓦耳斯方程时漏掉平方：压强修正是 \(\nu^2a/V^2\)，不是 \(\nu a/V\)。
+  \item 写等温压缩系数时漏掉负号：\(\beta=-\frac{1}{V}\pdc{V}{p}{T}\)。
+  \item 使用固液体近似状态方程时忘记前提：\(\alpha,\beta\) 只能在小范围内近似为常数。
+\end{PitfallList}
+\end{WarnBox}
+
+\section{第一章复习路线}
+
+\begin{MethodBox}[建议背诵顺序]
+\begin{ReviewList}
+  \item 先背系统分类：孤立、封闭、开放、绝热。
+  \item 再背平衡态条件：力学平衡、热平衡、质量平衡。
+  \item 再理解准静态过程：无限接近平衡态，才能画过程曲线。
+  \item 再背第零定律：热平衡的传递性给出温度概念。
+  \item 再背温标关系：\(T=t+273.15\)，水三相点 \(273.16\,\mathrm K\)。
+  \item 最后整理状态方程：理想气体、混合理想气体、范德瓦耳斯气体、固液体。
+\end{ReviewList}
+\end{MethodBox}
+
+\begin{KeyBox}[第一章一句话总结]
+第一章的核心不是计算技巧，而是建立热学语言：选定系统，确认状态是否平衡，判断过程是否准静态，用温度描述热平衡，用状态方程连接 \(p,V,T\)。后面所有热力学计算都建立在这些前提之上。
+\end{KeyBox}

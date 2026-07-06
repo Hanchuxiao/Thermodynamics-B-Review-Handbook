@@ -1,0 +1,1149 @@
+\chapter{热力学第一定律}
+
+\chaptergoal{
+本章的核心是把“能量守恒”写成可计算的热学语言。需要清楚区分功、热量、内能、焓、热容这些量的性质：功和热量是过程量，内能和焓是态函数。计算题的主线是：先判断过程，再写第一定律，最后用状态方程与热容关系求 \(Q,W,\Delta U,\Delta H\)。
+}
+
+\exammap{
+\begin{ReviewList}
+  \item \textbf{会算功：}准静态体积功 \(\dbar W=-p\dd V\)，并能从 \(p\)--\(V\) 图判断正负。
+  \item \textbf{会区分：}功和热量是过程量；内能、焓是态函数。
+  \item \textbf{会用第一定律：}\(\dd U=\dbar Q+\dbar W\)，本资料采用“外界对系统做功”为正的符号约定。
+  \item \textbf{会用热容：}掌握 \(C_V,C_p\) 与 \(\Delta U,\Delta H\) 的关系。
+  \item \textbf{会处理理想气体：}等容、等压、等温、绝热、多方过程。
+  \item \textbf{会判断实际气体节流：}节流过程为等焓过程，焦耳--汤姆孙系数描述温度随压强变化。
+  \item \textbf{会算循环：}热机效率、制冷机制冷系数，以及卡诺、奥托、狄塞尔循环的基本结果。
+\end{ReviewList}
+}
+
+\section{功和热量}
+
+\subsection{改变系统状态的两种方式}
+
+改变热力学系统状态的方式主要有两类：
+\begin{ReviewList}
+  \item \concept{做功}：通过机械相互作用改变系统能量。
+  \item \concept{传热}：通过热相互作用改变系统能量。
+\end{ReviewList}
+
+两者都描述能量传递，但物理机制不同。做功通常伴随宏观有序运动，例如活塞移动；传热来自分子无规则热运动能量在温差驱动下的传递。
+
+\begin{WarnBox}[本章符号约定]
+本资料采用授课 PDF 中的约定：\(W\) 表示\textbf{外界对系统所做的功}。
+因此：
+\[
+  \dbar W=-p\dd V.
+\]
+若系统膨胀，\(\dd V>0\)，则外界对系统做负功；若系统被压缩，\(\dd V<0\)，则外界对系统做正功。
+\end{WarnBox}
+
+\subsection{准静态过程中的体积功}
+
+考虑气体被活塞封闭，外界压强为 \(p'\)。忽略摩擦时，外界对气体所做元功为
+\[
+  \dbar W=-p'\dd V.
+\]
+
+若过程不是准静态过程，系统内部压强可能不均匀，此时一般有
+\[
+  p'\ne p,
+\]
+计算外力对系统做功只能使用外压强 \(p'\)。
+
+若过程为准静态过程，系统始终近似处于平衡态，则
+\[
+  p'=p,
+\]
+所以准静态体积功为
+\[
+  \boxed{\dbar W=-p\dd V}.
+\]
+
+对于有限准静态过程，
+\[
+  \boxed{
+  W=-\int_{V_1}^{V_2}p\dd V
+  }.
+\]
+
+\begin{KeyBox}[\(p\)--\(V\) 图中的功]
+在 \(p\)--\(V\) 图上，系统对外做功 \(W_{\mathrm{by}}\) 等于过程曲线下方面积：
+\[
+  W_{\mathrm{by}}=\int_{V_1}^{V_2}p\dd V.
+\]
+本资料中外界对系统做功为
+\[
+  W=-W_{\mathrm{by}}=-\int_{V_1}^{V_2}p\dd V.
+\]
+因此看图时一定先确认题目使用的是“系统对外做功”还是“外界对系统做功”。
+\end{KeyBox}
+
+\subsection{循环过程中的功}
+
+对于一闭合准静态循环，
+\[
+  \oint \dd U=0
+\]
+因为内能是态函数。但功不是态函数，一般有
+\[
+  \oint \dbar W\ne 0.
+\]
+
+在 \(p\)--\(V\) 图中：
+\begin{itemize}
+  \item 顺时针循环：系统对外输出净功，外界对系统做功为负。
+  \item 逆时针循环：外界对系统输入净功，外界对系统做功为正。
+\end{itemize}
+
+\begin{WarnBox}[易错点：功不是状态函数]
+同一初态和末态之间，沿不同路径所作的功一般不同。例如理想气体从 \(C\) 到 \(D\)，走等温路径、先等压后等容路径、先等容后等压路径，功的结果不同。因此不能写 \(W=W_2-W_1\)，也不能写 \(\dd W\) 表示某个态函数的全微分。
+\end{WarnBox}
+
+\subsection{几种基本过程的体积功}
+
+\subsubsection{等容过程}
+
+等容过程满足
+\[
+  V=\mathrm{const},
+  \qquad
+  \dd V=0.
+\]
+因此
+\[
+  \boxed{W=0}.
+\]
+
+\subsubsection{等压过程}
+
+等压过程满足
+\[
+  p=\mathrm{const}.
+\]
+外界对系统做功为
+\[
+  \boxed{
+  W=-p(V_2-V_1)
+  }.
+\]
+若气体膨胀，\(V_2>V_1\)，则 \(W<0\)。
+
+\subsubsection{理想气体等温过程}
+
+对理想气体等温准静态过程，
+\[
+  pV=\nu RT,
+  \qquad
+  T=\mathrm{const}.
+\]
+因此
+\[
+  W
+  =
+  -\int_{V_1}^{V_2}\frac{\nu RT}{V}\dd V
+  =
+  \boxed{
+  -\nu RT\ln\frac{V_2}{V_1}
+  }.
+\]
+也可写为
+\[
+  W=\nu RT\ln\frac{p_2}{p_1}.
+\]
+
+\begin{WarnBox}[等温功的符号]
+若等温膨胀，\(V_2>V_1\)，则
+\[
+  \ln\frac{V_2}{V_1}>0,\qquad W<0.
+\]
+这表示外界对气体做负功，等价于气体对外做正功。
+\end{WarnBox}
+
+\subsection{固体、液体中的体积功}
+
+体积功公式
+\[
+  W=-\int p\dd V
+\]
+不仅适用于气体，也适用于简单固体和液体。但固体、液体体积变化通常很小，计算时常借助
+\[
+  \dd V=\alpha V\dd T-\beta V\dd p.
+\]
+
+若质量为 \(M\)、密度为 \(\rho\)、等温压缩系数 \(\beta\) 近似为常数的简单固体，在等温准静态过程中压强从 \(p_i\) 增至 \(p_f\)，则
+\[
+  \dd T=0,\qquad
+  \dd V=-\beta V\dd p\approx-\beta\frac{M}{\rho}\dd p.
+\]
+于是
+\[
+  W=-\int p\dd V
+  =
+  \int_{p_i}^{p_f}p\frac{\beta M}{\rho}\dd p
+  =
+  \boxed{
+  \frac{\beta M}{2\rho}(p_f^2-p_i^2)
+  }.
+\]
+
+\section{热量与热容}
+
+\subsection{热量的概念}
+
+\concept{热量}是由于温差而在系统和外界之间传递的能量。热量不是系统“含有”的东西，而是一个过程中传递能量的量度。
+
+\begin{KeyBox}[功与热量的相同点和区别]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lXX@{}}
+ & 功 & 热量\\
+\midrule
+共同点 & \multicolumn{2}{X}{都是能量传递方式，单位均为焦耳 \(\mathrm J\)，都是过程量。}\\
+来源 & 机械相互作用 & 热相互作用\\
+微观图像 & 分子宏观有序运动对应的能量转移 & 分子无规则热运动能量的传递\\
+数学记号 & \(\dbar W\) & \(\dbar Q\)\\
+\end{tabularx}
+\end{KeyBox}
+
+因为热量是过程量，微小热量不写作 \(\dd Q\)，而写作
+\[
+  \dbar Q.
+\]
+
+\subsection{热容}
+
+若系统在某一无限小过程中吸收热量 \(\dbar Q\)，温度变化为 \(\dd T\)，则该过程的热容定义为
+\[
+  \boxed{
+  C_L=\left(\frac{\dbar Q}{\dd T}\right)_L
+  }.
+\]
+这里下标 \(L\) 表示具体过程。
+
+\begin{FormulaBox}[常用热容]
+\[
+  C_V=\left(\frac{\dbar Q}{\dd T}\right)_V,
+  \qquad
+  C_p=\left(\frac{\dbar Q}{\dd T}\right)_p.
+\]
+摩尔热容：
+\[
+  C_{V,m}=\frac{C_V}{\nu},
+  \qquad
+  C_{p,m}=\frac{C_p}{\nu}.
+\]
+比热容：
+\[
+  c=\frac{C}{m}.
+\]
+\end{FormulaBox}
+
+在某一指定过程 \(L\) 中，如果热容近似为常数，则
+\[
+  Q=\int C_L\dd T=C_L(T_2-T_1).
+\]
+
+\begin{WarnBox}[易错点：热容依赖过程]
+同一系统的热容不是唯一的。定容热容 \(C_V\) 与定压热容 \(C_p\) 对应不同过程，不能随意替换。更一般地，不同路径 \(L\) 会有不同的过程热容 \(C_L\)。
+\end{WarnBox}
+
+\section{内能与热力学第一定律}
+
+\subsection{内能}
+
+\concept{内能} \(U\) 是系统内部所有微观能量的总和，包括分子的热运动能、分子间相互作用势能，以及分子、原子内部能量等。
+
+热力学中通常不关心内能绝对值，而关心两个平衡态之间的内能变化：
+\[
+  \Delta U=U_2-U_1.
+\]
+内能是态函数，因此
+\[
+  \oint\dd U=0.
+\]
+
+\begin{WarnBox}[易错点：内能是态函数，不是过程量]
+功和热量依赖路径，内能只依赖状态。两个状态之间不管经历什么过程，只要初末态相同，\(\Delta U\) 就相同。
+\end{WarnBox}
+
+\subsection{热力学第一定律}
+
+热力学第一定律表达能量守恒：
+\[
+  \boxed{
+  \dd U=\dbar Q+\dbar W
+  }.
+\]
+在只有准静态体积功时，
+\[
+  \dbar W=-p\dd V,
+\]
+所以
+\[
+  \boxed{
+  \dd U=\dbar Q-p\dd V
+  }.
+\]
+也可写作
+\[
+  \boxed{
+  \dbar Q=\dd U+p\dd V
+  }.
+\]
+
+\begin{KeyBox}[第一定律的物理意义]
+系统内能的增加，等于系统从外界吸收的热量，加上外界对系统所做的功。第一定律本质上是能量守恒定律在热现象中的表达。
+\end{KeyBox}
+
+\begin{WarnBox}[第一类永动机]
+第一类永动机指不消耗任何能量而能持续对外做功的机器。它违反热力学第一定律，因此不可能制造。
+\end{WarnBox}
+
+\subsection{焓}
+
+定义\concept{焓}
+\[
+  \boxed{
+  H=U+pV
+  }.
+\]
+焓是态函数，因为 \(U,p,V\) 都是状态量。
+
+对简单可压缩系统，
+\[
+  \dd H=\dd U+p\dd V+V\dd p.
+\]
+由第一定律
+\[
+  \dbar Q=\dd U+p\dd V,
+\]
+可得
+\[
+  \boxed{
+  \dbar Q=\dd H-V\dd p
+  }.
+\]
+
+因此在等压过程中，
+\[
+  \dd p=0,
+  \qquad
+  \boxed{
+  \dbar Q_p=\dd H
+  }.
+\]
+
+\begin{KeyBox}[为什么要引入焓]
+定压过程在热学题中很常见。引入焓后，定压吸热可以直接写成
+\[
+  Q_p=\Delta H.
+\]
+这比每次都从 \(\Delta U+p\Delta V\) 展开更清楚。
+\end{KeyBox}
+
+\subsection{热容与内能、焓}
+
+定容过程中，
+\[
+  \dd V=0.
+\]
+由第一定律
+\[
+  \dbar Q_V=\dd U.
+\]
+所以
+\[
+  \boxed{
+  C_V=\left(\frac{\partial U}{\partial T}\right)_V
+  }.
+\]
+
+定压过程中，
+\[
+  \dbar Q_p=\dd H.
+\]
+所以
+\[
+  \boxed{
+  C_p=\left(\frac{\partial H}{\partial T}\right)_p
+  }.
+\]
+
+若热容近似为常数：
+\[
+  \Delta U=\int_{T_1}^{T_2}C_V\dd T,
+  \qquad
+  \Delta H=\int_{T_1}^{T_2}C_p\dd T.
+\]
+
+\begin{FormulaBox}[热容计算的最基本结论]
+\[
+  \Delta U=C_V(T_2-T_1)
+  \quad\text{用于定容过程，或用于理想气体任意过程。}
+\]
+\[
+  \Delta H=C_p(T_2-T_1)
+  \quad\text{用于定压过程，或用于理想气体任意过程。}
+\]
+第二句话成立的前提是理想气体 \(H=H(T)\)。
+\end{FormulaBox}
+
+\section{热力学第一定律对理想气体的应用}
+
+\subsection{理想气体的内能和焓}
+
+理想气体的内能只与温度有关：
+\[
+  \boxed{
+  U=U(T)
+  }.
+\]
+理想气体的焓也只与温度有关：
+\[
+  \boxed{
+  H=H(T)
+  }.
+\]
+
+因此对 \(\nu\) mol 理想气体，
+\[
+  \boxed{
+  \dd U=\nu C_{V,m}\dd T
+  },
+  \qquad
+  \boxed{
+  \dd H=\nu C_{p,m}\dd T
+  }.
+\]
+
+若摩尔热容近似为常数：
+\[
+  \Delta U=\nu C_{V,m}(T_2-T_1),
+  \qquad
+  \Delta H=\nu C_{p,m}(T_2-T_1).
+\]
+
+\subsection{迈耶公式}
+
+对理想气体，
+\[
+  H=U+pV=U+\nu RT.
+\]
+两边对 \(T\) 求导：
+\[
+  \nu C_{p,m}
+  =
+  \nu C_{V,m}+\nu R.
+\]
+故
+\[
+  \boxed{
+  C_{p,m}-C_{V,m}=R
+  }.
+\]
+
+定义热容比
+\[
+  \boxed{
+  \gamma=\frac{C_{p,m}}{C_{V,m}}
+  }.
+\]
+
+由迈耶公式可得
+\[
+  C_{V,m}=\frac{R}{\gamma-1},
+  \qquad
+  C_{p,m}=\frac{\gamma R}{\gamma-1}.
+\]
+
+\begin{WarnBox}[易错点：迈耶公式只适用于理想气体]
+\[
+  C_{p,m}-C_{V,m}=R
+\]
+是理想气体结论。真实气体、液体和固体不能直接套用。
+\end{WarnBox}
+
+\subsection{理想气体等容过程}
+
+等容过程满足
+\[
+  V=\mathrm{const},
+  \qquad
+  W=0.
+\]
+由第一定律：
+\[
+  Q=\Delta U.
+\]
+因此
+\[
+  \boxed{
+  Q=\nu C_{V,m}(T_2-T_1)
+  },
+  \qquad
+  \boxed{
+  W=0
+  }.
+\]
+
+\subsection{理想气体等压过程}
+
+等压过程满足
+\[
+  p=\mathrm{const}.
+\]
+外界对系统做功：
+\[
+  W=-p(V_2-V_1).
+\]
+由理想气体状态方程，
+\[
+  p(V_2-V_1)=\nu R(T_2-T_1),
+\]
+所以
+\[
+  \boxed{
+  W=-\nu R(T_2-T_1)
+  }.
+\]
+
+吸热量：
+\[
+  Q=\Delta H.
+\]
+因此
+\[
+  \boxed{
+  Q=\nu C_{p,m}(T_2-T_1)
+  }.
+\]
+
+内能变化：
+\[
+  \boxed{
+  \Delta U=\nu C_{V,m}(T_2-T_1)
+  }.
+\]
+
+\subsection{理想气体等温过程}
+
+等温过程满足
+\[
+  T=\mathrm{const}.
+\]
+理想气体内能只与温度有关，所以
+\[
+  \boxed{\Delta U=0}.
+\]
+
+由第一定律
+\[
+  \Delta U=Q+W=0,
+\]
+故
+\[
+  \boxed{
+  Q=-W
+  }.
+\]
+
+又
+\[
+  W=-\nu RT\ln\frac{V_2}{V_1},
+\]
+所以
+\[
+  \boxed{
+  Q=\nu RT\ln\frac{V_2}{V_1}
+  }.
+\]
+
+\begin{WarnBox}[等温过程不是绝热过程]
+理想气体等温膨胀时 \(\Delta U=0\)，但气体对外做功，需要从外界吸热补偿。等温不代表不吸热。
+\end{WarnBox}
+
+\subsection{理想气体绝热过程}
+
+绝热过程满足
+\[
+  \boxed{Q=0}.
+\]
+第一定律变为
+\[
+  \dd U=\dbar W.
+\]
+对理想气体：
+\[
+  \nu C_{V,m}\dd T=-p\dd V.
+\]
+
+利用
+\[
+  pV=\nu RT
+\]
+可推得可逆绝热过程方程：
+\[
+  \boxed{
+  pV^\gamma=C_1
+  },
+  \qquad
+  \boxed{
+  TV^{\gamma-1}=C_2
+  },
+  \qquad
+  \boxed{
+  p^{1-\gamma}T^\gamma=C_3
+  }.
+\]
+
+绝热过程中
+\[
+  W=\Delta U,
+\]
+因此
+\[
+  \boxed{
+  W=\nu C_{V,m}(T_2-T_1)
+  }.
+\]
+
+也可写为
+\[
+  W=\frac{p_2V_2-p_1V_1}{\gamma-1}.
+\]
+
+\begin{WarnBox}[绝热线与等温线]
+在同一点的 \(p\)--\(V\) 图上，绝热线比等温线更陡。因为绝热膨胀时气体不吸热，内能下降，温度降低，压强下降得比等温膨胀更快。
+\end{WarnBox}
+
+\subsection{理想气体多方过程}
+
+实际气体过程中常可近似满足
+\[
+  \boxed{
+  pV^n=C
+  }.
+\]
+这种过程称为\concept{多方过程}，其中 \(n\) 称为多方指数。
+
+由理想气体状态方程可得等价形式：
+\[
+  \boxed{
+  TV^{n-1}=C_2
+  },
+  \qquad
+  \boxed{
+  p^{1-n}T^n=C_3
+  }.
+\]
+
+几种特殊情形：
+\[
+  n=0 \Rightarrow p=\mathrm{const}\quad\text{等压过程},
+\]
+\[
+  n=1 \Rightarrow pV=\mathrm{const}\quad\text{等温过程},
+\]
+\[
+  n=\gamma \Rightarrow pV^\gamma=\mathrm{const}\quad\text{绝热过程},
+\]
+\[
+  n\to\infty \Rightarrow V=\mathrm{const}\quad\text{等容过程}.
+\]
+
+\begin{FormulaBox}[多方过程的功]
+当 \(n\ne 1\) 时，
+\[
+  W=-\int_{V_1}^{V_2}p\dd V
+  =
+  \boxed{
+  \frac{p_2V_2-p_1V_1}{n-1}
+  }.
+\]
+利用 \(pV=\nu RT\)，也可写为
+\[
+  \boxed{
+  W=\frac{\nu R(T_2-T_1)}{n-1}
+  }.
+\]
+当 \(n=1\) 时，退化为等温过程：
+\[
+  W=-\nu RT\ln\frac{V_2}{V_1}.
+\]
+\end{FormulaBox}
+
+多方过程摩尔热容定义为
+\[
+  C_{n,m}=\frac{\dbar Q}{\nu\dd T}.
+\]
+由第一定律可得
+\[
+  \boxed{
+  C_{n,m}
+  =
+  C_{V,m}\frac{\gamma-n}{1-n}
+  }.
+\]
+
+\begin{WarnBox}[多方热容的特殊值]
+\[
+  n=0:\quad C_{n,m}=C_{p,m}.
+\]
+\[
+  n=\gamma:\quad C_{n,m}=0.
+\]
+\[
+  n=1:\quad C_{n,m}\to\infty.
+\]
+等温过程温度不变，有限热量对应 \(\dd T=0\)，所以过程热容形式上发散。
+\end{WarnBox}
+
+\section{实际气体：绝热节流与焦耳--汤姆孙效应}
+
+\subsection{节流过程}
+
+\concept{节流过程}是气体通过多孔塞、细孔或节流阀，由高压侧流向低压侧的过程。典型条件是：
+\begin{itemize}
+  \item 管壁绝热；
+  \item 过程前后达到稳定流动状态；
+  \item 气体从高压流向低压。
+\end{itemize}
+
+节流过程不是准静态过程，不能用一条实线过程曲线表示。它通常在热力学坐标图中用虚线连接初末态。
+
+\subsection{节流过程是等焓过程}
+
+设初态为 \(1\)，末态为 \(2\)。绝热节流中
+\[
+  Q=0.
+\]
+外界推动气体进入节流区、气体推出外界所涉及的流动功合并后，可由第一定律得到
+\[
+  U_1+p_1V_1=U_2+p_2V_2.
+\]
+即
+\[
+  \boxed{
+  H_1=H_2
+  }.
+\]
+
+所以节流过程是\concept{等焓过程}。
+
+\begin{WarnBox}[易错点：节流过程不是沿等焓线进行]
+节流过程的初末态焓相等，但中间经过的是非平衡过程，不能说系统沿某条等焓线准静态变化。更准确地说：节流前后两个平衡态满足 \(H_1=H_2\)。
+\end{WarnBox}
+
+\subsection{焦耳--汤姆孙效应}
+
+\concept{焦耳--汤姆孙效应}是指气体在节流过程中温度随压强变化的现象。
+
+定义焦耳--汤姆孙系数：
+\[
+  \boxed{
+  \alpha_i
+  =
+  \left(\frac{\partial T}{\partial p}\right)_H
+  }.
+\]
+
+因为节流过程中压强降低，
+\[
+  \dd p<0.
+\]
+若
+\[
+  \alpha_i>0,
+\]
+则
+\[
+  \dd T=\alpha_i\dd p<0,
+\]
+气体节流后降温。
+
+若
+\[
+  \alpha_i<0,
+\]
+则
+\[
+  \dd T>0,
+\]
+气体节流后升温。
+
+若
+\[
+  \alpha_i=0,
+\]
+节流前后温度不变，对应反转点。
+
+\begin{KeyBox}[焦耳--汤姆孙效应的复习重点]
+热学B不需要把真实气体节流曲线推得太深。重点是：
+\begin{ReviewList}
+  \item 节流过程绝热、非准静态。
+  \item 初末态满足 \(H_1=H_2\)。
+  \item \(\alpha_i=(\partial T/\partial p)_H\) 判断节流后升温还是降温。
+  \item 节流制冷依赖 \(\alpha_i>0\) 的区域。
+\end{ReviewList}
+\end{KeyBox}
+
+\section{循环过程、热机与制冷机}
+
+\subsection{循环过程}
+
+系统经过一系列过程后回到初态，称为循环过程。由于内能为态函数，
+\[
+  \Delta U_{\mathrm{cycle}}=0.
+\]
+由第一定律：
+\[
+  0=Q_{\mathrm{cycle}}+W_{\mathrm{cycle}}.
+\]
+
+若采用系统对外做功 \(W'\) 为正，则
+\[
+  W'=Q_{\mathrm{net}}.
+\]
+
+\begin{WarnBox}[符号切换]
+前面 \(W\) 表示外界对系统做功。讨论热机时，习惯用 \(W'\) 表示系统对外输出的功。两者关系为
+\[
+  W'=-W.
+\]
+\end{WarnBox}
+
+\subsection{热机效率}
+
+热机从高温热源吸收热量 \(Q_1\)，向低温热源放出热量 \(Q_2\)，对外输出功
+\[
+  W'=Q_1-Q_2.
+\]
+热机效率定义为
+\[
+  \boxed{
+  \eta
+  =
+  \frac{W'}{Q_1}
+  =
+  1-\frac{Q_2}{Q_1}
+  }.
+\]
+
+\begin{KeyBox}[正循环与热机]
+热机必须至少与两个热源交换热量。若只有一个热源并把吸收热量全部转化为功，会涉及第二定律问题；第一定律本身只给能量数量关系。
+\end{KeyBox}
+
+\subsection{卡诺循环效率}
+
+卡诺循环由两个等温过程和两个绝热过程组成。设高温热源温度为 \(T_1\)，低温热源温度为 \(T_2\)，则卡诺热机效率为
+\[
+  \boxed{
+  \eta_{\mathrm C}=1-\frac{T_2}{T_1}
+  }.
+\]
+
+这里 \(T_1,T_2\) 必须使用热力学温度，单位为 \(\mathrm K\)。
+
+\begin{WarnBox}[易错点：不能用摄氏温度直接代入卡诺效率]
+卡诺效率公式中的温度必须是绝对温度：
+\[
+  \eta_{\mathrm C}=1-\frac{T_2}{T_1}.
+\]
+若题目给的是摄氏温度，必须先转为开尔文温度。
+\end{WarnBox}
+
+\subsection{奥托循环效率}
+
+奥托循环是理想汽油机循环模型，由两个绝热过程和两个等容过程组成。其热效率为
+\[
+  \boxed{
+  \eta
+  =
+  1-\left(\frac{V_2}{V_1}\right)^{\gamma-1}
+  }.
+\]
+
+若定义压缩比
+\[
+  r=\frac{V_1}{V_2},
+\]
+则
+\[
+  \boxed{
+  \eta=1-\frac{1}{r^{\gamma-1}}
+  }.
+\]
+
+\begin{KeyBox}[奥托循环记忆法]
+奥托循环的吸热和放热都发生在等容过程，因此
+\[
+  Q_1=\nu C_{V,m}(T_3-T_2),
+  \qquad
+  Q_2=\nu C_{V,m}(T_4-T_1).
+\]
+效率从
+\[
+  \eta=1-\frac{Q_2}{Q_1}
+\]
+出发，再利用两段绝热关系化简。
+\end{KeyBox}
+
+\subsection{狄塞尔循环效率}
+
+狄塞尔循环是理想柴油机循环模型，通常包括：
+\begin{itemize}
+  \item 绝热压缩；
+  \item 等压吸热；
+  \item 绝热膨胀；
+  \item 等容放热。
+\end{itemize}
+
+热效率可写为
+\[
+  \eta
+  =
+  1-\frac{Q_2}{Q_1}.
+\]
+其中
+\[
+  Q_1=\nu C_{p,m}(T_3-T_2),
+  \qquad
+  Q_2=\nu C_{V,m}(T_4-T_1).
+\]
+所以
+\[
+  \boxed{
+  \eta
+  =
+  1-\frac{1}{\gamma}\frac{T_4-T_1}{T_3-T_2}
+  }.
+\]
+
+按授课知识要点中体积比形式，也可写为
+\[
+  \boxed{
+  \eta
+  =
+  1-
+  \frac{(V_3/V_2)^\gamma-1}
+  {\gamma (V_1/V_2)^{\gamma-1}(V_3/V_2-1)}
+  }.
+\]
+
+\begin{WarnBox}[奥托与狄塞尔不要混]
+奥托循环：等容吸热、等容放热，用 \(C_V\)。狄塞尔循环：等压吸热、等容放热，吸热用 \(C_p\)，放热用 \(C_V\)。
+\end{WarnBox}
+
+\subsection{制冷机与制冷系数}
+
+制冷机是逆循环装置。它从低温热源吸收热量 \(Q_2\)，向高温热源放出热量 \(Q_1\)，外界需要对其输入功
+\[
+  W=Q_1-Q_2.
+\]
+
+制冷系数定义为
+\[
+  \boxed{
+  \varepsilon
+  =
+  \frac{Q_2}{W}
+  =
+  \frac{Q_2}{Q_1-Q_2}
+  }.
+\]
+
+对逆卡诺循环，
+\[
+  \boxed{
+  \varepsilon_{\mathrm C}
+  =
+  \frac{T_2}{T_1-T_2}
+  }.
+\]
+
+\begin{KeyBox}[热机效率与制冷系数的区别]
+热机效率关心“输入热量中有多少变成对外功”：
+\[
+  \eta=\frac{W'}{Q_1}.
+\]
+制冷系数关心“输入单位功能从低温处搬走多少热量”：
+\[
+  \varepsilon=\frac{Q_2}{W}.
+\]
+制冷系数可以大于 \(1\)，这不违反能量守恒。
+\end{KeyBox}
+
+\section{第二章题型模板}
+
+\subsection{题型一：给定过程求 \(Q,W,\Delta U\)}
+
+\begin{MethodBox}[通用流程]
+\begin{ReviewList}
+  \item 明确过程类型：等容、等压、等温、绝热、多方、循环。
+  \item 先求功：
+  \[
+    W=-\int p\dd V.
+  \]
+  \item 对理想气体先求温度变化：
+  \[
+    \Delta U=\nu C_{V,m}(T_2-T_1).
+  \]
+  \item 最后由第一定律：
+  \[
+    Q=\Delta U-W.
+  \]
+  注意这里 \(W\) 是外界对系统做功。
+\end{ReviewList}
+\end{MethodBox}
+
+\subsection{题型二：理想气体过程速查}
+
+\begin{FormulaBox}[理想气体常见过程]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lXXX@{}}
+\toprule
+过程 & \(W\)：外界对系统做功 & \(\Delta U\) & \(Q\)\\
+\midrule
+等容 & \(0\) & \(\nu C_{V,m}\Delta T\) & \(\nu C_{V,m}\Delta T\)\\[0.5em]
+等压 & \(-\nu R\Delta T\) & \(\nu C_{V,m}\Delta T\) & \(\nu C_{p,m}\Delta T\)\\[0.5em]
+等温 & \(-\nu RT\ln(V_2/V_1)\) & \(0\) & \(\nu RT\ln(V_2/V_1)\)\\[0.5em]
+绝热 & \(\nu C_{V,m}\Delta T\) & \(\nu C_{V,m}\Delta T\) & \(0\)\\[0.5em]
+多方 \(n\ne1\) & \(\dfrac{\nu R\Delta T}{n-1}\) & \(\nu C_{V,m}\Delta T\) & \(\nu C_{n,m}\Delta T\)\\
+\bottomrule
+\end{tabularx}
+\end{FormulaBox}
+
+\subsection{题型三：循环效率}
+
+\begin{MethodBox}[热机效率计算路线]
+\begin{ReviewList}
+  \item 找出吸热过程，计算总吸热 \(Q_1\)。
+  \item 找出放热过程，计算放热量的绝对值 \(Q_2\)。
+  \item 用
+  \[
+    \eta=1-\frac{Q_2}{Q_1}.
+  \]
+  \item 若是卡诺循环，直接用
+  \[
+    \eta=1-\frac{T_2}{T_1}.
+  \]
+\end{ReviewList}
+\end{MethodBox}
+
+\section{第二章公式速查}
+
+\formulatable{
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lXl@{}}
+\toprule
+内容 & 公式 & 条件\\
+\midrule
+准静态体积功 &
+\(\displaystyle \dbar W=-p\dd V,\quad W=-\int_{V_1}^{V_2}p\dd V\)
+& 外界对系统做功\\[0.8em]
+
+热容定义 &
+\(\displaystyle C_L=\left(\frac{\dbar Q}{\dd T}\right)_L\)
+& 指定过程 \(L\)\\[0.8em]
+
+第一定律 &
+\(\displaystyle \dd U=\dbar Q+\dbar W\)
+& 普遍能量守恒\\[0.8em]
+
+只有体积功时 &
+\(\displaystyle \dd U=\dbar Q-p\dd V\)
+& 准静态体积功\\[0.8em]
+
+焓 &
+\(\displaystyle H=U+pV,\quad \dbar Q_p=\dd H\)
+& 等压过程\\[0.8em]
+
+定容热容 &
+\(\displaystyle C_V=\left(\frac{\partial U}{\partial T}\right)_V\)
+& 一般系统\\[0.8em]
+
+定压热容 &
+\(\displaystyle C_p=\left(\frac{\partial H}{\partial T}\right)_p\)
+& 一般系统\\[0.8em]
+
+理想气体内能 &
+\(\displaystyle U=U(T),\quad \dd U=\nu C_{V,m}\dd T\)
+& 理想气体\\[0.8em]
+
+理想气体焓 &
+\(\displaystyle H=H(T),\quad \dd H=\nu C_{p,m}\dd T\)
+& 理想气体\\[0.8em]
+
+迈耶公式 &
+\(\displaystyle C_{p,m}-C_{V,m}=R\)
+& 理想气体\\[0.8em]
+
+绝热过程 &
+\(\displaystyle pV^\gamma=C_1,\quad TV^{\gamma-1}=C_2,\quad p^{1-\gamma}T^\gamma=C_3\)
+& 理想气体可逆绝热\\[1em]
+
+多方过程 &
+\(\displaystyle pV^n=C,\quad C_{n,m}=C_{V,m}\frac{\gamma-n}{1-n}\)
+& 理想气体\\[1em]
+
+节流过程 &
+\(\displaystyle H_1=H_2,\quad \alpha_i=\left(\frac{\partial T}{\partial p}\right)_H\)
+& 绝热节流\\[1em]
+
+热机效率 &
+\(\displaystyle \eta=\frac{W'}{Q_1}=1-\frac{Q_2}{Q_1}\)
+& 正循环\\[0.8em]
+
+卡诺效率 &
+\(\displaystyle \eta_{\mathrm C}=1-\frac{T_2}{T_1}\)
+& 可逆卡诺热机\\[0.8em]
+
+制冷系数 &
+\(\displaystyle \varepsilon=\frac{Q_2}{W}=\frac{Q_2}{Q_1-Q_2}\)
+& 逆循环\\[0.8em]
+
+卡诺制冷系数 &
+\(\displaystyle \varepsilon_{\mathrm C}=\frac{T_2}{T_1-T_2}\)
+& 逆卡诺循环\\
+\bottomrule
+\end{tabularx}
+}
+
+\section{第二章易错点总表}
+
+\begin{WarnBox}[本章高频错误]
+\begin{PitfallList}
+  \item 混淆“外界对系统做功”和“系统对外做功”的符号。本资料默认 \(W\) 为外界对系统做功。
+  \item 把功和热量当成状态函数。功、热量都是过程量，不能写成态函数差值。
+  \item 非准静态过程直接用 \(W=-\int p\dd V\)。非准静态过程一般不能用系统内部压强 \(p\) 积分。
+  \item 忘记等容过程 \(W=0\)，等温理想气体过程 \(\Delta U=0\)，绝热过程 \(Q=0\)。
+  \item 把理想气体的 \(U=U(T)\) 用到真实气体上。真实气体内能一般与 \(T,V\) 都有关。
+  \item 把 \(C_p-C_V=R\) 用到非理想气体、液体或固体上。
+  \item 绝热方程 \(pV^\gamma=\mathrm{const}\) 只适用于理想气体可逆绝热过程。
+  \item 多方过程中 \(n=1\) 是等温过程，不能直接套 \(W=\nu R\Delta T/(n-1)\)。
+  \item 节流过程只保证初末态等焓，不是准静态地沿等焓线变化。
+  \item 卡诺效率和卡诺制冷系数中的温度必须使用开尔文温度。
+  \item 制冷系数可以大于 \(1\)，这不是错误，也不违反第一定律。
+\end{PitfallList}
+\end{WarnBox}
+
+\section{第二章复习路线}
+
+\begin{MethodBox}[建议背诵顺序]
+\begin{ReviewList}
+  \item 先确定符号约定：外界对系统做功 \(W=-\int p\dd V\)。
+  \item 再背第一定律：\(\dd U=\dbar Q+\dbar W\)。
+  \item 再背态函数与过程量：\(U,H\) 是态函数，\(Q,W\) 是过程量。
+  \item 再背热容定义：\(C_V=(\partial U/\partial T)_V\)，\(C_p=(\partial H/\partial T)_p\)。
+  \item 再背理想气体结论：\(U=U(T)\)，\(H=H(T)\)，\(C_{p,m}-C_{V,m}=R\)。
+  \item 再整理五类过程：等容、等压、等温、绝热、多方。
+  \item 最后看循环：\(\eta=1-Q_2/Q_1\)，\(\varepsilon=Q_2/(Q_1-Q_2)\)。
+\end{ReviewList}
+\end{MethodBox}
+
+\begin{KeyBox}[第二章一句话总结]
+第二章的核心计算逻辑是：先判断过程，再算功和内能变化，最后用第一定律补出热量。所有复杂题本质上都在反复使用
+\[
+  \dd U=\dbar Q-p\dd V
+\]
+以及理想气体的
+\[
+  \Delta U=\nu C_{V,m}\Delta T.
+\]
+\end{KeyBox}

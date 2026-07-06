@@ -1,0 +1,425 @@
+% macros.tex
+% 课程语义命令、常用公式命令与复习资料专用环境。
+
+% ---------- 文档信息 ----------
+\newcommand{\USTC}{中国科学技术大学}
+\newcommand{\CourseName}{热学B}
+\newcommand{\DocTitle}{\USTC《\CourseName》复习资料}
+\newcommand{\DocVersion}{2026.1}
+
+% 作者信息
+\newcommand{\DocAuthor}{寒初晓}
+\newcommand{\DocAuthorInfo}{中国科学技术大学 \quad 近代物理系}
+
+% ---------- 封面 ----------
+\newcommand{\makecoursecover}{%
+  \begin{titlepage}
+    \thispagestyle{empty}
+
+    \vspace*{1.9cm}
+
+    \begin{flushleft}
+      {\color{USTCBlue}\rule{0.20\textwidth}{2.2pt}\par}
+
+      \vspace{1.35cm}
+
+      {\zihao{-4}\color{Gray}\textsf{THERMAL PHYSICS B}\par}
+
+      \vspace{0.55cm}
+
+      {\zihao{0}\bfseries 中国科学技术大学\par}
+
+      \vspace{0.35cm}
+
+      {\zihao{1}\bfseries 《热学B》复习资料\par}
+    \end{flushleft}
+
+    \begin{flushleft}
+      \renewcommand{\arraystretch}{1.55}
+      \begin{tabular}{@{}p{0.20\textwidth}p{0.70\textwidth}@{}}
+        \textcolor{Gray}{版本} &
+        \DocVersion \\
+      \end{tabular}
+    \end{flushleft}
+
+    \vfill
+
+    \begin{flushleft}
+      {\color{USTCBlue}\rule{\textwidth}{0.7pt}\par}
+
+      \vspace{0.45cm}
+
+      {\zihao{5}\color{Gray}
+      \DocAuthor
+      \par}
+
+      \vspace{0.15cm}
+
+      {\zihao{5}\color{Gray}
+      \DocAuthorInfo
+      \par}
+
+      \vspace{0.15cm}
+
+      {\zihao{5}\color{Gray}
+      \today
+      \par}
+    \end{flushleft}
+
+  \end{titlepage}
+}
+
+% ---------- 微分、偏导与过程量 ----------
+\newcommand{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand{\dbar}{\mathop{}\!\bar{\mathrm{d}}}
+
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdc}[3]{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}
+
+\newcommand{\od}[2]{\frac{\dd #1}{\dd #2}}
+\newcommand{\evalat}[2]{\left.#1\right|_{#2}}
+
+% ---------- 常用热学量 ----------
+\newcommand{\kB}{k_{\mathrm B}}
+\newcommand{\NA}{N_{\mathrm A}}
+
+\newcommand{\Cv}{C_V}
+\newcommand{\Cp}{C_p}
+\newcommand{\Cvm}{C_{V,m}}
+\newcommand{\Cpm}{C_{p,m}}
+
+\newcommand{\gam}{\gamma}
+
+\newcommand{\avg}[1]{\left\langle #1 \right\rangle}
+
+\newcommand{\vrms}{v_{\mathrm{rms}}}
+\newcommand{\vmp}{v_{\mathrm p}}
+\newcommand{\vmean}{\bar v}
+
+\newcommand{\eps}{\varepsilon}
+
+% ---------- 复习资料语义环境 ----------
+\newenvironment{ReviewList}
+  {\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=2.5em]}
+  {\end{enumerate}}
+
+\newenvironment{ConditionList}
+  {\begin{itemize}[label=\textcolor{USTCBlue}{\ensuremath{\blacktriangleright}},leftmargin=2.2em]}
+  {\end{itemize}}
+
+\newenvironment{PitfallList}
+  {\begin{itemize}[label=\textcolor{WarnRed}{\ensuremath{\times}},leftmargin=2.2em]}
+  {\end{itemize}}
+
+\newcommand{\concept}[1]{\textbf{\color{USTCBlue}#1}}
+\newcommand{\keyword}[1]{\textbf{#1}}
+\newcommand{\condition}[1]{\textit{适用条件：#1}}
+\newcommand{\exam}[1]{\textcolor{WarnRed}{\textbf{考点：}#1}}
+\newcommand{\sourcepdf}[1]{\par\smallskip\noindent\textcolor{Gray}{\small 来源参考：#1}}
+
+\newcommand{\notA}{\textbf{注意：本资料按《热学B》范围整理，不按《热学A》额外拔高。}}
+
+% ---------- 课程核心公式快捷命令 ----------
+
+% 热力学基础
+\newcommand{\IdealGas}{pV=\nu RT=Nk_{\mathrm B}T}
+\newcommand{\VanDerWaals}{\left(p+\dfrac{\nu^2 a}{V^2}\right)(V-\nu b)=\nu RT}
+
+% 第一章、第二章常用
+\newcommand{\FirstLaw}{\dd U=\dbar Q+\dbar W}
+\newcommand{\QuasiWork}{\dbar W=-p\dd V}
+\newcommand{\HeatCapacityDef}{C_L=\left(\dfrac{\dbar Q}{\dd T}\right)_L}
+\newcommand{\EnthalpyDef}{H=U+pV}
+
+% 理想气体过程
+\newcommand{\AdiabaticIdeal}{
+  pV^{\gamma}=\mathrm{const},\quad
+  TV^{\gamma-1}=\mathrm{const},\quad
+  p^{1-\gamma}T^{\gamma}=\mathrm{const}
+}
+
+% 第二定律与熵
+\newcommand{\EntropyDef}{\dd S=\dfrac{\dbar Q_{\mathrm{rev}}}{T}}
+\newcommand{\ClausiusIneq}{\oint\dfrac{\dbar Q}{T}\le 0}
+\newcommand{\BoltzmannEntropy}{S=\kB\ln W}
+
+% 麦克斯韦--玻尔兹曼分布
+\newcommand{\PressureKinetic}{p=\dfrac{1}{3}nm\avg{v^2}=\dfrac{2}{3}n\avg{\varepsilon_k}}
+\newcommand{\MeanKinetic}{\avg{\varepsilon_k}=\dfrac{3}{2}\kB T}
+
+% 输运过程
+\newcommand{\FourierLaw}{j_Q=-\kappa\od{T}{z}}
+
+% 相变与液体表面性质
+\newcommand{\Clapeyron}{\od{p}{T}=\dfrac{l}{T(v_2-v_1)}}
+\newcommand{\CapillaryRise}{h=\dfrac{2\sigma\cos\theta}{\rho g r}}
+
+% ---------- 公式卡片快捷结构 ----------
+\newcommand{\FormulaCard}[4]{%
+  \begin{FormulaBox}[#1]
+  \begin{align*}
+    #2
+  \end{align*}
+  \condition{#3}
+  \par\smallskip
+  \textbf{复习提示：}#4
+  \end{FormulaBox}
+}
+
+\newcommand{\Pitfall}[2]{%
+  \begin{WarnBox}[#1]
+  #2
+  \end{WarnBox}
+}
+
+\newcommand{\Method}[2]{%
+  \begin{MethodBox}[#1]
+  #2
+  \end{MethodBox}
+}
+
+% ---------- 占位命令：方便后续批量写章节 ----------
+\newcommand{\chaptergoal}[1]{%
+  \begin{KeyBox}[本章目标]
+  #1
+  \end{KeyBox}
+}
+
+\newcommand{\exammap}[1]{%
+  \begin{MethodBox}[考点地图]
+  #1
+  \end{MethodBox}
+}
+
+\newcommand{\formulatable}[1]{%
+  \begin{FormulaBox}[公式速查]
+  #1
+  \end{FormulaBox}
+}
+
+% ---------- 第二章：热力学第一定律常用命令 ----------
+
+% 功的两种符号习惯：本资料默认 W 为外界对系统做功
+\newcommand{\WorkOnSystem}{\dbar W=-p\dd V}
+\newcommand{\WorkBySystem}{\dbar W_{\mathrm{by}}=p\dd V}
+
+% 第一定律与焓
+\newcommand{\FirstLawFull}{\dd U=\dbar Q+\dbar W=\dbar Q-p\dd V}
+\newcommand{\Mayer}{C_{p,m}-C_{V,m}=R}
+
+% 理想气体内能、焓
+\newcommand{\IdealDU}{\dd U=\nu C_{V,m}\dd T}
+\newcommand{\IdealDH}{\dd H=\nu C_{p,m}\dd T}
+
+% 理想气体等温、绝热、多方过程
+\newcommand{\IsoThermalWorkOn}{W=-\nu RT\ln\frac{V_2}{V_1}}
+\newcommand{\AdiabaticWorkOn}{W=\Delta U=\nu C_{V,m}(T_2-T_1)}
+\newcommand{\PolyProcess}{pV^n=\mathrm{const}}
+\newcommand{\PolyHeatCapacity}{C_{n,m}=C_{V,m}\frac{\gamma-n}{1-n}}
+
+% 循环、热机、制冷机
+\newcommand{\EngineEff}{\eta=\frac{W'}{Q_1}=1-\frac{Q_2}{Q_1}}
+\newcommand{\CarnotEff}{\eta_{\mathrm C}=1-\frac{T_2}{T_1}}
+\newcommand{\COP}{\varepsilon=\frac{Q_2}{W}=\frac{Q_2}{Q_1-Q_2}}
+\newcommand{\CarnotCOP}{\varepsilon_{\mathrm C}=\frac{T_2}{T_1-T_2}}
+
+% 焦耳--汤姆孙系数
+\newcommand{\JTcoef}{\alpha_i=\left(\frac{\partial T}{\partial p}\right)_H}
+
+% ---------- 第三章：热力学第二定律与熵常用命令 ----------
+
+% 第二定律、克劳修斯关系与熵
+\newcommand{\ClausiusEq}{\oint_{\mathrm{rev}}\frac{\dbar Q}{T}=0}
+\newcommand{\ClausiusGeneral}{\oint\frac{\dbar Q}{T}\le 0}
+\newcommand{\EntropyIntegral}{\Delta S=S_b-S_a=\int_a^b\frac{\dbar Q_{\mathrm{rev}}}{T}}
+\newcommand{\EntropyIneq}{\dd S\ge \frac{\dbar Q}{T}}
+\newcommand{\IsolatedEntropy}{\Delta S_{\mathrm{isolated}}\ge 0}
+
+% 理想气体熵变
+\newcommand{\IdealEntropyTV}{\Delta S=\nu C_{V,m}\ln\frac{T_2}{T_1}+\nu R\ln\frac{V_2}{V_1}}
+\newcommand{\IdealEntropyTp}{\Delta S=\nu C_{p,m}\ln\frac{T_2}{T_1}-\nu R\ln\frac{p_2}{p_1}}
+\newcommand{\IdealEntropypV}{\Delta S=\nu C_{V,m}\ln\frac{p_2}{p_1}+\nu C_{p,m}\ln\frac{V_2}{V_1}}
+
+% 卡诺热机、卡诺制冷机
+\newcommand{\CarnotHeatRatio}{\frac{Q_2}{Q_1}=\frac{T_2}{T_1}}
+\newcommand{\TSarea}{W'=\oint T\dd S}
+
+% ---------- 第四章：麦克斯韦--玻尔兹曼分布律常用命令 ----------
+
+% 麦克斯韦速度与速率分布
+\newcommand{\MaxwellComponent}{
+  f(v_x)=\left(\frac{m}{2\pi k_{\mathrm B}T}\right)^{1/2}
+  \exp\left(-\frac{mv_x^2}{2k_{\mathrm B}T}\right)
+}
+
+\newcommand{\MaxwellVelocity}{
+  f(v_x,v_y,v_z)=
+  \left(\frac{m}{2\pi k_{\mathrm B}T}\right)^{3/2}
+  \exp\left[-\frac{m(v_x^2+v_y^2+v_z^2)}{2k_{\mathrm B}T}\right]
+}
+
+\newcommand{\MaxwellSpeed}{
+  f(v)=4\pi
+  \left(\frac{m}{2\pi k_{\mathrm B}T}\right)^{3/2}
+  v^2
+  \exp\left(-\frac{mv^2}{2k_{\mathrm B}T}\right)
+}
+
+\newcommand{\MostProbSpeed}{
+  v_{\mathrm p}=\sqrt{\frac{2k_{\mathrm B}T}{m}}
+  =\sqrt{\frac{2RT}{\mu}}
+}
+
+\newcommand{\MeanSpeed}{
+  \bar v=\sqrt{\frac{8k_{\mathrm B}T}{\pi m}}
+  =\sqrt{\frac{8RT}{\pi\mu}}
+}
+
+\newcommand{\RmsSpeed}{
+  v_{\mathrm{rms}}=\sqrt{\overline{v^2}}
+  =\sqrt{\frac{3k_{\mathrm B}T}{m}}
+  =\sqrt{\frac{3RT}{\mu}}
+}
+
+% 碰壁数与泻流
+\newcommand{\CollisionRate}{
+  G=\frac{1}{4}n\bar v
+}
+
+\newcommand{\EffusionRate}{
+  \frac{\Delta N}{\Delta t}=\frac{1}{4}n\bar v A
+}
+
+% 玻尔兹曼分布
+\newcommand{\BoltzmannDist}{
+  n(\bm r)=n_0\exp\left[-\frac{\varepsilon_p(\bm r)}{k_{\mathrm B}T}\right]
+}
+
+\newcommand{\BarometricFormula}{
+  n(z)=n_0\exp\left(-\frac{mgz}{k_{\mathrm B}T}\right),
+  \qquad
+  p(z)=p_0\exp\left(-\frac{\mu gz}{RT}\right)
+}
+
+% 能量均分
+\newcommand{\Equipartition}{
+  \overline{\varepsilon_i}=\frac{1}{2}k_{\mathrm B}T
+}
+
+\newcommand{\MolecularEnergy}{
+  \bar\varepsilon=\frac{i}{2}k_{\mathrm B}T
+}
+
+\newcommand{\IdealCvFromFreedom}{
+  C_{V,m}=\frac{i}{2}R
+}
+
+% ---------- 第五章：气体中的输运过程常用命令 ----------
+
+% 宏观输运规律
+\newcommand{\FourierTransport}{
+  \frac{\Delta Q}{\Delta t}
+  =
+  -\kappa\frac{\dd T}{\dd z}\Delta S
+}
+
+\newcommand{\NewtonViscosity}{
+  f
+  =
+  -\eta\frac{\dd u}{\dd z}\Delta S
+}
+
+\newcommand{\FickLaw}{
+  \frac{\Delta N}{\Delta t}
+  =
+  -D\frac{\dd n}{\dd z}\Delta S
+}
+
+% 输运系数的微观表达
+\newcommand{\ThermalConductivity}{
+  \kappa=\frac13\lambda\rho c_V\bar v
+}
+
+\newcommand{\ViscosityCoeff}{
+  \eta=\frac13\lambda\rho\bar v
+}
+
+\newcommand{\DiffusionCoeff}{
+  D=\frac13\lambda\bar v
+}
+
+% 平均自由程与碰撞频率
+\newcommand{\MeanFreePath}{
+  \lambda=\frac{1}{\sqrt{2}\pi d^2 n}
+}
+
+\newcommand{\CollisionFreq}{
+  Z=\frac{\bar v}{\lambda}
+  =
+  \sqrt{2}\pi d^2n\bar v
+}
+
+% 输运系数与压强、温度的近似关系
+\newcommand{\KappaPressureIndep}{
+  \kappa\sim \frac13\lambda\rho c_V\bar v
+}
+
+\newcommand{\EtaPressureIndep}{
+  \eta\sim \frac13\lambda\rho\bar v
+}
+
+\newcommand{\DPressureRelation}{
+  D\sim \frac13\lambda\bar v
+}
+
+% ---------- 第六章：固、液体性质简介与相变常用命令 ----------
+
+% 固体热容量
+\newcommand{\DulongPetit}{
+  C_{V,m}\approx 3R
+}
+
+% 表面张力
+\newcommand{\SurfaceForce}{
+  f=\sigma l
+}
+
+\newcommand{\SurfaceWork}{
+  \Delta A=\sigma\Delta S
+}
+
+% 弯曲液面附加压强
+\newcommand{\LaplaceSphere}{
+  \Delta p=\frac{2\sigma}{R}
+}
+
+\newcommand{\LaplaceCylinder}{
+  \Delta p=\frac{\sigma}{R}
+}
+
+% 毛细现象
+\newcommand{\CapillaryFormula}{
+  h=\frac{2\sigma\cos\theta}{\rho gr}
+}
+
+% 克拉珀龙方程
+\newcommand{\ClapeyronEq}{
+  \frac{\dd p}{\dd T}=\frac{l}{T(v_2-v_1)}
+}
+
+% 克劳修斯--克拉珀龙近似
+\newcommand{\ClausiusClapeyron}{
+  \frac{\dd p}{\dd T}=\frac{lp}{RT^2}
+}
+
+\newcommand{\ClausiusClapeyronInt}{
+  \ln p=-\frac{l}{RT}+C
+}
+
+% ---------- 总结部分常用命令 ----------
+
+\newcommand{\finalnote}[1]{%
+  \begin{KeyBox}[最后提醒]
+  #1
+  \end{KeyBox}
+}

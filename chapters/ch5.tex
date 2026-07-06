@@ -1,0 +1,740 @@
+\chapter{气体中的输运过程}
+
+\chaptergoal{
+本章讨论气体处于非平衡态时，由分子热运动和分子间碰撞导致的宏观输运现象。复习核心是把三种过程统一起来看：温度不均匀导致热量输运，流速不均匀导致动量输运，组分数密度不均匀导致分子数输运。宏观上对应傅里叶定律、牛顿黏性定律、菲克定律；微观上对应平均自由程、平均速率和分子碰撞。
+}
+
+\exammap{
+\begin{ReviewList}
+  \item \textbf{会识别：}热传导、黏滞、扩散分别输运什么物理量。
+  \item \textbf{会写宏观规律：}傅里叶热传导定律、牛顿黏性定律、菲克扩散定律。
+  \item \textbf{会解释负号：}输运总是沿着使不均匀性减弱的方向进行，即沿负梯度方向。
+  \item \textbf{会用微观图像：}分子热运动造成跨层转移，分子碰撞限制输运强弱。
+  \item \textbf{会背输运系数：}\(\kappa=\frac13\lambda\rho c_V\bar v\)，\(\eta=\frac13\lambda\rho\bar v\)，\(D=\frac13\lambda\bar v\)。
+  \item \textbf{会判断压强依赖：}普通稀薄气体中 \(\kappa,\eta\) 近似与压强无关，\(D\) 与压强近似成反比。
+  \item \textbf{会辨析：}极稀薄气体中平均自由程可与容器尺寸相比，普通输运系数公式不再适用。
+\end{ReviewList}
+}
+
+\section{输运现象的基本图像}
+
+\subsection{什么是输运过程}
+
+\concept{输运现象}是指系统处于非平衡态时，由于某种物理量空间分布不均匀，导致该物理量出现宏观流动的现象。气体中的典型输运过程包括：
+\begin{ReviewList}
+  \item \concept{热传导过程}：温度不均匀导致热量输运。
+  \item \concept{黏滞过程}：宏观定向流速不均匀导致动量输运。
+  \item \concept{扩散过程}：组分数密度不均匀导致分子数输运。
+\end{ReviewList}
+
+\begin{KeyBox}[输运过程的一句话理解]
+输运过程的共同作用是消除不均匀性：温度差趋于消失，流速差趋于消失，浓度差趋于消失。
+\end{KeyBox}
+
+\subsection{三种输运现象的类比}
+
+\begin{FormulaBox}[三种输运过程的统一结构]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lCCC@{}}
+\toprule
+类型 & 热传导 & 黏滞 & 扩散\\
+\midrule
+不均匀量 & 温度 \(T\) & 定向流速 \(u\) & 数密度 \(n\)\\
+梯度 & \(\dd T/\dd z\) & \(\dd u/\dd z\) & \(\dd n/\dd z\)\\
+输运量 & 热量 \(Q\) & 定向动量 \(p_x\) & 分子数 \(N\)\\
+输运系数 & \(\kappa\) & \(\eta\) & \(D\)\\
+宏观规律 & 傅里叶定律 & 牛顿黏性定律 & 菲克定律\\
+\bottomrule
+\end{tabularx}
+\end{FormulaBox}
+
+三个输运系数均为正值。公式中的负号表示输运方向与对应物理量梯度方向相反，即沿着使不均匀性减弱的方向输运。
+
+\begin{WarnBox}[易错点：梯度方向和输运方向相反]
+若 \(T\) 随 \(z\) 增大而增大，则 \(\dd T/\dd z>0\)，热量沿 \(-z\) 方向流动。负号不是数学装饰，而是物理方向。
+\end{WarnBox}
+
+\section{热传导的宏观规律}
+
+\subsection{热传导现象}
+
+\concept{热传导}是指系统内部不同部分之间，或系统与外界之间存在温度差时，热量从温度较高处传递到温度较低处的现象。
+
+考虑气体夹在两个恒温热源之间，上方温度为 \(T_1\)，下方温度为 \(T_2\)，且 \(T_1>T_2\)。若沿 \(z\) 方向存在温度梯度，则通过垂直于 \(z\) 轴的面积 \(\Delta S\) 的热量遵循傅里叶定律。
+
+\subsection{傅里叶热传导定律}
+
+\begin{FormulaBox}[傅里叶定律]
+\[
+  \boxed{
+  \frac{\Delta Q}{\Delta t}
+  =
+  -\kappa
+  \left(\frac{\dd T}{\dd z}\right)_{z_0}
+  \Delta S
+  }
+\]
+或写成热流密度：
+\[
+  \boxed{
+  j_Q
+  =
+  \frac{1}{\Delta S}\frac{\Delta Q}{\Delta t}
+  =
+  -\kappa\frac{\dd T}{\dd z}
+  }.
+\]
+\end{FormulaBox}
+
+其中 \(\kappa\) 称为\concept{热传导系数}，单位为
+\[
+  \mathrm{W\cdot m^{-1}\cdot K^{-1}}.
+\]
+\(\kappa\) 越大，物质导热能力越强。
+
+\begin{KeyBox}[傅里叶定律的物理含义]
+单位时间通过单位面积输运的热量，与温度梯度成正比；热量从高温处流向低温处。
+\end{KeyBox}
+
+\subsection{平板稳态导热}
+
+若两块平行板之间距离为 \(L\)，温度分别为 \(T_1,T_2\)，并且温度梯度近似均匀，则
+\[
+  \frac{\dd T}{\dd z}\approx \frac{T_2-T_1}{L}.
+\]
+热流率大小为
+\[
+  \boxed{
+  \frac{\Delta Q}{\Delta t}
+  =
+  \kappa\frac{T_1-T_2}{L}\Delta S
+  }.
+\]
+
+若导热持续时间为 \(\Delta t\)，则传递热量为
+\[
+  \boxed{
+  \Delta Q
+  =
+  \kappa\frac{T_1-T_2}{L}\Delta S\,\Delta t
+  }.
+\]
+
+\begin{WarnBox}[热传导题常见错误]
+如果题目问的是“热量”，要乘以时间 \(\Delta t\)；如果问的是“热流率”或“单位时间传热量”，不要再乘时间。
+\end{WarnBox}
+
+\section{黏滞现象的宏观规律}
+
+\subsection{黏滞现象}
+
+\concept{黏滞现象}是指流体内部不同流层流速不同时，相邻流层之间出现切向相互作用的现象。其结果是：快流层被减速，慢流层被加速，流速不均匀性逐渐减弱。
+
+典型模型是两块平行板之间夹有气体。下板静止，上板以速度 \(u_1\) 沿 \(x\) 方向运动。气体流速 \(u\) 随垂直方向 \(z\) 改变，因此存在速度梯度
+\[
+  \frac{\dd u}{\dd z}.
+\]
+
+\subsection{牛顿黏性定律}
+
+\begin{FormulaBox}[牛顿黏性定律]
+若在 \(z=z_0\) 处取面积为 \(\Delta S\) 的流体层，则该层间的黏滞力为
+\[
+  \boxed{
+  f
+  =
+  -\eta
+  \left(\frac{\dd u}{\dd z}\right)_{z_0}
+  \Delta S
+  }.
+\]
+也可写为切应力：
+\[
+  \boxed{
+  \tau
+  =
+  \frac{f}{\Delta S}
+  =
+  -\eta\frac{\dd u}{\dd z}
+  }.
+\]
+\end{FormulaBox}
+
+其中 \(\eta\) 称为\concept{黏滞系数}或动力黏度，单位为
+\[
+  \mathrm{Pa\cdot s}.
+\]
+
+\begin{KeyBox}[黏滞的物理含义]
+黏滞力本质上对应定向动量的输运。分子从快流层跑到慢流层，会把较大的定向动量带过去；分子从慢流层跑到快流层，会把较小的定向动量带过去。结果是快层减速，慢层加速。
+\end{KeyBox}
+
+\subsection{平板间线性速度分布}
+
+若两平行板间距为 \(L\)，上板速度为 \(u_1\)，下板静止，且速度分布近似线性，则
+\[
+  \frac{\dd u}{\dd z}\approx \frac{u_1}{L}.
+\]
+黏滞力大小为
+\[
+  \boxed{
+  f
+  =
+  \eta\frac{u_1}{L}\Delta S
+  }.
+\]
+
+\begin{WarnBox}[黏滞力的方向]
+公式中的负号表示黏滞力总是阻碍相对运动。做题时若只求大小，可取
+\[
+  |f|=\eta\left|\frac{\dd u}{\dd z}\right|\Delta S.
+\]
+若要求方向，必须结合流速梯度判断。
+\end{WarnBox}
+
+\section{扩散现象的宏观规律}
+
+\subsection{扩散现象}
+
+\concept{扩散}是指由于组分分子数密度不均匀，分子从数密度较高处向数密度较低处迁移的现象。扩散的结果是组分分布趋于均匀。
+
+设某种组分的数密度为 \(n(z)\)，沿 \(z\) 方向存在数密度梯度：
+\[
+  \frac{\dd n}{\dd z}.
+\]
+
+\subsection{菲克定律}
+
+\begin{FormulaBox}[菲克定律]
+通过面积 \(\Delta S\) 的分子数输运率为
+\[
+  \boxed{
+  \frac{\Delta N}{\Delta t}
+  =
+  -D
+  \left(\frac{\dd n}{\dd z}\right)_{z_0}
+  \Delta S
+  }.
+\]
+分子数流密度为
+\[
+  \boxed{
+  j_N
+  =
+  \frac{1}{\Delta S}\frac{\Delta N}{\Delta t}
+  =
+  -D\frac{\dd n}{\dd z}
+  }.
+\]
+\end{FormulaBox}
+
+其中 \(D\) 称为\concept{扩散系数}，单位为
+\[
+  \mathrm{m^2/s}.
+\]
+
+\begin{KeyBox}[扩散的物理含义]
+扩散并不要求存在宏观风速。即使气体整体没有定向流动，分子无规则热运动仍会使高数密度区域的分子更多地穿过某一截面，从而形成净扩散流。
+\end{KeyBox}
+
+\subsection{扩散与热传导、黏滞的共同点}
+
+\begin{FormulaBox}[三种宏观规律的统一形式]
+\[
+  \text{输运流密度}
+  =
+  -
+  \text{输运系数}
+  \times
+  \text{对应物理量的梯度}.
+\]
+具体地：
+\[
+  j_Q=-\kappa\frac{\dd T}{\dd z},
+  \qquad
+  \tau=-\eta\frac{\dd u}{\dd z},
+  \qquad
+  j_N=-D\frac{\dd n}{\dd z}.
+\]
+\end{FormulaBox}
+
+\begin{WarnBox}[扩散不是对流]
+扩散来自分子无规则热运动导致的组分迁移；对流是流体整体宏观运动导致的物质输运。二者可以同时存在，但概念不同。
+\end{WarnBox}
+
+\section{气体输运过程的微观解释}
+
+\subsection{微观机制}
+
+气体输运过程来自两个微观因素：
+\begin{ReviewList}
+  \item \concept{分子的热运动}：使分子能够从一个空间区域移动到另一个区域，从而携带能量、动量或分子数穿过某一截面。
+  \item \concept{分子间碰撞}：不断改变分子运动方向和携带信息的距离，决定输运过程强弱。
+\end{ReviewList}
+
+若没有分子热运动，就没有跨层转移；若没有分子间碰撞，分子会直接飞到器壁，普通气体输运模型也会失效。
+
+\begin{KeyBox}[平均自由程的作用]
+平均自由程 \(\lambda\) 表示分子两次相邻碰撞之间运动路程的平均值。它决定分子大致从多远的地方把能量、动量或数密度信息带到当前截面。
+\end{KeyBox}
+
+\subsection{平均自由程与碰撞频率}
+
+对分子直径为 \(d\)、数密度为 \(n\) 的理想气体，平均自由程近似为
+\[
+  \boxed{
+  \lambda=\frac{1}{\sqrt{2}\pi d^2n}
+  }.
+\]
+
+平均碰撞频率可写为
+\[
+  \boxed{
+  Z=\frac{\bar v}{\lambda}
+  =
+  \sqrt{2}\pi d^2n\bar v
+  }.
+\]
+
+由理想气体状态方程
+\[
+  p=nk_{\mathrm B}T
+\]
+可知，在温度一定时，
+\[
+  n\propto p,
+  \qquad
+  \lambda\propto \frac1p.
+\]
+
+\begin{WarnBox}[平均自由程的压强依赖]
+温度一定时，压强越低，分子数密度越小，平均自由程越大。高真空下，\(\lambda\) 可能变得和容器尺寸同量级，这时普通输运公式要谨慎使用。
+\end{WarnBox}
+
+\subsection{统一的输运公式}
+
+设某物理量 \(W\) 的体密度可写成
+\[
+  nW.
+\]
+其中 \(W\) 表示单个分子携带的某种物理量，例如能量、定向动量或组分标记。分子热运动使这些量跨过面积 \(\Delta S\) 输运。经过平均自由程近似处理，可以得到统一形式：
+\[
+  \boxed{
+  \frac{\Delta W_{\mathrm{total}}}{\Delta t}
+  =
+  -\frac13\bar v\lambda
+  \frac{\dd (nW)}{\dd z}
+  \Delta S
+  }.
+\]
+
+三种输运过程都可看作这个公式的特例。
+
+\begin{KeyBox}[为什么有 \(\frac13\)]
+因分子运动在三维空间中各向同性，只有一部分速度分量有效地穿过给定截面。严格平均后出现数量级因子 \(\frac13\)。热学B复习中重点是理解它来自三维无规则运动的方向平均，不必深究复杂积分。
+\end{KeyBox}
+
+\section{三种输运系数的微观表达}
+
+\subsection{热传导系数}
+
+热传导中，分子携带的是热运动能量。单位质量定容比热为 \(c_V\)，质量密度为 \(\rho\)。分子能量密度与温度有关，可写成
+\[
+  \rho c_VT.
+\]
+由统一输运公式得到
+\[
+  \frac{\Delta Q}{\Delta t}
+  =
+  -\frac13\lambda\bar v\rho c_V
+  \frac{\dd T}{\dd z}\Delta S.
+\]
+与傅里叶定律比较：
+\[
+  \frac{\Delta Q}{\Delta t}
+  =
+  -\kappa\frac{\dd T}{\dd z}\Delta S.
+\]
+得到
+\[
+  \boxed{
+  \kappa=\frac13\lambda\rho c_V\bar v
+  }.
+\]
+
+\begin{KeyBox}[热传导系数的含义]
+\(\lambda\) 越大，分子能把能量带得越远；\(\bar v\) 越大，分子带能量穿过截面越快；\(\rho c_V\) 越大，单位体积单位温差可携带的热量越多。
+\end{KeyBox}
+
+\subsection{黏滞系数}
+
+黏滞过程中，分子携带的是沿流动方向的定向动量。设宏观流速为 \(u(z)\)，单位体积内定向动量密度为
+\[
+  \rho u.
+\]
+由统一输运公式得到动量输运率：
+\[
+  \frac{\Delta p_x}{\Delta t}
+  =
+  -\frac13\lambda\bar v\rho
+  \frac{\dd u}{\dd z}\Delta S.
+\]
+动量输运率对应层间切向力 \(f\)。与牛顿黏性定律比较：
+\[
+  f
+  =
+  -\eta\frac{\dd u}{\dd z}\Delta S.
+\]
+得到
+\[
+  \boxed{
+  \eta=\frac13\lambda\rho\bar v
+  }.
+\]
+
+\begin{KeyBox}[黏滞系数的含义]
+黏滞不是因为分子“粘住”不动，而是因为分子热运动在不同流层之间输运定向动量。气体温度升高时，分子平均速率增大，气体黏滞性通常增强。
+\end{KeyBox}
+
+\subsection{扩散系数}
+
+扩散过程中，分子携带的是组分本身。由统一公式可得
+\[
+  \frac{\Delta N}{\Delta t}
+  =
+  -\frac13\lambda\bar v
+  \frac{\dd n}{\dd z}\Delta S.
+\]
+与菲克定律比较：
+\[
+  \frac{\Delta N}{\Delta t}
+  =
+  -D\frac{\dd n}{\dd z}\Delta S.
+\]
+得到
+\[
+  \boxed{
+  D=\frac13\lambda\bar v
+  }.
+\]
+
+\begin{KeyBox}[扩散系数的含义]
+扩散快慢由两个量控制：分子跑得多快，即 \(\bar v\)；分子在改变方向前能跑多远，即 \(\lambda\)。
+\end{KeyBox}
+
+\section{输运系数与气体状态的关系}
+
+\subsection{普通稀薄气体中的压强依赖}
+
+对普通稀薄气体，
+\[
+  \lambda=\frac{1}{\sqrt{2}\pi d^2n}.
+\]
+又
+\[
+  \rho=mn.
+\]
+因此
+\[
+  \lambda\rho
+  =
+  \frac{1}{\sqrt{2}\pi d^2n}mn
+  =
+  \frac{m}{\sqrt{2}\pi d^2}.
+\]
+可见 \(\lambda\rho\) 与数密度 \(n\) 无关。
+
+所以：
+\[
+  \kappa=\frac13\lambda\rho c_V\bar v
+\]
+近似与 \(n\) 和 \(p\) 无关；
+\[
+  \eta=\frac13\lambda\rho\bar v
+\]
+也近似与 \(n\) 和 \(p\) 无关。
+
+而扩散系数
+\[
+  D=\frac13\lambda\bar v
+\]
+由于
+\[
+  \lambda\propto\frac1n,
+\]
+所以在温度一定时
+\[
+  \boxed{
+  D\propto\frac1n\propto\frac1p
+  }.
+\]
+
+\begin{FormulaBox}[压强依赖总结]
+在普通稀薄气体、温度一定时：
+\[
+  \boxed{
+  \kappa \ \text{近似与}\ p\ \text{无关}
+  }
+\]
+\[
+  \boxed{
+  \eta \ \text{近似与}\ p\ \text{无关}
+  }
+\]
+\[
+  \boxed{
+  D\propto \frac1p
+  }.
+\]
+\end{FormulaBox}
+
+\begin{WarnBox}[看起来反直觉但很重要]
+降低压强会减少分子数量，但同时会增大平均自由程。对热传导和黏滞，这两个因素近似抵消，所以 \(\kappa,\eta\) 对压强不敏感。对扩散，没有 \(\rho\) 因子抵消，所以 \(D\) 随压强降低而增大。
+\end{WarnBox}
+
+\subsection{温度依赖的定性判断}
+
+对理想气体，
+\[
+  \bar v\propto \sqrt{T}.
+\]
+若分子直径近似不变，在压强不太低的普通稀薄气体中：
+\begin{itemize}
+  \item \(\kappa\) 随温度升高通常增大；
+  \item \(\eta\) 随温度升高通常增大；
+  \item \(D\) 随温度升高通常增大，并且在定压下还会受到 \(n\propto 1/T\) 的影响。
+\end{itemize}
+
+热学B复习中，定性趋势比精确温度幂律更重要。
+
+\section{极稀薄气体中的输运过程}
+
+\subsection{普通输运公式的适用条件}
+
+前面得到的输运系数公式默认分子在气体内部频繁碰撞，即平均自由程 \(\lambda\) 远小于容器特征长度 \(L\)：
+\[
+  \lambda\ll L.
+\]
+此时分子携带的信息大致来自距离截面一个平均自由程的区域。
+
+\subsection{极稀薄气体}
+
+当气体压强很低时，
+\[
+  \lambda
+\]
+会显著增大。如果
+\[
+  \lambda\sim L
+  \quad \text{甚至} \quad
+  \lambda>L,
+\]
+则分子主要在器壁之间碰撞，分子间碰撞反而不再占主导。此时普通公式
+\[
+  \kappa=\frac13\lambda\rho c_V\bar v,
+  \qquad
+  \eta=\frac13\lambda\rho\bar v,
+  \qquad
+  D=\frac13\lambda\bar v
+\]
+不再直接适用。
+
+\begin{KeyBox}[极稀薄气体的物理图像]
+极稀薄气体中，分子从一个器壁飞到另一个器壁，中间很少与其它分子碰撞。热量和动量更多通过分子与器壁的碰撞交换来输运，而不是通过气体内部的分子间碰撞逐层传递。
+\end{KeyBox}
+
+\subsection{杜瓦瓶与真空绝热}
+
+杜瓦瓶夹层抽成高真空后，气体分子数密度 \(n\) 变小。在极稀薄气体范围内，单位时间能从热壁飞到冷壁并输运能量的分子数减少，因此气体热传导显著降低。这是杜瓦瓶真空层隔热的重要原因之一。
+
+\begin{WarnBox}[普通压强无关结论有范围]
+“气体热导率近似与压强无关”只适用于普通稀薄气体范围，不适用于极稀薄气体。当平均自由程与容器尺寸可比时，热导率会随压强降低而降低。
+\end{WarnBox}
+
+\section{第五章题型模板}
+
+\subsection{题型一：判断输运类型}
+
+\begin{MethodBox}[三问判断法]
+\begin{ReviewList}
+  \item 不均匀的是温度 \(T\) 吗？若是，热传导，输运热量。
+  \item 不均匀的是宏观流速 \(u\) 吗？若是，黏滞，输运动量。
+  \item 不均匀的是组分数密度 \(n\) 吗？若是，扩散，输运分子数。
+\end{ReviewList}
+\end{MethodBox}
+
+\subsection{题型二：用宏观规律求输运量}
+
+\begin{MethodBox}[通用计算流程]
+\begin{ReviewList}
+  \item 先确定梯度：
+  \[
+    \frac{\dd T}{\dd z},\quad
+    \frac{\dd u}{\dd z},\quad
+    \frac{\dd n}{\dd z}.
+  \]
+  \item 再选对应定律：
+  \[
+    \frac{\Delta Q}{\Delta t}
+    =
+    -\kappa\frac{\dd T}{\dd z}\Delta S,
+  \]
+  \[
+    f
+    =
+    -\eta\frac{\dd u}{\dd z}\Delta S,
+  \]
+  \[
+    \frac{\Delta N}{\Delta t}
+    =
+    -D\frac{\dd n}{\dd z}\Delta S.
+  \]
+  \item 最后根据题目要求判断是否乘以时间 \(\Delta t\)。
+\end{ReviewList}
+\end{MethodBox}
+
+\subsection{题型三：由微观量求输运系数}
+
+\begin{MethodBox}[输运系数计算]
+若已知平均自由程 \(\lambda\)、平均速率 \(\bar v\)、质量密度 \(\rho\)、定容比热 \(c_V\)，则
+\[
+  \kappa=\frac13\lambda\rho c_V\bar v.
+\]
+若求黏滞系数：
+\[
+  \eta=\frac13\lambda\rho\bar v.
+\]
+若求扩散系数：
+\[
+  D=\frac13\lambda\bar v.
+\]
+注意三者维度不同，不能混用。
+\end{MethodBox}
+
+\subsection{题型四：判断压强变化对输运系数的影响}
+
+\begin{MethodBox}[压强依赖判断]
+温度一定、普通稀薄气体中：
+\[
+  \lambda\propto\frac1p,
+  \qquad
+  \rho\propto p.
+\]
+因此
+\[
+  \lambda\rho\approx \mathrm{const}.
+\]
+所以：
+\[
+  \kappa,\eta\ \text{近似不随}\ p\ \text{变化},
+  \qquad
+  D\propto\frac1p.
+\]
+如果题目进入极稀薄气体条件 \(\lambda\sim L\)，上述结论失效。
+\end{MethodBox}
+
+\section{第五章公式速查}
+
+\formulatable{
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lXl@{}}
+\toprule
+内容 & 公式 & 条件\\
+\midrule
+
+傅里叶热传导定律 &
+\(\displaystyle \frac{\Delta Q}{\Delta t}=-\kappa\frac{\dd T}{\dd z}\Delta S\)
+& 温度梯度\\[0.9em]
+
+热流密度 &
+\(\displaystyle j_Q=-\kappa\frac{\dd T}{\dd z}\)
+& 单位面积单位时间\\[0.9em]
+
+牛顿黏性定律 &
+\(\displaystyle f=-\eta\frac{\dd u}{\dd z}\Delta S\)
+& 流速梯度\\[0.9em]
+
+切应力 &
+\(\displaystyle \tau=-\eta\frac{\dd u}{\dd z}\)
+& 单位面积黏滞力\\[0.9em]
+
+菲克定律 &
+\(\displaystyle \frac{\Delta N}{\Delta t}=-D\frac{\dd n}{\dd z}\Delta S\)
+& 数密度梯度\\[0.9em]
+
+扩散流密度 &
+\(\displaystyle j_N=-D\frac{\dd n}{\dd z}\)
+& 单位面积单位时间\\[0.9em]
+
+平均自由程 &
+\(\displaystyle \lambda=\frac{1}{\sqrt{2}\pi d^2n}\)
+& 硬球模型\\[0.9em]
+
+平均碰撞频率 &
+\(\displaystyle Z=\frac{\bar v}{\lambda}=\sqrt{2}\pi d^2n\bar v\)
+& 平衡气体\\[0.9em]
+
+热传导系数 &
+\(\displaystyle \kappa=\frac13\lambda\rho c_V\bar v\)
+& 普通稀薄气体\\[0.9em]
+
+黏滞系数 &
+\(\displaystyle \eta=\frac13\lambda\rho\bar v\)
+& 普通稀薄气体\\[0.9em]
+
+扩散系数 &
+\(\displaystyle D=\frac13\lambda\bar v\)
+& 普通稀薄气体\\[0.9em]
+
+压强依赖 &
+\(\displaystyle \kappa,\eta \approx \text{与 }p\text{ 无关},\quad D\propto\frac1p\)
+& 温度一定、普通稀薄气体\\
+
+\bottomrule
+\end{tabularx}
+}
+
+\section{第五章易错点总表}
+
+\begin{WarnBox}[本章高频错误]
+\begin{PitfallList}
+  \item 把热传导、黏滞、扩散分开死记，忘记它们共同结构都是“流密度 = 负的输运系数乘以梯度”。
+  \item 忘记公式中的负号。负号表示输运方向使不均匀性减弱。
+  \item 把热流率和热量混淆。热流率是 \(\Delta Q/\Delta t\)，热量还要乘以时间。
+  \item 把黏滞力方向判断错。黏滞力总是阻碍不同流层之间的相对运动。
+  \item 把扩散和对流混为一谈。扩散不需要流体整体定向运动。
+  \item 把 \(\kappa,\eta,D\) 三个输运系数混用。它们对应不同输运量，单位也不同。
+  \item 忘记 \(D=\frac13\lambda\bar v\) 中没有 \(\rho\) 和 \(c_V\)。
+  \item 认为气体热导率在所有压强下都与压强无关。该结论只适用于普通稀薄气体，不适用于极稀薄气体。
+  \item 忽略普通输运公式的条件：平均自由程必须远小于容器特征尺寸。
+  \item 把分子间碰撞看成阻碍输运的唯一因素。实际上分子热运动提供空间转移，碰撞决定输运的有效尺度，两者共同产生普通气体输运规律。
+\end{PitfallList}
+\end{WarnBox}
+
+\section{第五章复习路线}
+
+\begin{MethodBox}[建议背诵顺序]
+\begin{ReviewList}
+  \item 先背三种不均匀性：温度 \(T\)、流速 \(u\)、数密度 \(n\)。
+  \item 再背三种宏观规律：
+  \[
+    j_Q=-\kappa\frac{\dd T}{\dd z},
+    \qquad
+    \tau=-\eta\frac{\dd u}{\dd z},
+    \qquad
+    j_N=-D\frac{\dd n}{\dd z}.
+  \]
+  \item 再理解微观图像：分子热运动负责跨层转移，碰撞决定平均自由程。
+  \item 再背三个输运系数：
+  \[
+    \kappa=\frac13\lambda\rho c_V\bar v,
+    \qquad
+    \eta=\frac13\lambda\rho\bar v,
+    \qquad
+    D=\frac13\lambda\bar v.
+  \]
+  \item 最后记压强依赖：普通稀薄气体中 \(\kappa,\eta\) 近似与压强无关，\(D\propto1/p\)。
+\end{ReviewList}
+\end{MethodBox}
+
+\begin{KeyBox}[第五章一句话总结]
+第五章的核心是“非平衡导致输运，输运消除不均匀”。热传导输运能量，黏滞输运动量，扩散输运分子数；宏观规律看梯度，微观解释看平均自由程、平均速率和分子碰撞。
+\end{KeyBox}

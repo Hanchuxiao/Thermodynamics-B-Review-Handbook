@@ -1,0 +1,852 @@
+\chapter{麦克斯韦--玻尔兹曼分布律}
+
+\chaptergoal{
+本章从微观统计角度解释理想气体的宏观性质。复习核心不是记住一堆孤立公式，而是掌握三条线：第一，分子无规则运动如何给出压强和温度；第二，麦克斯韦分布如何描述分子速度和速率；第三，玻尔兹曼分布和能量均分定理如何把外力场、自由度和热容量联系起来。
+}
+
+\exammap{
+\begin{ReviewList}
+  \item \textbf{会推导图像：}理想气体压强公式 \(p=\frac13 nm\overline{v^2}\)，温度统计解释 \(\overline{\varepsilon_k}=\frac32 k_{\mathrm B}T\)。
+  \item \textbf{会区分：}速度分布与速率分布；\(v_x\) 可以正负，速率 \(v\ge0\)。
+  \item \textbf{会使用：}麦克斯韦速率分布函数 \(f(v)\)，以及最概然速率、平均速率、方均根速率。
+  \item \textbf{会判断：}温度升高或分子质量变大时，分布曲线如何变化。
+  \item \textbf{会应用：}碰壁数、泻流现象、麦克斯韦分布实验验证的基本物理图像。
+  \item \textbf{会使用：}玻尔兹曼分布律解释重力场中的大气密度和压强随高度变化。
+  \item \textbf{会计算：}能量均分定理给出的理想气体摩尔热容，并知道经典理论的局限。
+\end{ReviewList}
+}
+
+\section{气体分子动理论与理想气体压强公式}
+
+\subsection{理想气体的微观模型}
+
+气体分子动理论从分子热运动出发，研究大量分子组成系统的热学性质。理想气体的微观模型包括：
+
+\begin{KeyBox}[理想气体微观模型]
+\begin{ReviewList}
+  \item 分子本身大小远小于分子间平均距离，可忽略分子固有体积。
+  \item 除碰撞瞬间外，分子间相互作用力可忽略。
+  \item 分子间、分子与器壁之间的碰撞视为弹性碰撞。
+  \item 大量分子的个别运动无规则，但整体遵守稳定的统计规律。
+\end{ReviewList}
+\end{KeyBox}
+
+\begin{WarnBox}[微观无规则不等于宏观无规律]
+单个分子运动具有偶然性，无法准确预言某个分子的瞬时速度。但大量分子的统计平均值具有确定规律，这正是气体动理论能够解释压强、温度和热容的原因。
+\end{WarnBox}
+
+\subsection{理想气体压强公式}
+
+设单位体积内分子数为 \(n=N/V\)，每个分子质量为 \(m\)，分子速度为
+\[
+  \bm v=(v_x,v_y,v_z),
+  \qquad
+  v^2=v_x^2+v_y^2+v_z^2.
+\]
+
+由于气体处于平衡态，各方向等价，有
+\[
+  \overline{v_x^2}
+  =
+  \overline{v_y^2}
+  =
+  \overline{v_z^2}
+  =
+  \frac13\overline{v^2}.
+\]
+
+气体压强来自分子碰撞器壁时对单位面积、单位时间的冲量。统计平均后得到
+\[
+  p=nm\overline{v_x^2}.
+\]
+于是
+\[
+  \boxed{
+  p=\frac13 nm\overline{v^2}
+  }.
+\]
+
+如果记分子平均平动动能为
+\[
+  \overline{\varepsilon_k}
+  =
+  \frac12m\overline{v^2},
+\]
+则
+\[
+  \boxed{
+  p=\frac23 n\overline{\varepsilon_k}
+  }.
+\]
+
+\begin{KeyBox}[压强的微观意义]
+气体压强不是由静止“重量”直接造成，而是大量分子持续撞击器壁产生的平均效果。分子数密度越大、分子平均平动动能越大，压强越大。
+\end{KeyBox}
+
+\subsection{温度的统计解释}
+
+理想气体状态方程可写为
+\[
+  pV=Nk_{\mathrm B}T.
+\]
+因为 \(n=N/V\)，所以
+\[
+  p=nk_{\mathrm B}T.
+\]
+
+与压强公式
+\[
+  p=\frac23n\overline{\varepsilon_k}
+\]
+比较，得到
+\[
+  \boxed{
+  \overline{\varepsilon_k}=\frac32 k_{\mathrm B}T
+  }.
+\]
+
+也即
+\[
+  \boxed{
+  T=\frac{2}{3k_{\mathrm B}}\overline{\varepsilon_k}
+  }.
+\]
+
+\begin{KeyBox}[温度的统计意义]
+温度反映大量分子无规则热运动平均平动动能的大小。温度越高，分子平均平动动能越大。
+\end{KeyBox}
+
+由
+\[
+  \frac12m\overline{v^2}=\frac32 k_{\mathrm B}T
+\]
+可得方均根速率
+\[
+  \boxed{
+  v_{\mathrm{rms}}
+  =
+  \sqrt{\overline{v^2}}
+  =
+  \sqrt{\frac{3k_{\mathrm B}T}{m}}
+  =
+  \sqrt{\frac{3RT}{\mu}}
+  }.
+\]
+其中 \(\mu\) 为摩尔质量。
+
+\begin{WarnBox}[易错点：温度不是分子平均速率]
+温度直接对应的是平均平动动能 \(\overline{\varepsilon_k}\)，也就是 \(\overline{v^2}\)，不是 \(\bar v\)。所以温度与 \(v_{\mathrm{rms}}\) 的平方成正比。
+\end{WarnBox}
+
+\section{统计规律与分布函数}
+
+\subsection{统计规律}
+
+\concept{统计规律}是大量偶然事件整体表现出来的确定规律。它有三个特点：
+\begin{ReviewList}
+  \item 描述大量粒子的综合性质，不描述单个粒子的个别行为。
+  \item 在给定宏观条件下具有确定性。
+  \item 伴随涨落；粒子数越多，相对涨落越小。
+\end{ReviewList}
+
+\subsection{概率与平均值}
+
+若某事件出现次数为 \(N_i\)，总实验次数为 \(N\)，则概率为
+\[
+  P_i=\frac{N_i}{N}
+  \qquad
+  (N\to\infty).
+\]
+归一化条件为
+\[
+  \sum_i P_i=1.
+\]
+
+若物理量 \(M\) 的可能取值为 \(M_i\)，对应概率为 \(P_i\)，则统计平均值为
+\[
+  \boxed{
+  \overline{M}=\sum_i M_iP_i
+  }.
+\]
+
+若变量连续，概率密度为 \(f(x)\)，则
+\[
+  \int f(x)\dd x=1,
+  \qquad
+  \overline{M}=\int M(x)f(x)\dd x.
+\]
+
+\begin{KeyBox}[分布函数的读法]
+若 \(f(v)\) 是速率分布函数，则
+\[
+  f(v)\dd v
+\]
+表示速率在 \(v\sim v+\dd v\) 范围内的分子数占总分子数的比例，而不是速率恰好等于 \(v\) 的概率。
+\end{KeyBox}
+
+\section{麦克斯韦速度分布律}
+
+\subsection{速度分量分布}
+
+平衡态理想气体中，一个速度分量 \(v_x\) 的分布为
+\[
+  \boxed{
+  f(v_x)=
+  \left(\frac{m}{2\pi k_{\mathrm B}T}\right)^{1/2}
+  \exp\left(-\frac{mv_x^2}{2k_{\mathrm B}T}\right)
+  }.
+\]
+
+它满足归一化条件：
+\[
+  \int_{-\infty}^{+\infty}f(v_x)\dd v_x=1.
+\]
+
+由于 \(v_x\) 可正可负，且正负方向等价：
+\[
+  \overline{v_x}=0,
+  \qquad
+  \overline{v_x^2}=\frac{k_{\mathrm B}T}{m}.
+\]
+
+\subsection{三维速度分布}
+
+三维速度分布函数为
+\[
+  \boxed{
+  f(v_x,v_y,v_z)=
+  \left(\frac{m}{2\pi k_{\mathrm B}T}\right)^{3/2}
+  \exp\left[
+  -\frac{m(v_x^2+v_y^2+v_z^2)}{2k_{\mathrm B}T}
+  \right]
+  }.
+\]
+
+归一化条件为
+\[
+  \int_{-\infty}^{+\infty}
+  \int_{-\infty}^{+\infty}
+  \int_{-\infty}^{+\infty}
+  f(v_x,v_y,v_z)
+  \dd v_x\dd v_y\dd v_z
+  =
+  1.
+\]
+
+速度在体积元
+\[
+  \dd v_x\dd v_y\dd v_z
+\]
+内的分子数为
+\[
+  \dd N=Nf(v_x,v_y,v_z)\dd v_x\dd v_y\dd v_z.
+\]
+
+\begin{WarnBox}[速度分布与速率分布不要混]
+速度 \(\bm v\) 是矢量，有方向；速率 \(v=|\bm v|\) 是标量，只有非负值。三维速度分布的变量是 \(v_x,v_y,v_z\)，速率分布的变量是 \(v\)。
+\end{WarnBox}
+
+\section{麦克斯韦速率分布律}
+
+\subsection{速率分布函数}
+
+速率在 \(v\sim v+\dd v\) 之间的分子数占总分子数的比例为
+\[
+  f(v)\dd v.
+\]
+麦克斯韦速率分布函数为
+\[
+  \boxed{
+  f(v)=
+  4\pi
+  \left(\frac{m}{2\pi k_{\mathrm B}T}\right)^{3/2}
+  v^2
+  \exp\left(-\frac{mv^2}{2k_{\mathrm B}T}\right)
+  }.
+\]
+
+对应分子数为
+\[
+  \boxed{
+  \dd N=Nf(v)\dd v
+  }.
+\]
+
+归一化条件为
+\[
+  \int_0^{+\infty}f(v)\dd v=1.
+\]
+
+\begin{KeyBox}[速率分布的两个因素]
+\[
+  f(v)\propto v^2\exp\left(-\frac{mv^2}{2k_{\mathrm B}T}\right).
+\]
+其中 \(v^2\) 来自速度空间中半径为 \(v\) 的球壳面积，倾向于让较大速率占比增大；指数因子来自能量概率，倾向于抑制高速分子。二者共同决定分布曲线存在一个峰值。
+\end{KeyBox}
+
+\subsection{三种特征速率}
+
+\subsubsection{最概然速率}
+
+\concept{最概然速率} \(v_{\mathrm p}\) 是使 \(f(v)\) 取最大值的速率：
+\[
+  \boxed{
+  v_{\mathrm p}
+  =
+  \sqrt{\frac{2k_{\mathrm B}T}{m}}
+  =
+  \sqrt{\frac{2RT}{\mu}}
+  }.
+\]
+
+\subsubsection{平均速率}
+
+\concept{平均速率}定义为
+\[
+  \bar v=\int_0^\infty vf(v)\dd v.
+\]
+结果为
+\[
+  \boxed{
+  \bar v
+  =
+  \sqrt{\frac{8k_{\mathrm B}T}{\pi m}}
+  =
+  \sqrt{\frac{8RT}{\pi\mu}}
+  }.
+\]
+
+\subsubsection{方均根速率}
+
+\concept{方均根速率}为
+\[
+  v_{\mathrm{rms}}=\sqrt{\overline{v^2}}.
+\]
+结果为
+\[
+  \boxed{
+  v_{\mathrm{rms}}
+  =
+  \sqrt{\frac{3k_{\mathrm B}T}{m}}
+  =
+  \sqrt{\frac{3RT}{\mu}}
+  }.
+\]
+
+三者大小关系：
+\[
+  \boxed{
+  v_{\mathrm p}<\bar v<v_{\mathrm{rms}}
+  }.
+\]
+
+\begin{WarnBox}[易错点：三个速率含义不同]
+\begin{itemize}
+  \item \(v_{\mathrm p}\)：分布函数最大处的速率，不是平均值。
+  \item \(\bar v\)：速率的一次平均，用于碰壁数、平均运动距离等。
+  \item \(v_{\mathrm{rms}}\)：与平均平动动能直接相关。
+\end{itemize}
+不能在公式中随意互换。
+\end{WarnBox}
+
+\subsection{温度和摩尔质量对分布曲线的影响}
+
+麦克斯韦速率分布随 \(T\) 和 \(m\) 变化：
+
+\begin{KeyBox}[曲线变化规律]
+\begin{itemize}
+  \item 温度升高：\(v_{\mathrm p},\bar v,v_{\mathrm{rms}}\) 都增大，分布峰向右移，曲线变宽，峰值降低。
+  \item 分子质量增大：三个特征速率都减小，分布峰向左移，曲线变窄，峰值升高。
+  \item 曲线下面积恒为 \(1\)，因为总概率不变。
+\end{itemize}
+\end{KeyBox}
+
+\section{麦克斯韦分布律的应用}
+
+\subsection{由速度分布求理想气体状态方程}
+
+麦克斯韦速度分布给出
+\[
+  \overline{v_x^2}=\frac{k_{\mathrm B}T}{m}.
+\]
+代入压强公式
+\[
+  p=nm\overline{v_x^2},
+\]
+得
+\[
+  p=nk_{\mathrm B}T.
+\]
+由于 \(n=N/V\)，所以
+\[
+  pV=Nk_{\mathrm B}T.
+\]
+这正是理想气体状态方程。
+
+\begin{KeyBox}[这一步的意义]
+第一章把 \(pV=Nk_{\mathrm B}T\) 当作状态方程使用；第四章从分子速度分布出发说明它的微观来源：压强来自分子碰壁，温度来自平均平动动能。
+\end{KeyBox}
+
+\subsection{碰壁数}
+
+\concept{碰壁数} \(G\) 是单位时间内碰撞单位器壁面积的分子数。对平衡理想气体，
+\[
+  \boxed{
+  G=\frac14 n\bar v
+  }.
+\]
+
+若器壁面积为 \(A\)，单位时间内碰到该面积的分子数为
+\[
+  \Delta N=GA\Delta t
+  =
+  \frac14 n\bar v A\Delta t.
+\]
+
+\begin{WarnBox}[为什么是 \(\bar v\)，不是 \(v_{\mathrm{rms}}\)]
+碰壁数统计的是单位时间内有多少分子穿过某个面积，直接涉及分子速度在法向上的一次平均，因此结果与平均速率 \(\bar v\) 相关，而不是方均根速率。
+\end{WarnBox}
+
+\subsection{泻流现象}
+
+\concept{泻流}是指气体通过小孔从容器中逸出的现象。当小孔足够小，孔附近不破坏容器内平衡分布时，单位时间通过面积 \(A\) 泻出的分子数为
+\[
+  \boxed{
+  \frac{\Delta N}{\Delta t}
+  =
+  \frac14 n\bar v A
+  }.
+\]
+
+由于
+\[
+  \bar v\propto \frac{1}{\sqrt{\mu}},
+\]
+在相同温度和数密度下，轻分子泻出更快。
+
+若两种气体温度相同、孔两边条件相同，则泻流速率近似满足
+\[
+  \frac{\Gamma_1}{\Gamma_2}
+  =
+  \sqrt{\frac{\mu_2}{\mu_1}}.
+\]
+
+\begin{KeyBox}[泻流的物理图像]
+泻流不是普通宏观气流。普通气流由压强差造成整体定向运动；泻流强调分子热运动使部分分子通过小孔逸出。高速分子更容易通过孔口，因此泻出的分子束速率分布会偏向高速。
+\end{KeyBox}
+
+\subsection{麦克斯韦分布律的实验验证}
+
+麦克斯韦分布律可通过分子束实验验证。基本思想是：
+\begin{ReviewList}
+  \item 从高温原子炉或分子源中产生分子束。
+  \item 利用狭缝准直，使分子束方向较为确定。
+  \item 用速度选择装置筛选不同速率的分子。
+  \item 改变选择条件并检测分子强度，从而得到速率分布。
+\end{ReviewList}
+
+密勒--库士实验使用旋转选择器验证了麦克斯韦分布律的正确性。授课 PDF 中也把该实验作为麦克斯韦分布律应用与验证的一部分。:contentReference[oaicite:2]{index=2}
+
+\section{玻尔兹曼分布律}
+
+\subsection{外力场中的分子数密度}
+
+如果气体分子处在外力场中，不同空间位置具有不同势能 \(\varepsilon_p(\bm r)\)。平衡态下，分子数密度满足\concept{玻尔兹曼分布律}：
+\[
+  \boxed{
+  n(\bm r)
+  =
+  n_0
+  \exp\left[
+  -\frac{\varepsilon_p(\bm r)}{k_{\mathrm B}T}
+  \right]
+  }.
+\]
+
+更一般地，在相空间中，分子分布与总能量有关：
+\[
+  \dd N
+  \propto
+  \exp\left[
+  -\frac{\varepsilon_k+\varepsilon_p}{k_{\mathrm B}T}
+  \right]
+  \dd x\dd y\dd z\dd v_x\dd v_y\dd v_z.
+\]
+
+\begin{KeyBox}[玻尔兹曼分布的核心]
+势能越高的位置，分子出现概率越小；温度越高，热运动越强，分子越不容易被外力场造成的势能差限制。
+\end{KeyBox}
+
+\subsection{重力场中的大气压强公式}
+
+在重力场中，取高度 \(z=0\) 处势能为零，则
+\[
+  \varepsilon_p=mgz.
+\]
+于是
+\[
+  \boxed{
+  n(z)=n_0\exp\left(-\frac{mgz}{k_{\mathrm B}T}\right)
+  }.
+\]
+
+因为理想气体满足
+\[
+  p=nk_{\mathrm B}T,
+\]
+若温度近似不随高度变化，则
+\[
+  \boxed{
+  p(z)=p_0\exp\left(-\frac{mgz}{k_{\mathrm B}T}\right)
+  }.
+\]
+
+对一摩尔气体，\(m=\mu/N_A\)，且 \(R=N_Ak_{\mathrm B}\)，所以也可写为
+\[
+  \boxed{
+  p(z)=p_0\exp\left(-\frac{\mu gz}{RT}\right)
+  }.
+\]
+
+\begin{WarnBox}[大气压强公式的条件]
+该公式默认大气近似等温，并把空气视为理想气体。真实大气温度随高度变化，所以实际大气压强随高度的关系会更复杂。
+\end{WarnBox}
+
+\subsection{离心力场中的分布}
+
+在角速度为 \(\omega\) 的旋转系统中，分子受到离心作用。相对于转轴距离为 \(r\) 处，平衡分布可写为
+\[
+  \boxed{
+  n(r)
+  =
+  n(0)
+  \exp\left(
+  \frac{m\omega^2r^2}{2k_{\mathrm B}T}
+  \right)
+  }.
+\]
+
+因此分子质量越大、角速度越大，向外侧聚集越明显。这是离心分离的基本物理图像。
+
+\begin{KeyBox}[重力场与离心场的对比]
+\begin{itemize}
+  \item 重力场中，势能 \(mgz\) 随高度升高而增大，所以密度随高度指数下降。
+  \item 离心场中，有效势能随 \(r\) 增大而降低，所以密度随半径增大而升高。
+\end{itemize}
+\end{KeyBox}
+
+\section{能量均分定理}
+
+\subsection{自由度}
+
+\concept{自由度}是确定一个物体空间位置或运动状态所需的独立坐标数。对分子热运动，常见自由度包括：
+\begin{itemize}
+  \item 平动自由度 \(t\)；
+  \item 转动自由度 \(r\)；
+  \item 振动自由度 \(s\)。
+\end{itemize}
+
+对理想气体分子：
+\[
+  t=3.
+\]
+单原子分子通常只有平动自由度；双原子分子在常温下通常考虑 \(3\) 个平动自由度和 \(2\) 个转动自由度，振动自由度常因量子效应未被充分激发而暂不计入。
+
+\subsection{能量按自由度均分定理}
+
+\concept{能量均分定理}：在温度为 \(T\) 的平衡状态下，分子每一个以平方项形式出现在能量中的自由度，平均具有
+\[
+  \boxed{
+  \frac12 k_{\mathrm B}T
+  }
+\]
+的能量。
+
+例如平动动能为
+\[
+  \varepsilon_k=
+  \frac12mv_x^2+
+  \frac12mv_y^2+
+  \frac12mv_z^2.
+\]
+因此
+\[
+  \overline{\frac12mv_x^2}
+  =
+  \overline{\frac12mv_y^2}
+  =
+  \overline{\frac12mv_z^2}
+  =
+  \frac12k_{\mathrm B}T.
+\]
+
+总平动平均动能为
+\[
+  \overline{\varepsilon_k}
+  =
+  \frac32k_{\mathrm B}T.
+\]
+
+\begin{WarnBox}[能量均分定理是统计规律]
+能量均分定理不是说每个分子在任一瞬间各自由度能量都相等。它描述的是大量分子在平衡态下的统计平均结果。
+\end{WarnBox}
+
+\subsection{理想气体内能与热容量}
+
+若一个理想气体分子共有 \(i\) 个被激发的自由度，则单个分子平均能量为
+\[
+  \bar\varepsilon=\frac{i}{2}k_{\mathrm B}T.
+\]
+\(N\) 个分子的内能为
+\[
+  U=N\bar\varepsilon
+  =
+  \frac{i}{2}Nk_{\mathrm B}T.
+\]
+对 \(1\) mol 理想气体，
+\[
+  U_m=\frac{i}{2}RT.
+\]
+
+因此摩尔定容热容为
+\[
+  \boxed{
+  C_{V,m}=\left(\frac{\partial U_m}{\partial T}\right)_V
+  =
+  \frac{i}{2}R
+  }.
+\]
+由迈耶公式
+\[
+  C_{p,m}=C_{V,m}+R,
+\]
+得
+\[
+  \boxed{
+  C_{p,m}=\frac{i+2}{2}R
+  }.
+\]
+热容比为
+\[
+  \boxed{
+  \gamma=\frac{C_{p,m}}{C_{V,m}}=\frac{i+2}{i}
+  }.
+\]
+
+\subsection{常见理想气体热容量}
+
+\begin{FormulaBox}[经典能量均分给出的热容量]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lcccX@{}}
+\toprule
+气体类型 & 有效自由度 \(i\) & \(C_{V,m}\) & \(C_{p,m}\) & \(\gamma\)\\
+\midrule
+单原子分子 & \(3\) & \(\frac32R\) & \(\frac52R\) & \(\frac53\)\\[0.4em]
+双原子分子，常温 & \(5\) & \(\frac52R\) & \(\frac72R\) & \(\frac75\)\\[0.4em]
+多原子非线性分子，忽略振动 & \(6\) & \(3R\) & \(4R\) & \(\frac43\)\\
+\bottomrule
+\end{tabularx}
+\end{FormulaBox}
+
+\subsection{经典理论解释热容量的困难}
+
+经典能量均分定理预言：只要存在某种自由度，它就应该平均分得 \(\frac12k_{\mathrm B}T\) 的能量。但实验表明，分子的转动、振动自由度是否参与热容量，与温度有关。
+
+例如双原子分子：
+\begin{itemize}
+  \item 低温下，转动和振动自由度可能未充分激发；
+  \item 常温下，通常主要有 \(3\) 个平动自由度和 \(2\) 个转动自由度；
+  \item 高温下，振动自由度逐渐被激发，热容量增大。
+\end{itemize}
+
+\begin{KeyBox}[经典理论的局限]
+经典能量均分定理无法解释热容量随温度变化的细节。根本原因是微观能级量子化：某些自由度在低温下不能连续吸收任意小能量，因此不会按经典理论贡献热容量。
+\end{KeyBox}
+
+\section{第四章题型模板}
+
+\subsection{题型一：由温度求分子速率}
+
+\begin{MethodBox}[三种速率计算]
+给定温度 \(T\) 与摩尔质量 \(\mu\)，直接使用：
+\[
+  v_{\mathrm p}=\sqrt{\frac{2RT}{\mu}},
+  \qquad
+  \bar v=\sqrt{\frac{8RT}{\pi\mu}},
+  \qquad
+  v_{\mathrm{rms}}=\sqrt{\frac{3RT}{\mu}}.
+\]
+注意 \(\mu\) 必须使用 \(\mathrm{kg/mol}\)，不能直接用 \(\mathrm{g/mol}\)。
+\end{MethodBox}
+
+\subsection{题型二：判断分布曲线变化}
+
+\begin{MethodBox}[麦克斯韦曲线判断]
+\begin{ReviewList}
+  \item 温度升高：峰右移、变低、变宽。
+  \item 温度降低：峰左移、变高、变窄。
+  \item 摩尔质量增大：峰左移、变高、变窄。
+  \item 摩尔质量减小：峰右移、变低、变宽。
+  \item 不管怎么变，曲线下面积都等于 \(1\)。
+\end{ReviewList}
+\end{MethodBox}
+
+\subsection{题型三：玻尔兹曼分布应用}
+
+\begin{MethodBox}[重力场大气公式]
+如果题目给出温度近似恒定，且要求高度 \(z\) 处压强：
+\[
+  p(z)=p_0\exp\left(-\frac{\mu gz}{RT}\right).
+\]
+若问数密度：
+\[
+  n(z)=n_0\exp\left(-\frac{mgz}{k_{\mathrm B}T}\right).
+\]
+单个分子质量 \(m\) 与摩尔质量 \(\mu\) 的关系是
+\[
+  m=\frac{\mu}{N_A}.
+\]
+\end{MethodBox}
+
+\subsection{题型四：能量均分与热容量}
+
+\begin{MethodBox}[自由度算热容]
+\begin{ReviewList}
+  \item 先判断有效自由度 \(i\)。
+  \item 用
+  \[
+    C_{V,m}=\frac{i}{2}R.
+  \]
+  \item 再用迈耶公式
+  \[
+    C_{p,m}=C_{V,m}+R.
+  \]
+  \item 最后算
+  \[
+    \gamma=\frac{C_{p,m}}{C_{V,m}}.
+  \]
+\end{ReviewList}
+\end{MethodBox}
+
+\section{第四章公式速查}
+
+\formulatable{
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lXl@{}}
+\toprule
+内容 & 公式 & 条件\\
+\midrule
+
+理想气体压强公式 &
+\(\displaystyle p=\frac13nm\overline{v^2}=\frac23n\overline{\varepsilon_k}\)
+& 平衡理想气体\\[0.8em]
+
+温度统计解释 &
+\(\displaystyle \overline{\varepsilon_k}=\frac32k_{\mathrm B}T\)
+& 平动平均动能\\[0.8em]
+
+方均根速率 &
+\(\displaystyle v_{\mathrm{rms}}=\sqrt{\frac{3k_{\mathrm B}T}{m}}=\sqrt{\frac{3RT}{\mu}}\)
+& 理想气体\\[0.8em]
+
+速度分量分布 &
+\(\displaystyle f(v_x)=\left(\frac{m}{2\pi k_{\mathrm B}T}\right)^{1/2}\exp\left(-\frac{mv_x^2}{2k_{\mathrm B}T}\right)\)
+& \(v_x\in(-\infty,\infty)\)\\[1em]
+
+速率分布 &
+\(\displaystyle f(v)=4\pi\left(\frac{m}{2\pi k_{\mathrm B}T}\right)^{3/2}v^2\exp\left(-\frac{mv^2}{2k_{\mathrm B}T}\right)\)
+& \(v\ge0\)\\[1em]
+
+最概然速率 &
+\(\displaystyle v_{\mathrm p}=\sqrt{\frac{2k_{\mathrm B}T}{m}}=\sqrt{\frac{2RT}{\mu}}\)
+& \(f(v)\) 最大\\[0.8em]
+
+平均速率 &
+\(\displaystyle \bar v=\sqrt{\frac{8k_{\mathrm B}T}{\pi m}}=\sqrt{\frac{8RT}{\pi\mu}}\)
+& 一次平均\\[0.8em]
+
+三速率大小 &
+\(\displaystyle v_{\mathrm p}<\bar v<v_{\mathrm{rms}}\)
+& 同一气体同一温度\\[0.8em]
+
+碰壁数 &
+\(\displaystyle G=\frac14n\bar v\)
+& 单位面积单位时间\\[0.8em]
+
+泻流分子数率 &
+\(\displaystyle \frac{\Delta N}{\Delta t}=\frac14n\bar v A\)
+& 小孔泻流\\[0.8em]
+
+玻尔兹曼分布 &
+\(\displaystyle n(\bm r)=n_0\exp\left[-\frac{\varepsilon_p(\bm r)}{k_{\mathrm B}T}\right]\)
+& 外力场平衡态\\[1em]
+
+重力场分布 &
+\(\displaystyle n(z)=n_0e^{-mgz/k_{\mathrm B}T},\quad p(z)=p_0e^{-\mu gz/RT}\)
+& 等温大气\\[1em]
+
+能量均分 &
+\(\displaystyle \overline{\varepsilon_i}=\frac12k_{\mathrm B}T\)
+& 每个平方型自由度\\[0.8em]
+
+摩尔定容热容 &
+\(\displaystyle C_{V,m}=\frac{i}{2}R\)
+& \(i\) 个有效自由度\\[0.8em]
+
+摩尔定压热容 &
+\(\displaystyle C_{p,m}=\frac{i+2}{2}R\)
+& 理想气体\\[0.8em]
+
+热容比 &
+\(\displaystyle \gamma=\frac{i+2}{i}\)
+& 理想气体\\
+
+\bottomrule
+\end{tabularx}
+}
+
+\section{第四章易错点总表}
+
+\begin{WarnBox}[本章高频错误]
+\begin{PitfallList}
+  \item 把速度分布和速率分布混为一谈。速度是矢量，速率是标量。
+  \item 忘记速率分布的 \(4\pi v^2\) 因子。它来自速度空间球壳面积。
+  \item 认为最概然速率就是平均速率。实际上 \(v_{\mathrm p}<\bar v<v_{\mathrm{rms}}\)。
+  \item 用 \(\bar v\) 计算平均动能。平均动能对应 \(\overline{v^2}\)，不是 \(\bar v^2\)。
+  \item 温度升高时只记得曲线右移，忘记峰值降低、曲线变宽、面积不变。
+  \item 计算速率时把摩尔质量 \(\mu\) 的单位用成 \(\mathrm{g/mol}\)。必须换成 \(\mathrm{kg/mol}\)。
+  \item 把碰壁数中的 \(\bar v\) 写成 \(v_{\mathrm{rms}}\)。
+  \item 玻尔兹曼分布中指数符号写反。势能越高，粒子数密度越小。
+  \item 大气压强公式默认等温大气；真实大气不严格满足这个条件。
+  \item 能量均分定理是统计平均规律，不适用于单个分子瞬时状态。
+  \item 经典热容量公式忽略了量子效应，不能解释所有温区的实验结果。
+\end{PitfallList}
+\end{WarnBox}
+
+\section{第四章复习路线}
+
+\begin{MethodBox}[建议背诵顺序]
+\begin{ReviewList}
+  \item 先背压强公式：
+  \[
+    p=\frac13nm\overline{v^2}.
+  \]
+  \item 再背温度统计解释：
+  \[
+    \overline{\varepsilon_k}=\frac32k_{\mathrm B}T.
+  \]
+  \item 再区分速度分布和速率分布。
+  \item 再背麦克斯韦速率分布和三个特征速率。
+  \item 再看应用：碰壁数、泻流、实验验证。
+  \item 再背玻尔兹曼分布：
+  \[
+    n\propto e^{-\varepsilon_p/k_{\mathrm B}T}.
+  \]
+  \item 最后用能量均分定理推热容量：
+  \[
+    C_{V,m}=\frac{i}{2}R,\qquad C_{p,m}=\frac{i+2}{2}R.
+  \]
+\end{ReviewList}
+\end{MethodBox}
+
+\begin{KeyBox}[第四章一句话总结]
+第四章把宏观热学量翻译成微观统计语言：压强来自分子碰壁，温度来自平均平动动能，麦克斯韦分布描述速度概率，玻尔兹曼分布描述外力场中的空间概率，能量均分定理把自由度与热容量连接起来。
+\end{KeyBox}

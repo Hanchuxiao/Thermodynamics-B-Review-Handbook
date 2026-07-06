@@ -1,0 +1,759 @@
+\chapter{固、液体性质简介与相变}
+
+\chaptergoal{
+本章是热学B的收束章节，内容从气体扩展到凝聚态物质与相变现象。复习重点是掌握几个清晰的物理图像：晶体有长程有序结构，液体有近程有序结构；液体表面张力来自表面层分子受力不平衡；弯曲液面导致附加压强；相变伴随潜热和物性突变；克拉珀龙方程给出相平衡曲线斜率。
+}
+
+\exammap{
+\begin{ReviewList}
+  \item \textbf{会区分：}晶体、非晶体、单晶体、多晶体的基本特征。
+  \item \textbf{会解释：}晶体各向异性、确定熔点、空间点阵结构。
+  \item \textbf{会使用：}固体经典热容量 \(C_{V,m}\approx3R\)。
+  \item \textbf{会理解：}液体近程有序、表面层、表面张力和表面能。
+  \item \textbf{会计算：}液体表面张力力、表面积增大所需功、弯曲液面附加压强、毛细上升或下降高度。
+  \item \textbf{会判断：}润湿与不润湿时毛细管液面上升或下降。
+  \item \textbf{会掌握：}相、相变、一级相变、相平衡、相图、三相点、临界点等概念。
+  \item \textbf{会使用：}克拉珀龙方程
+  \[
+    \frac{\dd p}{\dd T}=\frac{l}{T(v_2-v_1)}.
+  \]
+\end{ReviewList}
+}
+
+\section{固体的基本分类与宏观性质}
+
+\subsection{固体的主要特征}
+
+固体的主要特征是能够保持一定体积和一定形状。与气体相比，固体分子或原子之间平均距离小、相互作用强；与液体相比，固体在宏观上能维持稳定形状。
+
+固体通常分为两类：
+\begin{ReviewList}
+  \item \concept{晶体}：内部粒子有规则、周期性排列，例如岩盐、云母、水晶、冰、金属、石墨等。
+  \item \concept{非晶体}：内部粒子没有长程周期性排列，例如玻璃、松脂、沥青、橡胶、塑料等。
+\end{ReviewList}
+
+\begin{KeyBox}[晶体与非晶体的核心差别]
+晶体具有长程有序结构，因此常有规则外形、各向异性和确定熔点；非晶体缺少长程有序结构，因此通常没有确定熔点，更像过冷液体。
+\end{KeyBox}
+
+\subsection{晶体的宏观性质}
+
+晶体常见宏观性质包括：
+
+\begin{FormulaBox}[晶体的三个典型宏观性质]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lX@{}}
+规则几何外形 & 晶体常由若干平面围成凸多面体。属于同一品种的晶体，对应晶面夹角恒定。\\
+各向异性 & 晶体在不同方向上原子排列不同，因此力学、热学、电学、光学性质可能随方向变化。\\
+确定熔点 & 晶体熔化时温度保持在确定熔点附近，熔化曲线上出现平台。\\
+\end{tabularx}
+\end{FormulaBox}
+
+\begin{WarnBox}[易错点：各向异性不是所有固体都有]
+单晶体通常表现出明显各向异性；多晶体由于许多小晶粒取向杂乱，宏观上常表现为各向同性。非晶体通常也表现为各向同性。
+\end{WarnBox}
+
+\subsection{单晶体与多晶体}
+
+\concept{单晶体}是指整个晶体内粒子排列方向基本一致的晶体。它的各向异性通常比较明显。
+
+\concept{多晶体}由许多微小单晶粒组成，每个晶粒内部有规则排列，但不同晶粒取向杂乱。由于各方向平均效果，多晶体宏观上往往近似各向同性。
+
+\begin{KeyBox}[单晶体与多晶体的对比]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lCC@{}}
+\toprule
+ & 单晶体 & 多晶体\\
+\midrule
+内部结构 & 整体取向一致 & 由许多取向不同的小晶粒组成\\
+各向异性 & 明显 & 宏观上常近似各向同性\\
+典型例子 & 水晶、单晶硅 & 普通金属材料\\
+\bottomrule
+\end{tabularx}
+\end{KeyBox}
+
+\section{晶体的微观结构与热学性质}
+
+\subsection{空间点阵}
+
+晶体中粒子有规则地、周期性地排列，形成\concept{空间点阵}结构。授课 PDF 中以 NaCl、Diamond、CsCl、Graphite 等为例说明晶体粒子的周期性排列。:contentReference[oaicite:1]{index=1}
+
+空间点阵反映的是晶体结构的平移周期性。晶体的宏观规则外形和各向异性，根源都在于这种微观周期性。
+
+\subsection{晶体中的结合力}
+
+晶体粒子之间存在相互作用力。常见晶体结合类型包括：
+\begin{itemize}
+  \item 离子晶体：正负离子之间的库仑作用。
+  \item 共价晶体：原子之间通过共价键结合。
+  \item 金属晶体：金属离子与自由电子之间的相互作用。
+  \item 分子晶体：分子之间通过较弱的分子间作用力结合。
+\end{itemize}
+
+结合能越大，晶体通常越稳定，熔点也往往较高。
+
+\subsection{晶体中的热运动}
+
+晶体中的粒子并非静止不动，而是在平衡位置附近做热振动。温度越高，振动越剧烈。
+
+在经典近似下，每个原子有三个振动方向。每个方向包含动能和势能两个平方项，按能量均分定理，每个原子平均振动能量为
+\[
+  3k_{\mathrm B}T.
+\]
+因此 \(1\) mol 固体的摩尔内能近似为
+\[
+  u=3N_Ak_{\mathrm B}T=3RT.
+\]
+摩尔热容量为
+\[
+  \boxed{
+  C_{V,m}=\frac{\dd u}{\dd T}=3R
+  }
+\]
+这就是\concept{杜隆--珀替定律}。
+
+\begin{FormulaBox}[固体经典热容量]
+\[
+  \boxed{
+  C_{V,m}\approx3R\approx25\,\mathrm{J\cdot mol^{-1}\cdot K^{-1}}
+  }.
+\]
+\end{FormulaBox}
+
+\begin{WarnBox}[经典热容量的局限]
+杜隆--珀替定律是高温经典近似。低温下，固体热容量明显低于 \(3R\)，这是量子效应的结果。热学B中重点掌握公式和适用范围，不需要深入量子理论。
+\end{WarnBox}
+
+\section{液体结构与基本性质}
+
+\subsection{液体的宏观性质}
+
+液体具有一定体积，但没有固定形状，能适应容器形状。液体分子之间距离较小，相互作用较强，因此液体比气体难压缩得多。
+
+液体同时具有某种“介于气体与固体之间”的性质：
+\begin{itemize}
+  \item 与固体相似：分子间距小，具有较强相互作用，体积较稳定。
+  \item 与气体相似：分子可以相对流动，液体没有固定形状。
+\end{itemize}
+
+\subsection{液体的微观结构}
+
+液体分子排列不具有晶体那样的长程周期性，但在短距离范围内仍有一定有序性，称为\concept{近程有序}。
+
+\begin{KeyBox}[液体结构图像]
+液体不像气体那样分子彼此相距很远，也不像晶体那样有长程周期点阵。液体的结构特点是：短程有序，长程无序。
+\end{KeyBox}
+
+液体分子不断热运动，并可在相邻分子形成的临时“空隙”中移动，因此液体具有流动性。
+
+\section{液体表面张力}
+
+\subsection{表面层与表面张力}
+
+液体表面附近有一个薄层，称为\concept{表面层}。液体内部的分子受到周围分子吸引，合力平均为零；而表面层分子上方液体分子较少，受力不对称，合力指向液体内部。
+
+因此，液体表面有自动收缩的趋势，表现为\concept{表面张力}。
+
+\begin{FormulaBox}[表面张力定义]
+若液面边界线长度为 \(l\)，液体表面张力为
+\[
+  \boxed{
+  f=\sigma l
+  }.
+\]
+其中 \(\sigma\) 称为表面张力系数，单位为
+\[
+  \mathrm{N/m}.
+\]
+\end{FormulaBox}
+
+表面张力系数也可从能量角度理解。若液体表面积增加 \(\Delta S\)，外力克服表面张力做功为
+\[
+  \boxed{
+  \Delta A=\sigma\Delta S
+  }.
+\]
+因此 \(\sigma\) 也等于单位面积表面能。
+
+\begin{KeyBox}[表面张力的两个等价理解]
+\begin{itemize}
+  \item 力学理解：\(\sigma\) 是单位长度边界线两侧液面的相互拉力。
+  \item 能量理解：\(\sigma\) 是增加单位液体表面积所需的功。
+\end{itemize}
+\end{KeyBox}
+
+\subsection{液体表面积趋于最小}
+
+由于增大表面积需要做功，液体在无外力或外力影响较小时，会趋向于使表面积最小。例如小液滴常近似呈球形，因为在给定体积下球形表面积最小。
+
+\begin{WarnBox}[表面张力方向]
+表面张力沿液面切向，并垂直于所取边界线。不要把它误认为垂直液面的力。垂直液面的压强差来自弯曲液面，而不是表面张力本身直接垂直作用。
+\end{WarnBox}
+
+\section{弯曲液面的附加压强}
+
+\subsection{球形液面的附加压强}
+
+弯曲液面两侧存在压强差，称为\concept{附加压强}。对半径为 \(R\) 的球形液面，
+\[
+  \boxed{
+  \Delta p=\frac{2\sigma}{R}
+  }.
+\]
+其中 \(\Delta p\) 表示凹侧压强相对于凸侧压强的增加。
+
+\begin{KeyBox}[附加压强方向]
+弯曲液面附加压强总是指向曲率中心一侧。也就是说，弯曲液面凹侧压强大于凸侧压强。
+\end{KeyBox}
+
+例如肥皂泡有内外两个表面，因此肥皂泡内外压强差为
+\[
+  \boxed{
+  \Delta p=\frac{4\sigma}{R}
+  }.
+\]
+普通液滴只有一个液面，内外压强差为
+\[
+  \Delta p=\frac{2\sigma}{R}.
+\]
+
+\subsection{柱形液面的附加压强}
+
+对半径为 \(R\) 的柱形液面，附加压强为
+\[
+  \boxed{
+  \Delta p=\frac{\sigma}{R}
+  }.
+\]
+
+更一般地，对两个主曲率半径分别为 \(R_1,R_2\) 的弯曲液面，有拉普拉斯公式
+\[
+  \boxed{
+  \Delta p=\sigma\left(\frac{1}{R_1}+\frac{1}{R_2}\right)
+  }.
+\]
+球面 \(R_1=R_2=R\)，得到 \(2\sigma/R\)；柱面 \(R_1=R,R_2=\infty\)，得到 \(\sigma/R\)。
+
+\begin{WarnBox}[易错点：液滴和肥皂泡差一倍]
+液滴只有一个液气界面，\(\Delta p=2\sigma/R\)。肥皂泡薄膜有内外两个界面，\(\Delta p=4\sigma/R\)。这类题非常容易漏掉一个表面。
+\end{WarnBox}
+
+\section{毛细现象}
+
+\subsection{润湿与不润湿}
+
+液体与固体接触时，会形成一定接触角 \(\theta\)。若
+\[
+  \theta<90^\circ,
+\]
+称为\concept{润湿}，液面在毛细管中上升。若
+\[
+  \theta>90^\circ,
+\]
+称为\concept{不润湿}，液面在毛细管中下降。
+
+\begin{KeyBox}[润湿判断]
+\begin{itemize}
+  \item 水润湿干净玻璃，毛细管中水面上升，液面为凹面。
+  \item 水银不润湿玻璃，毛细管中水银面下降，液面为凸面。
+\end{itemize}
+\end{KeyBox}
+
+\subsection{毛细上升或下降高度}
+
+设毛细管半径为 \(r\)，液体密度为 \(\rho\)，表面张力系数为 \(\sigma\)，接触角为 \(\theta\)。液柱高度满足
+\[
+  \boxed{
+  h=\frac{2\sigma\cos\theta}{\rho gr}
+  }.
+\]
+
+若润湿管壁，
+\[
+  \theta<90^\circ,\qquad \cos\theta>0,
+\]
+则
+\[
+  h>0,
+\]
+液面上升。
+
+若不润湿管壁，
+\[
+  \theta>90^\circ,\qquad \cos\theta<0,
+\]
+则
+\[
+  h<0,
+\]
+液面下降。
+
+\begin{WarnBox}[毛细公式的符号]
+毛细公式本身
+\[
+  h=\frac{2\sigma\cos\theta}{\rho gr}
+\]
+已经包含正负号。若题目只问下降高度的大小，可取绝对值；若问相对于外部液面的高度变化，要保留符号。
+\end{WarnBox}
+
+\section{相、相变与相平衡}
+
+\subsection{相的概念}
+
+\concept{相}是系统中物理性质和化学性质均匀、并与其它部分有明显界面的部分。常见相包括固相、液相和气相。
+
+一个系统可以是单相，也可以是多相。例如密闭容器中的水和水蒸气共存时，液态水和水蒸气分别构成不同相。
+
+\subsection{相变}
+
+\concept{相变}是物质从一种相转变为另一种相的过程。常见相变包括：
+\begin{itemize}
+  \item 熔化与凝固：固相与液相之间转变。
+  \item 汽化与液化：液相与气相之间转变。
+  \item 升华与凝华：固相与气相之间转变。
+\end{itemize}
+
+\begin{FormulaBox}[常见相变]
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lCC@{}}
+\toprule
+相变类型 & 正向过程 & 反向过程\\
+\midrule
+固液相变 & 熔化 & 凝固\\
+液气相变 & 汽化 & 液化\\
+固气相变 & 升华 & 凝华\\
+\bottomrule
+\end{tabularx}
+\end{FormulaBox}
+
+\subsection{一级相变的普遍特征}
+
+\concept{一级相变}通常具有以下特征：
+\begin{ReviewList}
+  \item 相变过程中温度保持不变。
+  \item 相变过程中吸收或放出潜热。
+  \item 熵、体积等一阶热力学量发生突变。
+  \item 两相可以在相变温度和相变压强下共存。
+\end{ReviewList}
+
+授课 PDF 将单元系一级相变、气液相变、克拉珀龙方程、固液和固气相变作为相变部分主线。:contentReference[oaicite:2]{index=2}
+
+\begin{WarnBox}[易错点：相变时温度不变不代表不吸热]
+例如水在 \(100^\circ\mathrm C\) 沸腾时，继续吸热但温度不升高，吸收的热量用于克服分子间作用并完成相变，表现为汽化潜热。
+\end{WarnBox}
+
+\subsection{相平衡与相图}
+
+若两个相在一定温度和压强下共存，并且各相质量不随时间变化，则称为\concept{相平衡}。
+
+相平衡状态可以在 \(p\)--\(T\) 图中表示。常见相图中有三条相平衡曲线：
+\begin{itemize}
+  \item 升华曲线：固相与气相平衡。
+  \item 熔解曲线：固相与液相平衡。
+  \item 汽化曲线：液相与气相平衡。
+\end{itemize}
+
+三条曲线交于\concept{三相点}，此时固、液、气三相共存。
+
+\section{气液相变}
+
+\subsection{汽化与液化}
+
+\concept{汽化}是液体转变为气体的过程，包括蒸发和沸腾。蒸发可以在液体表面、任何温度下发生；沸腾是在液体内部和表面同时发生的剧烈汽化过程，通常在饱和蒸气压等于外界压强时发生。
+
+\concept{液化}是气体转变为液体的过程。
+
+\subsection{饱和蒸气压}
+
+在密闭容器中，液体不断蒸发，同时蒸气也不断凝结。当蒸发和凝结达到动态平衡时，蒸气称为\concept{饱和蒸气}，其压强称为\concept{饱和蒸气压}。
+
+饱和蒸气压只与温度有关：
+\[
+  p=p_{\mathrm s}(T).
+\]
+温度升高，饱和蒸气压增大。
+
+\begin{KeyBox}[沸腾条件]
+当液体的饱和蒸气压等于外界压强时，液体发生沸腾：
+\[
+  p_{\mathrm s}(T)=p_{\mathrm{ext}}.
+\]
+外界压强越低，沸点越低；外界压强越高，沸点越高。
+\end{KeyBox}
+
+\subsection{临界点}
+
+气液相变曲线终止于\concept{临界点}。临界点对应临界温度 \(T_c\)、临界压强 \(p_c\)、临界体积 \(V_c\)。
+
+当温度高于临界温度时，无论怎样压缩气体，都不能通过等温压缩使其液化。此时气相和液相的界限消失，物质处于超临界状态。
+
+\begin{WarnBox}[临界温度的意义]
+临界温度不是普通沸点。它表示能否通过单纯加压液化气体的最高温度。若 \(T>T_c\)，单纯加压不能液化。
+\end{WarnBox}
+
+\subsection{气液二相图}
+
+在 \(p\)--\(V\) 图上，低于临界温度的等温线会出现气液共存区域。气液两相共存时，压强为该温度下的饱和蒸气压，随体积变化压强保持不变，直到某一相完全消失。
+
+随着温度升高，气液共存区域缩小；到临界温度时，气相和液相差别消失。
+
+\begin{KeyBox}[气液二相图的读法]
+\begin{itemize}
+  \item 饱和液体线与饱和蒸气线之间是气液共存区。
+  \item 共存区内改变体积，主要改变两相比例，而不是改变压强。
+  \item 临界点以上不再有清楚的气液分界。
+\end{itemize}
+\end{KeyBox}
+
+\section{克拉珀龙方程}
+
+\subsection{方程形式}
+
+对单元系一级相变，两相平衡曲线斜率由\concept{克拉珀龙方程}给出：
+\[
+  \boxed{
+  \frac{\dd p}{\dd T}
+  =
+  \frac{l}{T(v_2-v_1)}
+  }.
+\]
+
+其中：
+\begin{itemize}
+  \item \(p\) 为相平衡压强，例如饱和蒸气压。
+  \item \(T\) 为相变温度。
+  \item \(l\) 为单位质量或单位摩尔相变潜热。
+  \item \(v_1,v_2\) 分别为两相的比体积或摩尔体积。
+\end{itemize}
+
+若 \(l\) 用单位质量潜热，则 \(v_1,v_2\) 应使用单位质量体积；若 \(l\) 用摩尔潜热，则 \(v_1,v_2\) 应使用摩尔体积。
+
+\begin{WarnBox}[单位必须配套]
+克拉珀龙方程中 \(l\) 与 \(v\) 的单位必须一致：
+\[
+  l:\mathrm{J/kg}
+  \quad\Rightarrow\quad
+  v:\mathrm{m^3/kg};
+\]
+\[
+  l:\mathrm{J/mol}
+  \quad\Rightarrow\quad
+  v:\mathrm{m^3/mol}.
+\]
+否则量纲会错。
+\end{WarnBox}
+
+\subsection{克拉珀龙方程的物理意义}
+
+克拉珀龙方程说明：相平衡曲线斜率由相变潜热和相变体积变化共同决定。
+
+\begin{KeyBox}[斜率判断]
+\[
+  \frac{\dd p}{\dd T}
+  =
+  \frac{l}{T(v_2-v_1)}.
+\]
+通常 \(l>0\)，\(T>0\)，因此斜率正负主要由 \(v_2-v_1\) 决定。
+\end{KeyBox}
+
+\section{克劳修斯--克拉珀龙近似}
+
+\subsection{气液相变的近似}
+
+对液体汽化过程，令相 1 为液相，相 2 为气相。通常
+\[
+  v_{\mathrm g}\gg v_{\mathrm l},
+\]
+因此
+\[
+  v_2-v_1\approx v_{\mathrm g}.
+\]
+若把蒸气近似看作理想气体，
+\[
+  v_{\mathrm g}=\frac{RT}{p}
+\]
+这里 \(v_{\mathrm g}\) 为摩尔体积，\(l\) 为摩尔汽化热。
+
+代入克拉珀龙方程得
+\[
+  \frac{\dd p}{\dd T}
+  =
+  \frac{l}{T(RT/p)}
+  =
+  \boxed{
+  \frac{lp}{RT^2}
+  }.
+\]
+
+若 \(l\) 在温度范围内近似为常数，则
+\[
+  \frac{\dd p}{p}
+  =
+  \frac{l}{R}\frac{\dd T}{T^2}.
+\]
+积分得
+\[
+  \boxed{
+  \ln p=-\frac{l}{RT}+C
+  }.
+\]
+
+\begin{KeyBox}[饱和蒸气压随温度变化]
+由
+\[
+  \ln p=-\frac{l}{RT}+C
+\]
+可知温度升高时，饱和蒸气压迅速增大。
+\end{KeyBox}
+
+\subsection{两温度下饱和蒸气压关系}
+
+若在 \(T_1,T_2\) 下饱和蒸气压分别为 \(p_1,p_2\)，且汽化潜热 \(l\) 近似不变，则
+\[
+  \boxed{
+  \ln\frac{p_2}{p_1}
+  =
+  -\frac{l}{R}
+  \left(
+  \frac{1}{T_2}-\frac{1}{T_1}
+  \right)
+  }.
+\]
+也可写作
+\[
+  \boxed{
+  \ln\frac{p_2}{p_1}
+  =
+  \frac{l}{R}
+  \left(
+  \frac{1}{T_1}-\frac{1}{T_2}
+  \right)
+  }.
+\]
+
+\begin{WarnBox}[指数符号检查]
+若 \(T_2>T_1\)，则 \(p_2>p_1\)，所以
+\[
+  \ln\frac{p_2}{p_1}>0.
+\]
+写完公式后可以用这个物理判断检查符号。
+\end{WarnBox}
+
+\section{固液相变与固气相变}
+
+\subsection{固液相变}
+
+固液相变包括熔化和凝固。熔化时吸热，凝固时放热。对多数物质，熔化后体积增大：
+\[
+  v_{\mathrm l}>v_{\mathrm s}.
+\]
+因此
+\[
+  \frac{\dd p}{\dd T}>0.
+\]
+这意味着压强增大时，熔点升高。
+
+但水是重要例外。冰熔化成水时体积减小：
+\[
+  v_{\mathrm l}<v_{\mathrm s}.
+\]
+因此
+\[
+  \frac{\dd p}{\dd T}<0.
+\]
+压强增大时，冰的熔点降低。
+
+\begin{WarnBox}[冰的熔解曲线斜率]
+大多数物质熔解曲线斜率为正；冰的熔解曲线斜率为负。根源是冰的比体积大于水的比体积。
+\end{WarnBox}
+
+\subsection{固气相变}
+
+固气相变包括升华和凝华。升华吸热，凝华放热。固气相变也伴随潜热吸放和体积突变。
+
+在 \(p\)--\(T\) 相图上，升华曲线是固相和气相的分界线。授课 PDF 中指出，升华曲线、熔解曲线、汽化曲线的斜率均由克拉珀龙方程决定。:contentReference[oaicite:3]{index=3}
+
+升华热与熔解热、汽化热之间通常满足近似关系：
+\[
+  \boxed{
+  l_{\mathrm{sub}}
+  \approx
+  l_{\mathrm{fus}}+l_{\mathrm{vap}}
+  }.
+\]
+即升华可看作先熔化再汽化的组合过程。
+
+\section{第六章题型模板}
+
+\subsection{题型一：表面张力做功}
+
+\begin{MethodBox}[表面积变化题]
+若题目给出液膜或液面面积变化 \(\Delta S\)，表面张力做功常用：
+\[
+  \Delta A=\sigma\Delta S.
+\]
+若是液膜，例如肥皂膜，通常有两个表面，面积变化要乘以 \(2\)。关键是先数清楚有几个液气界面。
+\end{MethodBox}
+
+\subsection{题型二：弯曲液面压强差}
+
+\begin{MethodBox}[液滴、气泡、肥皂泡]
+\begin{ReviewList}
+  \item 普通液滴：
+  \[
+    \Delta p=\frac{2\sigma}{R}.
+  \]
+  \item 液体内气泡，只有一个界面：
+  \[
+    \Delta p=\frac{2\sigma}{R}.
+  \]
+  \item 肥皂泡，有内外两个界面：
+  \[
+    \Delta p=\frac{4\sigma}{R}.
+  \]
+  \item 柱形液面：
+  \[
+    \Delta p=\frac{\sigma}{R}.
+  \]
+\end{ReviewList}
+\end{MethodBox}
+
+\subsection{题型三：毛细现象}
+
+\begin{MethodBox}[毛细高度计算]
+直接使用
+\[
+  h=\frac{2\sigma\cos\theta}{\rho gr}.
+\]
+\begin{itemize}
+  \item \(\theta<90^\circ\)，\(\cos\theta>0\)，液面上升。
+  \item \(\theta>90^\circ\)，\(\cos\theta<0\)，液面下降。
+  \item 管半径 \(r\) 越小，毛细高度绝对值越大。
+\end{itemize}
+\end{MethodBox}
+
+\subsection{题型四：克拉珀龙方程}
+
+\begin{MethodBox}[相平衡曲线斜率]
+\begin{ReviewList}
+  \item 先确定相 1 和相 2。
+  \item 写出相变潜热 \(l\)。
+  \item 判断体积变化 \(v_2-v_1\)。
+  \item 使用
+  \[
+    \frac{\dd p}{\dd T}=\frac{l}{T(v_2-v_1)}.
+  \]
+  \item 若是汽化或升华，并且气相可近似为理想气体，可进一步使用克劳修斯--克拉珀龙近似。
+\end{ReviewList}
+\end{MethodBox}
+
+\section{第六章公式速查}
+
+\formulatable{
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}lXl@{}}
+\toprule
+内容 & 公式 & 条件\\
+\midrule
+
+固体经典摩尔热容量 &
+\(\displaystyle C_{V,m}\approx3R\)
+& 高温经典近似\\[0.8em]
+
+表面张力 &
+\(\displaystyle f=\sigma l\)
+& 边界线长度 \(l\)\\[0.8em]
+
+表面能 &
+\(\displaystyle \Delta A=\sigma\Delta S\)
+& 增加表面积 \(\Delta S\)\\[0.8em]
+
+球形液面附加压强 &
+\(\displaystyle \Delta p=\frac{2\sigma}{R}\)
+& 单个球形界面\\[0.8em]
+
+肥皂泡压强差 &
+\(\displaystyle \Delta p=\frac{4\sigma}{R}\)
+& 两个界面\\[0.8em]
+
+柱形液面附加压强 &
+\(\displaystyle \Delta p=\frac{\sigma}{R}\)
+& 柱形界面\\[0.8em]
+
+一般拉普拉斯公式 &
+\(\displaystyle \Delta p=\sigma\left(\frac1{R_1}+\frac1{R_2}\right)\)
+& 两主曲率半径\\[0.8em]
+
+毛细高度 &
+\(\displaystyle h=\frac{2\sigma\cos\theta}{\rho gr}\)
+& 半径 \(r\) 的毛细管\\[0.8em]
+
+一级相变熵变 &
+\(\displaystyle \Delta S=\frac{l}{T}\)
+& 可逆等温相变\\[0.8em]
+
+克拉珀龙方程 &
+\(\displaystyle \frac{\dd p}{\dd T}=\frac{l}{T(v_2-v_1)}\)
+& 单元系一级相变\\[1em]
+
+克劳修斯--克拉珀龙近似 &
+\(\displaystyle \frac{\dd p}{\dd T}=\frac{lp}{RT^2}\)
+& 气相近似理想气体\\[1em]
+
+饱和蒸气压积分式 &
+\(\displaystyle \ln p=-\frac{l}{RT}+C\)
+& \(l\) 近似常数\\[1em]
+
+两温度饱和蒸气压关系 &
+\(\displaystyle \ln\frac{p_2}{p_1}=\frac{l}{R}\left(\frac1{T_1}-\frac1{T_2}\right)\)
+& \(l\) 近似常数\\
+
+\bottomrule
+\end{tabularx}
+}
+
+\section{第六章易错点总表}
+
+\begin{WarnBox}[本章高频错误]
+\begin{PitfallList}
+  \item 把晶体和非晶体都当作有确定熔点。晶体有确定熔点，非晶体通常没有确定熔点。
+  \item 认为所有固体都各向异性。单晶体明显各向异性，多晶体宏观上常近似各向同性。
+  \item 忘记杜隆--珀替定律 \(C_{V,m}\approx3R\) 是高温经典近似。
+  \item 把表面张力方向画成垂直液面。表面张力沿液面切向。
+  \item 液滴和肥皂泡压强差混淆。肥皂泡有两个表面，压强差是 \(4\sigma/R\)。
+  \item 毛细公式中忘记 \(\cos\theta\)，导致无法判断上升还是下降。
+  \item 把沸腾条件误写成温度达到 \(100^\circ\mathrm C\)。正确条件是饱和蒸气压等于外界压强。
+  \item 认为相变时温度不变所以没有热量交换。一级相变有潜热。
+  \item 克拉珀龙方程中 \(l\) 和 \(v\) 的单位不匹配。
+  \item 判断熔解曲线斜率时忘记看 \(v_{\mathrm l}-v_{\mathrm s}\) 的符号。
+  \item 认为所有气体都能靠加压液化。高于临界温度时，单纯加压不能液化。
+\end{PitfallList}
+\end{WarnBox}
+
+\section{第六章复习路线}
+
+\begin{MethodBox}[建议背诵顺序]
+\begin{ReviewList}
+  \item 先背固体分类：晶体、非晶体；单晶体、多晶体。
+  \item 再背晶体性质：规则外形、各向异性、确定熔点、空间点阵。
+  \item 再背固体热容量：
+  \[
+    C_{V,m}\approx3R.
+  \]
+  \item 再理解液体：近程有序、长程无序、具有流动性。
+  \item 再背表面张力：
+  \[
+    f=\sigma l,\qquad \Delta A=\sigma\Delta S.
+  \]
+  \item 再背弯曲液面与毛细现象：
+  \[
+    \Delta p=\frac{2\sigma}{R},\qquad
+    h=\frac{2\sigma\cos\theta}{\rho gr}.
+  \]
+  \item 再背相变概念：相、相平衡、一级相变、潜热、三相点、临界点。
+  \item 最后背克拉珀龙方程：
+  \[
+    \frac{\dd p}{\dd T}=\frac{l}{T(v_2-v_1)}.
+  \]
+\end{ReviewList}
+\end{MethodBox}
+
+\begin{KeyBox}[第六章一句话总结]
+第六章的核心是把凝聚态和相变现象用热学语言描述：晶体的性质来自周期结构，液体表面现象来自表面张力，相变曲线由潜热和体积突变决定，而克拉珀龙方程把这些量统一到相平衡曲线的斜率中。
+\end{KeyBox}

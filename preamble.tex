@@ -1,0 +1,178 @@
+% preamble.tex
+% 版式、字体、颜色、目录、页眉页脚与环境样式。
+% 本文件尽量不放课程内容；课程语义命令放在 macros.tex。
+
+\usepackage{iftex}
+
+\ifPDFTeX
+  \PackageError{USTC Thermal B Review}{请使用 XeLaTeX 或 LuaLaTeX 编译本文档，不要使用 pdfLaTeX。}{}
+\fi
+
+% 页面与排版
+\usepackage[
+  a4paper,
+  margin=2.45cm,
+  headheight=15pt,
+  headsep=0.7cm,
+  footskip=1.0cm
+]{geometry}
+
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.25em}
+\linespread{1.08}
+
+% 数学与单位
+\usepackage{amsmath,amssymb,mathtools,bm,mathrsfs}
+\usepackage{siunitx}
+
+\sisetup{
+  detect-all,
+  per-mode=symbol,
+  range-phrase=--,
+  range-units=single
+}
+
+\allowdisplaybreaks[2]
+\numberwithin{equation}{chapter}
+
+% 表格、列表、图形
+\usepackage{booktabs,array,tabularx,longtable,multirow}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+
+\setlist[itemize]{
+  topsep=0.35em,
+  itemsep=0.15em,
+  parsep=0em,
+  leftmargin=2em
+}
+
+\setlist[enumerate]{
+  topsep=0.35em,
+  itemsep=0.15em,
+  parsep=0em,
+  leftmargin=2.4em
+}
+
+% 常用表格列类型
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+% 颜色与强调框
+\usepackage[svgnames,dvipsnames,table]{xcolor}
+
+\definecolor{USTCBlue}{HTML}{005BAC}
+\definecolor{USTCDark}{HTML}{1F2933}
+\definecolor{USTCLightBlue}{HTML}{EAF4FF}
+\definecolor{USTCGold}{HTML}{B08A00}
+\definecolor{ReviewGreen}{HTML}{EEF8F0}
+\definecolor{WarnRed}{HTML}{B91C1C}
+\definecolor{WarnBack}{HTML}{FFF1F2}
+\definecolor{FormulaBack}{HTML}{F8FAFC}
+
+\usepackage[most]{tcolorbox}
+
+\tcbset{
+  enhanced,
+  breakable,
+  sharp corners,
+  boxrule=0.6pt,
+  before skip=0.8em,
+  after skip=0.8em,
+  left=1em,
+  right=1em,
+  top=0.75em,
+  bottom=0.75em,
+  fonttitle=\bfseries
+}
+
+\newtcolorbox{KeyBox}[1][]{
+  colback=USTCLightBlue,
+  colframe=USTCBlue,
+  coltitle=white,
+  title={#1}
+}
+
+\newtcolorbox{FormulaBox}[1][]{
+  colback=FormulaBack,
+  colframe=USTCDark,
+  coltitle=white,
+  title={#1}
+}
+
+\newtcolorbox{WarnBox}[1][]{
+  colback=WarnBack,
+  colframe=WarnRed,
+  coltitle=white,
+  title={#1}
+}
+
+\newtcolorbox{MethodBox}[1][]{
+  colback=ReviewGreen,
+  colframe=ForestGreen,
+  coltitle=white,
+  title={#1}
+}
+
+\newtcolorbox{SourceBox}[1][]{
+  colback=white,
+  colframe=Gray,
+  coltitle=white,
+  title={#1}
+}
+
+% 超链接与 PDF 元数据
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=USTCBlue,
+  citecolor=USTCBlue,
+  urlcolor=USTCBlue,
+  pdftitle={中国科学技术大学 热学B 复习资料},
+  pdfauthor={Generated with ChatGPT},
+  pdfsubject={USTC Thermal Physics B Review},
+  pdfkeywords={热学B, 热力学, 麦克斯韦分布, 玻尔兹曼分布, 输运过程, 相变}
+}
+
+% 页眉页脚
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small 中国科学技术大学《热学B》复习}
+\fancyhead[R]{\small \leftmark}
+\fancyfoot[C]{\small \thepage}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[C]{\small \thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% CTeX 标题样式
+\ctexset{
+  chapter={
+    name={第,章},
+    number=\chinese{chapter},
+    format=\Huge\bfseries\color{USTCDark},
+    aftername=\quad,
+    beforeskip=0pt,
+    afterskip=1.2em
+  },
+  section={
+    format=\Large\bfseries\color{USTCDark},
+    afterskip=0.6em
+  },
+  subsection={
+    format=\large\bfseries\color{USTCDark},
+    afterskip=0.4em
+  }
+}
